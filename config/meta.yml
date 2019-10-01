@@ -1,5 +1,5 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "logofigma.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_product_name: "Travlr"
+meta_title: "Travlr - Plan a trip with your friends!"
+meta_description: "Travlr is a platform to plan trips with your friends. No more hassle keeping track of long email-chains, with Travlr it's all in one place!"
+meta_image: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" # should exist in `app/assets/images/`
+twitter_account: "@travlr_twitter_account"   # required for Twitter Cards
