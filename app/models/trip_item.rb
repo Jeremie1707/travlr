@@ -1,4 +1,5 @@
 class TripItem < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :user
   belongs_to :trip
   belongs_to :category
