@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show]
+  before_action :set_trip, only: [:show, :update]
   def new
     @trip = Trip.new
   end
@@ -7,6 +7,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(strong_params)
     @trip.user = current_user
+    @trip.save
   end
 
   def show
@@ -14,6 +15,15 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trips.all
+  end
+
+  def edit
+  end
+
+  def update
+
+    strong_params
+    raise
   end
 
   def destroy
