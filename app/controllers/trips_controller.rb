@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, onyl: [:show]
+  before_action :set_trip, only: [:show]
   def new
     @trip = Trip.new
   end
@@ -7,15 +7,16 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(strong_params)
     @trip.user = current_user
-
-    if trip.save!
-      redirect to
-    else
-      render :new
-    end
   end
 
   def show
+  end
+
+  def index
+    @trips = Trips.all
+  end
+
+  def destroy
   end
 
   private

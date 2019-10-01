@@ -1,5 +1,5 @@
 class TripItemsController < ApplicationController
-  before_action find_trip_item, only: [:show, :destroy]
+  before_action :find_trip_item, only: [:show, :destroy]
 
   def new
     @trip_item = TripItem.new
@@ -17,7 +17,7 @@ class TripItemsController < ApplicationController
   end
 
   def index
-    @trip_items = TipItem.all
+    @trip_items = TripItem.all
   end
 
   def show
@@ -33,6 +33,6 @@ class TripItemsController < ApplicationController
   end
 
   def find_trip_item
-    @trip_item = TripItem(find[:id])
+    @trip_item = TripItem.find(params[:id])
   end
 end
