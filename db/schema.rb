@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_082657) do
+ActiveRecord::Schema.define(version: 2019_10_01_083944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(version: 2019_10_01_082657) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "user_id"
+    t.bigint "trip_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_item_id"], name: "index_comments_on_trip_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "trip_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_item_id"], name: "index_likes_on_trip_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "trip_items", force: :cascade do |t|
@@ -67,6 +86,10 @@ ActiveRecord::Schema.define(version: 2019_10_01_082657) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "trip_items"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "trip_items"
+  add_foreign_key "likes", "users"
   add_foreign_key "trip_items", "categories"
   add_foreign_key "trip_items", "trips"
   add_foreign_key "trip_items", "users"
