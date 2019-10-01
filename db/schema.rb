@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_083944) do
+ActiveRecord::Schema.define(version: 2019_10_01_084416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_log_items", force: :cascade do |t|
+    t.string "event_type"
+    t.bigint "trip_item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_item_id"], name: "index_action_log_items_on_trip_item_id"
+    t.index ["user_id"], name: "index_action_log_items_on_user_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -38,6 +48,15 @@ ActiveRecord::Schema.define(version: 2019_10_01_083944) do
     t.datetime "updated_at", null: false
     t.index ["trip_item_id"], name: "index_likes_on_trip_item_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.bigint "trip_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_participants_on_trip_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "trip_items", force: :cascade do |t|
@@ -86,10 +105,14 @@ ActiveRecord::Schema.define(version: 2019_10_01_083944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "action_log_items", "trip_items"
+  add_foreign_key "action_log_items", "users"
   add_foreign_key "comments", "trip_items"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "trip_items"
   add_foreign_key "likes", "users"
+  add_foreign_key "participants", "trips"
+  add_foreign_key "participants", "users"
   add_foreign_key "trip_items", "categories"
   add_foreign_key "trip_items", "trips"
   add_foreign_key "trip_items", "users"
