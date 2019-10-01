@@ -21,9 +21,6 @@ class TripsController < ApplicationController
   end
 
   def update
-
-    strong_params
-    raise
   end
 
   def destroy
