@@ -1,5 +1,9 @@
-<div>
-  <h1>hello</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus numquam, aliquam eligendi. Perferendis unde necessitatibus debitis numquam illum, corporis minus veritatis id repellendus reiciendis. Fuga et tenetur ad aperiam dolor.</p>
-</div>
+<div class="container p-5">
 
+<%= form_with model: @trip do |form|%>
+<%= form.text_field :description %>
+<%= form.date_field :start_date %>
+<%= form.date_field :end_date %>
+<%= form.submit %>
+<% end %>
+</div>
