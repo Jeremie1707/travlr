@@ -43,7 +43,7 @@ trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_dat
 
     name: Faker::Cannabis.brand,
     address: address[counter],
-    # remote_photo_url: pictures[counter],
+    remote_photo_url: pictures[counter],
     price: rand(10..50),
     link: "www.travlr.group",
     start_date: Date.today.to_s,

@@ -6,4 +6,5 @@ class TripItem < ApplicationRecord
   has_many :comments
   has_many :action_log_items
   has_many :likes
+  mount_uploader :photo, PhotoUploader
 end
