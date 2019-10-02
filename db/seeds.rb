@@ -41,7 +41,7 @@ trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_dat
 5.times do
   attributes = {
 
-    name: Faker::Cannabis.brand,
+    name: Faker::Address.state,
     address: address[counter],
     remote_photo_url: pictures[counter],
     price: rand(10..50),
