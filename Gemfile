@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'faker'
 gem 'uglifier'
 gem 'webpacker'
+gem 'wicked'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
