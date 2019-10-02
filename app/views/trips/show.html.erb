@@ -1,39 +1,30 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="suggestion-tab" data-toggle="tab" href="#suggestion" role="tab" aria-controls="suggestion" aria-selected="true">Trip Suggestions</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="route-tab" data-toggle="tab" href="#route" role="tab" aria-controls="route" aria-selected="false">Your Route</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Map
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="calandar-tab" data-toggle="tab" href="#calandar" role="tab" aria-controls="calandar" aria-selected="false">Calandar</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="suggestion" role="tabpanel" aria-labelledby="suggestion-tab">
-    <div class="container pt-5">
-      <p>
-        Tripp suggestion stuff here
-      </p>
-    </div>
+<div class="d-flex justify-content-start">
+  <div class="ml-3">
+    <h1 class="mb-0"><%= @trip.description %></h1>
+    <p><%= @trip.description %></p>
   </div>
-  <div class="tab-pane fade" id="route" role="tabpanel" aria-labelledby="route-tab">
-    <div class = "container pt-5">
-      <p> Your route stuff here</p>
-    </div>
+  <div class="d-flex mt-2 ml-2" id="date">
+    <p><%= @trip.start_date %> </p>
+    <p> &nbsp; to &nbsp; </p>
+    <p><%= @trip.end_date %></p>
   </div>
-  <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
-    <div class="container pt-5">
-      <p> Map stuff here</p>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="calandar" role="tabpanel" aria-labelledby="calandar-tab">
-    <div class="container pt-5">
-      <p> Calandar stuff here</p>
-    </div>
+  <div id="avatars" class="ml-3 m-2">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
   </div>
 </div>
+
+  <div class="buttonContainer">
+    <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">Tab 1</a>
+    <a href="#" class="tab-button" data-tab-index="1" data-color="#f44336">Tab 2</a>
+    <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336">Tab 3</a>
+    <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336">Tab 4</a>
+  </div>
+
+  <div class="tabPanel">tab 1</div>
+  <div class="tabPanel">tab 2</div>
+  <div class="tabPanel">tab 3</div>
+  <div class="tabPanel">tab 4</div>
+
