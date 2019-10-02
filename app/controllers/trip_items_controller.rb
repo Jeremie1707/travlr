@@ -16,7 +16,7 @@ class TripItemsController < ApplicationController
   end
 
   def index
-    # @trip_items = TripItem.all
+    @trip_items = TripItem.all
   end
 
   def show
@@ -28,7 +28,7 @@ class TripItemsController < ApplicationController
   private
 
   def strong_params
-    # params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link)
+    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category)
   end
 
   def find_trip_item
