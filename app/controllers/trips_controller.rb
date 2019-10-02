@@ -24,7 +24,14 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trips.all
+    #@trips = Trip.all
+    @trips = Trip.geocoded
+
+    @markers = @trips.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude #did not include markers as this is primarily for centering the map.
+      }
   end
 
   def edit
