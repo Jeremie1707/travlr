@@ -32,6 +32,7 @@ class TripsController < ApplicationController
         lat: trip.latitude,
         lng: trip.longitude #did not include markers as this is primarily for centering the map.
       }
+    end
   end
 
   def edit
