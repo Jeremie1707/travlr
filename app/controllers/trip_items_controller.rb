@@ -18,10 +18,11 @@ class TripItemsController < ApplicationController
   def index
     @trip_items = TripItem.geocoded
 
-    @markers = @trip_items.map do |flat|
+    @markers = @trip_items.map do |trip_item|
       {
         lat: trip_item.latitude,
-        lng: trip_item.longitude
+        lng: trip_item.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item })
       }
     end
   end
