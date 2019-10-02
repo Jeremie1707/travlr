@@ -1,0 +1,38 @@
+<!-- Modal -->
+<div class="modal fade" id="card-trip-item-<%=element.id%>"tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-end">
+        <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 ml-auto">
+            <div class="trip-detail-card">
+                <%= cl_image_tag element.photo %>
+            </div>
+            <div><h4><%= element.name %></h4></div>
+            <div><p><%= element.start_date %></p></div>
+
+            <div>Price: <%= element.price %></div>
+            <h3>description:</h3>
+            <div><%= element.description %></div>
+
+          </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

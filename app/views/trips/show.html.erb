@@ -16,11 +16,23 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="suggestion" role="tabpanel" aria-labelledby="suggestion-tab">
     <div class="container pt-5">
-      <p>
-        Tripp suggestion stuff here
-      </p>
+      <% @trip.trip_items.each do |element| %>
+        <div class="trip-item-card">
+      <%#= link_to trip_trip_item_path(element) do%>
+          <%= element.name %>
+          <p> 1.trip item</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
+            TEST
+          </button>
+
+      <%# end %>
+
+        </div>
+      <% end %>
     </div>
-  </div>
+   </div>
+
+
   <div class="tab-pane fade" id="route" role="tabpanel" aria-labelledby="route-tab">
     <div class = "container pt-5">
       <p> Your route stuff here</p>
@@ -42,4 +54,7 @@
       <p> Calandar stuff here</p>
     </div>
   </div>
+  <% @trip.trip_items.each do |element| %>
+    <%= render partial: "trip-item", locals: { element: element } %>
+  <% end %>
 </div>
