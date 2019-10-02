@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
   has_many :trip_items
+  mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
