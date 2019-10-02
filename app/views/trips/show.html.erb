@@ -16,9 +16,14 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="suggestion" role="tabpanel" aria-labelledby="suggestion-tab">
     <div class="container pt-5">
-      <p>
-        Tripp suggestion stuff here
-      </p>
+     <% @trip.trip_items.each do |element| %>
+      <%= link_to trip_trip_item_path(element) do%>
+      <%= element.name %>
+        <div class="trip-item-card">
+          <p> 1.trip item</p>
+        </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
   <div class="tab-pane fade" id="route" role="tabpanel" aria-labelledby="route-tab">
