@@ -16,7 +16,14 @@ class TripItemsController < ApplicationController
   end
 
   def index
-    @trip_items = TripItem.all
+    @trip_items = TripItem.geocoded
+
+    @markers = @trip_items.map do |flat|
+      {
+        lat: trip_item.latitude,
+        lng: trip_item.longitude
+      }
+    end
   end
 
   def show
