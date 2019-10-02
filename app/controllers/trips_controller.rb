@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
-  include Wicked::Wizard
-  steps  :add_description, :add_start_date, :add_end_date, :add_
+  # include Wicked::Wizard
+  # steps  :add_description, :add_start_date, :add_end_date, :add_
 
   before_action :set_trip, only: [:show, :update]
   before_action :set_users, only: [:create]
