@@ -1,6 +1,7 @@
-a{
+.tab-button{
   color: black;
   text-decoration: none;
+  border-right: 1px solid #b8b8b8 !important;
 }
 
 .buttonContainer{
@@ -27,14 +28,7 @@ a{
 
 .buttonContainer a:hover{
   background-color: #d7d4d4;
-}
-
-#panel-show{
-  display: block !important;
-}
-
-#tab-show{
-  color: white;
+  text-decoration: none;
 }
 
 .tabPanel{
@@ -49,3 +43,12 @@ a{
   display: none;
 }
 
+.show-panel{
+  display: block !important;
+}
+
+.show-button{
+  background-color: white !important;
+  color: red;
+  border-top: 2px solid #1FB09A !important;
+}
