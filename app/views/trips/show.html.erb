@@ -14,10 +14,12 @@
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+  </div>
+</div>
 
-  <div class="buttonContainer">
-    <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">
-      <span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a>
+<div class="buttonContainer">
+  <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">
+    <span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a>
     <a href="#" class="tab-button" data-tab-index="1" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a></a>
     <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a></a>
     <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a></a>
@@ -26,41 +28,20 @@
   <div class="tabPanel">
     <div class="row">
       <div class="col-5">
-        <div class="detail item container">
-      <div class="container pt-5">
-      <% @trip.trip_items.each do |element| %>
-        <div class="trip-item-card">
-        <%#= link_to trip_trip_item_path(element) do%>
-          <%= element.name %>
-          <p> 1.trip item</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-            TEST
-          </button>
-      <%# end %>
-        </div>
-      <% end %>
-     </div>
-    <% @trip.trip_items.each do |element| %>
-    <%= render partial: "trip-item", locals: { element: element } %>
-    <% end %>
-</div>
-</div>
-</div>
-      </div>
-      <div class="col-5">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, eum adipisci alias aliquid. Iusto saepe illum vero dolorem recusandae omnis adipisci, maxime porro, suscipit cupiditate et similique, expedita mollitia debitis?</p>
-      </div>
+        <%= render partial: "partial/suggestions_list" %>
     </div>
-  </div>
-  <div class="tabPanel">tab 2</div>
-  <div class="tabPanel">
-    <div
+    <div class="tabPanel">tab 2</div>
+    <div class="tabPanel">
+      <div
       id="map"
       style="width: 100%;
       height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-     ></div>
+      ></div>
     </div>
-  <div class="tabPanel">tab 4</div>
+    <div class="tabPanel">tab 4</div>
+    <% @trip.trip_items.each do |element| %>
+    <%= render partial: "partial/trip-item", locals: { element: element } %>
+    <% end %>
 
