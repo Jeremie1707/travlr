@@ -13,6 +13,7 @@
 
 .trip-detail-card-image {
 text-align: center;
+position: relative;
 }
 
 .trip-detail-card  img {
@@ -50,3 +51,32 @@ text-align: center;
 .trip-detail-card-content-description {
   margin-top: 15px;
 }
+
+.detail-likes-counter {
+  position: absolute;
+  top: 234px;
+  left:568px;
+
+}
+
+.trip-detail-card-image p {
+  color :white;
+  font-weight:bold;
+
+}
+
+.trip-detail-card-image .fas {
+  position: absolute;
+  top: 219px;
+  left:544px;
+      font-size: 50px;
+      border-radius : 50%;
+      background-color: white ;
+      color: #1FB09A;
+      padding: 2px 6px;
+      text-align:center;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+
