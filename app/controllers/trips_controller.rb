@@ -21,6 +21,7 @@ class TripsController < ApplicationController
   end
 
   def show
+    @trip_item = TripItem.new
     @trips = Trip.geocoded
 
     @markers = @trips.map do |trip|

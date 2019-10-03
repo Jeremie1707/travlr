@@ -1,15 +1,17 @@
 class TripItemsController < ApplicationController
   before_action :find_trip_item, only: [:show, :destroy]
+  before_action :find_trip, only: [:create]
 
   def new
     @trip_item = TripItem.new
   end
 
   def create
-     @trip_item = TripItem.new
+     @trip_item = TripItem.new(strong_params)
      @trip_item.user = current_user
+     @trip_item.trip = @trip
      if @trip_item.save!
-       render next
+      redirect_to trip_path(@trip)
      else
        render :new
     end
@@ -36,8 +38,12 @@ class TripItemsController < ApplicationController
 
   private
 
+  def find_trip
+    @trip = Trip.find(params[:trip_id])
+  end
+
   def strong_params
-    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category)
+    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id)
   end
 
   def find_trip_item

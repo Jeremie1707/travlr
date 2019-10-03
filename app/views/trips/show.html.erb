@@ -18,17 +18,38 @@
 </div>
 
 <div class="buttonContainer">
-  <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">
-    <span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a>
-    <a href="#" class="tab-button" data-tab-index="1" data-color="#f44336"><span class="d-flex justify-content-around"><i class="fas fa-route"></i>Your Route</span></a>
-    <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336"><span class="d-flex justify-content-around"><i class="fas fa-globe-europe"></i>Map</span></a>
-    <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-calendar-alt"></i>Calandar</span></a>
-  </div>
+  <span>
+    <a href="#" class="tab-button" data-tab-index="0">
+      <i class="px-5 tab-icon far fa-lightbulb"></i>
+      <span class="tab-name">Trip suggestions</span>
+    </a>
+  </span>
+  <span>
+    <a href="#" class="tab-button" data-tab-index="1">
+      <i class="px-5 fas fa-route"></i>
+      <span class="tab-name">Your Route</span>
+    </a>
+  </span>
+  <span>
+    <a href="#" class="tab-button" data-tab-index="2">
+      <i class="px-5 fas fa-globe-europe"></i>
+      <span class="tab-name">Map</span>
+    </a>
+  </span>
+  <span>
+    <a href="#" class="tab-button" data-tab-index="3">
+      <i class="px-5 far fa-calendar-alt"></i>
+      <span class="tab-name">Calandar</span>
+    </a>
+  </span>
+</div>
 
 
   <div class="tabPanel">                        <!-- 1.section -->
     <div class="add-item d-flex justify-content-start">
-      <p class="pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
+      <button type="button" class="btn" data-toggle="modal" data-target="#trip-item-form">
+        <p class="pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
+      </button>
     </div>
     <div class="row">
       <div class="col-5">
@@ -86,3 +107,4 @@
   <% @trip.trip_items.each do |element| %>
   <%= render partial: "partial/trip-item", locals: { element: element } %>
   <% end %>
+  <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
