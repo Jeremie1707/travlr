@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
+const MAPS = [];
 
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -40,6 +41,7 @@ function flyToLocation(currentLocation) {
 }
 
 const initMapbox = () => {
+  console.log('initMapbox()');
   const mapElements = document.querySelectorAll('.mapbox-map');
   mapElements.forEach(mapElement => {
     const map = buildMap(mapElement);
@@ -47,7 +49,15 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.doubleClickZoom.enable();
+    MAPS.push(map);
   });
 };
+
+// Event wiring for tab click: re-render map
+document.addEventListener("DOMContentLoaded", function(event) {
+  document.querySelector('.tab-button-map').addEventListener('click', () => {
+    MAPS.forEach(map => map.resize());
+  });
+});
 
 export { initMapbox };

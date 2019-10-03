@@ -16,7 +16,6 @@
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
   </div>
 </div>
-
 <div class="buttonContainer">
   <span>
     <a href="#" class="tab-button" data-tab-index="0">
@@ -78,7 +77,6 @@
 
       </div>
       <div class="col-5">
-        <!-- MAP FOR "Your Trip" -->
         <p>map</p>
 
 
@@ -90,13 +88,11 @@
   <div class="tabPanel">                         <!-- 3.section -->
     <!-- FULSCREEN MAP SECTION -->
     <h2>Map Section</h2>
-    <div
-    <%= render partial: "map", locals: {markers: @markers} %>
-    ></div>
   </div>
 
   <div class="tabPanel">                         <!-- 4.section -->
     <!-- CALANDAR SECTION -->
+    <%= render partial: "map", locals: {markers: @markers} %>
     <h2>Calandar goes here</h2>
   </div>
    <!-- FOR RENDERING POPUPS -->
