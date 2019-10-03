@@ -24,26 +24,11 @@
     <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336"><span class="d-flex justify-content-around"><i class="fas fa-globe-europe"></i>Map</span></a>
     <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-calendar-alt"></i>Calandar</span></a>
   </div>
-
-
-  <div class="tabPanel">                        <!-- 1.section -->
-    <div class="add-item d-flex justify-content-start">
-      <p class="pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
-    </div>
-    <div class="row">
-      <div class="col-5">
-          <!-- LIST SECTION FOR TRIP SUGGESTIONS -->
-         <%= render partial: "partial/suggestions_list" %>
-      </div>
-      <div class="col-5 text-dark">
-        <!-- MAP SECTION FOR TRIP SUGGESTIONS -->
-          <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
-            <div class="container pt-5">
-             <%= render partial: "map", locals: { markers: @markers } %>
-           </div>
-         </div>
-        <p>Small map here</p>
-      </div>
+  <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
+    <div class="container pt-5">
+      <div
+      <%= render partial: 'map', locals: { marker: @markers} %>
+      ></div>
     </div>
   </div>
 
