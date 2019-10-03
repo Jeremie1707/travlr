@@ -1,0 +1,18 @@
+
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function addReview(commentHTML) {
+  const comments = document.getElementById('comments');
+  comments.insertAdjacentHTML('beforeend', reviewHTML);
+}
+
+<% if @comment.errors.any? %>
+  refreshForm('<%= j render "comments/form", trip_item: @trip_item, comment: @comment %>');
+<% else %>
+  addReview('<%= j render "comments/show", comment: @comment %>');
+  refreshForm('<%= j render "comments/form", trip_item: @trip_item, comment: Comment.new %>');
+<% end %>
