@@ -26,22 +26,22 @@ class TripsController < ApplicationController
     @markers = @trips.map do |trip|
       {
         lat: trip.latitude,
-        lng: trip.longitude #did not include markers as this is primarily for centering the map.
+        lng: trip.longitude,
+        infoWindow: render_to_string(partial: "info_windowtrip", locals: { trip: trip }),
+        image_url: helpers.asset_url('logotravlr.svg') # did not include markers as this is primarily for centering the map.
       }
-      set_trip
     end
   end
 
   def index
-    #@trips = Trip.all
-    @trips = Trip.geocoded
+    # @trips = Trip.all
+    #@trips = Trip.geocoded
 
-    @markers = @trips.map do |trip|
-      {
-        lat: trip.latitude,
-        lng: trip.longitude #did not include markers as this is primarily for centering the map.
-      }
-    end
+    #@markers = @trips.map do |trip|
+      #{
+       # lat: trip.latitude,
+        #lng: trip.longitude # did not include markers as this is primarily for centering the map.
+      #}
   end
 
   def edit
