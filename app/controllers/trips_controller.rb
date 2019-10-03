@@ -14,7 +14,7 @@ class TripsController < ApplicationController
     @trip.user = current_user
     if @trip.save
       redirect_to trip_path(@trip)
-      @trip.users = @users
+      @trip.users = @users unless @users.empty?
     else
       render :new, alert: @trip.errors.full_messages
     end
@@ -62,12 +62,10 @@ class TripsController < ApplicationController
   def set_users
     @users = []
     ids = params[:trip][:users]
-    ids.each do |user|
-      @users << User.find(user.to_i)
-    end
+    ids.each { |user| @users << User.find(user.to_i) } unless ids.nil?
   end
 
   def strong_params
-    params.require(:trip).permit(:description, :start_date, :end_date)
+    params.require(:trip).permit(:description, :start_date, :end_date, :location, :name)
   end
 end
