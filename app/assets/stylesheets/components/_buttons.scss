@@ -1,3 +1,19 @@
 .add-item{
   color: #1FB09A;
 }
+
+.btn-enter {
+  color: white;
+  background: #1FB09A;
+  border: 1px white solid #4A4A4A;
+  padding: 8px 36px;
+  border-radius: 6px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-enter:hover {
+  opacity: 1;
+  color: white;
+}
