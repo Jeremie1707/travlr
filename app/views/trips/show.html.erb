@@ -17,16 +17,22 @@
   </div>
 </div>
 
-<div class="buttonContainer">
-  <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">
-    <span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a>
-    <a href="#" class="tab-button" data-tab-index="1" data-color="#f44336"><span class="d-flex justify-content-around"><i class="fas fa-route"></i>Your Route</span></a>
-    <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336"><span class="d-flex justify-content-around"><i class="fas fa-globe-europe"></i>Map</span></a>
-    <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-calendar-alt"></i>Calandar</span></a>
+<div class="buttonContainer page-tab-bar">
+  <a  href="#" class="tab-button tab-button-trip-suggestions" data-tab-index="0" data-color="#f44336">
+    <span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span>
+  </a>
+    <a href="#" class="tab-button tab-button-route" data-tab-index="1" data-color="#f44336">
+      <span class="d-flex justify-content-around"><i class="fas fa-route"></i>Your Route</span>
+    </a>
+    <a href="#" class="tab-button tab-button-map" data-tab-index="2" data-color="#f44336">
+      <span class="d-flex justify-content-around"><i class="fas fa-globe-europe"></i>Map</span>
+    </a>
+    <a href="#" class="tab-button tab-button-calendar" data-tab-index="3" data-color="#f44336">
+      <span class="d-flex justify-content-around"><i class="far fa-calendar-alt"></i>Calandar</span>
+    </a>
   </div>
   <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
     <div class="container pt-5">
-     <%= render partial: "map", locals: {markers: @markers} %>
     </div>
   </div>
 
@@ -40,7 +46,6 @@
 
       </div>
       <div class="col-5">
-        <!-- MAP FOR "Your Trip" -->
         <p>map</p>
 
 
@@ -52,13 +57,11 @@
   <div class="tabPanel">                         <!-- 3.section -->
     <!-- FULSCREEN MAP SECTION -->
     <h2>Map Section</h2>
-    <div
-    <%= render partial: "map", locals: {markers: @markers} %>
-    ></div>
   </div>
 
   <div class="tabPanel">                         <!-- 4.section -->
     <!-- CALANDAR SECTION -->
+    <%= render partial: "map", locals: {markers: @markers} %>
     <h2>Calandar goes here</h2>
   </div>
    <!-- FOR RENDERING POPUPS -->
