@@ -21,6 +21,15 @@ class TripsController < ApplicationController
   end
 
   def show
+    @trips = Trip.geocoded
+
+    @markers = @trips.map do |trip|
+      {
+        lat: trip.latitude,
+        lng: trip.longitude #did not include markers as this is primarily for centering the map.
+      }
+      set_trip
+    end
   end
 
   def index
