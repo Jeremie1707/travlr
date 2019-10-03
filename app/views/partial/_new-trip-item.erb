@@ -1,0 +1,37 @@
+<!-- MODAL: _NEW-TRIP-ITEM -->
+<div class="modal fade" id="trip-item-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">New trip-suggestion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="add-item">
+          <div class="row justify-content-center">
+            <h1>Add a stop on your trip!</h1>
+          </div>
+          <%= simple_form_for [@trip, @trip_item] do |f| %>
+          <%= f.input :name, placeholder: "Add the name of your item"%>
+          <%= f.input :address, placeholder: "Add the address" %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :description, placeholder: "Add a description of your item" %>
+          <%= f.input :price, placeholder: "What is the price?"%>
+          <%= f.input :link, placeholder: "Add a link for more info"%>
+          <%= f.association :category, as: :radio_buttons %>
+          <div class="modal-footer justify-content-center">
+            <%= f.button :submit, "Add", class: 'btn btn-success' %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
