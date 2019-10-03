@@ -1,25 +1,26 @@
 var tabButtons = document.querySelectorAll(".buttonContainer a")
 var tabPanels = document.querySelectorAll(".tabPanel")
 
-const showPanels = (tabIndex,colorCode) =>{
+const showPanels = (tabIndex) =>{
   tabButtons.forEach(function(node){
-    node.style.backgroundColor = "";
-    node.style.color = "";
+    if (node.classList.contains('show-button')){
+      node.classList.remove('show-button')
+    }
   });
-  tabButtons[tabIndex].style.backgroundColor = colorCode;
-  tabButtons[tabIndex].style.color = "white";
   tabPanels.forEach(function(node){
-    node.style.display = "none";
+    if (node.classList.contains('show-panel')){
+      node.classList.remove('show-panel')
+    }
   });
-  tabPanels[tabIndex].style.display = "block";
-  tabPanels[tabIndex].style.backgroundColor = colorCode;
+  tabPanels[tabIndex].classList.add('show-panel')
+  tabButtons[tabIndex].classList.add('show-button')
 }
-showPanels(0, '34ebae')
+showPanels(0)
 
 const setupTabEventListeners = () => {
   var aElements = document.querySelectorAll('.tab-button');
   aElements.forEach(function(node){
-    node.addEventListener('click', () => showPanels(node.attributes["data-tab-index"].value), '34ebae' )
+    node.addEventListener('click', () => showPanels(node.attributes["data-tab-index"].value) )
   });
 }
 

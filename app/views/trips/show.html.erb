@@ -16,14 +16,17 @@
     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
 
   <div class="buttonContainer">
-    <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">Tab 1</a>
-    <a href="#" class="tab-button" data-tab-index="1" data-color="#f44336">Tab 2</a>
-    <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336">Tab 3</a>
-    <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336">Tab 4</a>
+    <a  href="#" class="tab-button" data-tab-index="0" data-color="#f44336">
+      <span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a>
+    <a href="#" class="tab-button" data-tab-index="1" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a></a>
+    <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a></a>
+    <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-lightbulb"></i>Trip suggestions</span></a></a>
   </div>
 
   <div class="tabPanel">
-    <div class="detail item container">
+    <div class="row">
+      <div class="col-5">
+        <div class="detail item container">
       <div class="container pt-5">
       <% @trip.trip_items.each do |element| %>
         <div class="trip-item-card">
@@ -43,6 +46,12 @@
 </div>
 </div>
 </div>
+      </div>
+      <div class="col-5">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, eum adipisci alias aliquid. Iusto saepe illum vero dolorem recusandae omnis adipisci, maxime porro, suscipit cupiditate et similique, expedita mollitia debitis?</p>
+      </div>
+    </div>
+  </div>
   <div class="tabPanel">tab 2</div>
   <div class="tabPanel">
     <div
