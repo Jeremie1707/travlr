@@ -1,0 +1,51 @@
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.buttonContainer{
+  width: 100%;
+  height: 60px;
+}
+
+.buttonContainer{
+  height: 15%;
+}
+
+.buttonContainer a{
+  width: 25%;
+  height: 100%;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 18px;
+  background-color: #eee;
+}
+
+.buttonContainer a:hover{
+  background-color: #d7d4d4;
+}
+
+#panel-show{
+  display: block !important;
+}
+
+#tab-show{
+  color: white;
+}
+
+.tabPanel{
+  height: 100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  padding-top: 105px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 22px;
+  display: none;
+}
+

@@ -36,7 +36,7 @@ category = Category.create(name: 'category-test')
 
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
-trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id)
+trip = Trip.create(description: 'Lofoten', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id)
 
 5.times do
   attributes = {
