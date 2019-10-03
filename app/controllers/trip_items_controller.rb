@@ -16,7 +16,16 @@ class TripItemsController < ApplicationController
   end
 
   def index
-    @trip_items = TripItem.all
+    @trip_items = TripItem.geocoded
+
+    @markers = @trip_items.map do |trip_item|
+      {
+        lat: trip_item.latitude,
+        lng: trip_item.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
+        image_url: helpers.asset_url('logotravlr.svg') # could probably implement different markers based on category(house for lodging etc.)
+      }
+    end
   end
 
   def show
