@@ -32,18 +32,7 @@
       <div class="col-5">
         <div class="container">
           <!-- LIST SECTION FOR TRIP SUGGESTIONS -->
-          <% @trip.trip_items.each do |element| %>
-          <div class="trip-item-card">
-            <%#= link_to trip_trip_item_path(element) do%>
-            <%= element.name %>
-            <p> 1.trip item</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-              TEST
-            </button>
-          </div>
-          <% end %>
-        </div>
-      </div>
+         <%= render partial: "partial/suggestions_list" %>
       <div class="col-5 text-dark">
         <!-- MAP SECTION FOR TRIP SUGGESTIONS -->
         <p>Small map here</p>
@@ -77,5 +66,5 @@
   </div>
    <!-- FOR RENDERING POPUPS -->
   <% @trip.trip_items.each do |element| %>
-  <%= render partial: "trip-item", locals: { element: element } %>
+  <%= render partial: "partial/trip-item", locals: { element: element } %>
   <% end %>
