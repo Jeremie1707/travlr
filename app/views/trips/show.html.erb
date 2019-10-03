@@ -24,7 +24,6 @@
     <a href="#" class="tab-button" data-tab-index="2" data-color="#f44336"><span class="d-flex justify-content-around"><i class="fas fa-globe-europe"></i>Map</span></a>
     <a href="#" class="tab-button" data-tab-index="3" data-color="#f44336"><span class="d-flex justify-content-around"><i class="far fa-calendar-alt"></i>Calandar</span></a>
   </div>
-
   <div class="tabPanel">                        <!-- 1.section -->
     <div class="add-item d-flex justify-content-start">
       <p class="pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
@@ -80,4 +79,3 @@
   <% @trip.trip_items.each do |element| %>
   <%= render partial: "trip-item", locals: { element: element } %>
   <% end %>
-
