@@ -39,6 +39,11 @@
       </div>
     </div>
   </div>
+
+  <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
+    <div class="container pt-5">
+     <%= render partial: "map", locals: { markers: @markers } %>
+
   <div class="tabPanel">                        <!-- 2.section -->
     <div class="row">
       <div class="col-5">
@@ -47,6 +52,7 @@
       <div class="col-5">
         <!-- MAP FOR "Your Trip" -->
       </div>
+
     </div>
   </div>
   <div class="tabPanel">                         <!-- 3.section -->

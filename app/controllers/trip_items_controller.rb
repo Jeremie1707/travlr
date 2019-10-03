@@ -6,13 +6,13 @@ class TripItemsController < ApplicationController
   end
 
   def create
-    # @trip_item = TripItem.new
-    # @trip_item.user = current_user
-    # if @trip_item.save!
-    #   render next
-    # else
-    #   render :new
-    # end
+     @trip_item = TripItem.new
+     @trip_item.user = current_user
+     if @trip_item.save!
+       render next
+     else
+       render :new
+    end
   end
 
   def index
