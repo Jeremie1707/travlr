@@ -1,0 +1,52 @@
+.modal-dialog {
+  max-width: none;
+  max-height: none;
+  width: 50vw;
+  height: 70vh;
+}
+
+
+.trip-detail-card {
+  margin-top: 15px;
+
+}
+
+.trip-detail-card-image {
+text-align: center;
+}
+
+.trip-detail-card  img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.modal-header-trip-item-detail {
+  background-color: #31333B;
+  display: flex;
+  align-content: flex-end;
+  padding : 10px;
+
+}
+
+
+.modal-header-trip-item-detail button {
+  margin : 10px;
+}
+
+.trip-detail-card-content{
+  margin-top: 15px;
+  h5 {
+    color: #1C4F5A;
+    font-size: 15px;
+
+  }
+  p {
+  font-size: 12px;
+  }
+}
+
+.trip-detail-card-content-description {
+  margin-top: 15px;
+}
