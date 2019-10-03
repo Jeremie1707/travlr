@@ -1,12 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 
-const mapElement = document.getElementById('map');
 
-const buildMap = () => {
+const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/pettgull/ck10ig49y051q1cqwx3ibq0yp'
+    container: mapElement,
+    style: 'mapbox://styles/mapbox/streets-v10'
   });
 };
 
@@ -41,13 +40,14 @@ function flyToLocation(currentLocation) {
 }
 
 const initMapbox = () => {
-  if (mapElement) {
-    const map = buildMap();
+  const mapElements = document.querySelectorAll('.mapbox-map');
+  mapElements.forEach(mapElement => {
+    const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.doubleClickZoom.enable();
-  }
+  });
 };
 
 export { initMapbox };

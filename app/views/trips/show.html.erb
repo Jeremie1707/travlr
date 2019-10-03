@@ -91,11 +91,7 @@
     <!-- FULSCREEN MAP SECTION -->
     <h2>Map Section</h2>
     <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    <%= render partial: "map", locals: {markers: @markers} %>
     ></div>
   </div>
 
