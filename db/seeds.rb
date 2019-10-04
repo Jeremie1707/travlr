@@ -11,39 +11,55 @@ require 'faker'
 puts "User count  = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count  = #{TripItem.count}"
+puts "Category count = #{Category.count}"
 puts '---------deleting all records---------------'
 TripItem.destroy_all
+Category.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-pictures = ['https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412062/andre-benz-RAXQkgmyrcA-unsplash_jwbjde.jpg',
-            'https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412063/rooms-with-amazing-view-38__880_i4gabh.jpg',
-            'https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412063/Room_with_a_view_Sentosa_qa9ecy.jpg',
-            'https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412063/picture_of_a_hut_befc3f.jpg',
-            'https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412063/marine-fishingboats-ireland_phwk52.jpg',
+pictures = ['https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193337/henningsvaer_jy1zjs.jpg',
+            'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193325/lofoten-aquarium_xulkoy.jpg',
+            'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193346/Lofoten_-_Henningsvaer_xqi7ng.jpg',
+            'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193364/reine_udowot.jpg',
+            'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193374/svolvoergeita_pur2sy.jpg',
 ]
 
-address = [  'Nordlysveien 10, Oslo',
-             'Myrerskogveien 80, Oslo',
-             'Voksenkollveien 2, Oslo',
-             'Nordre skansemyren 10, Bergen',
-             'Via Panisperna, 236, 00184 Roma RM, Italy',
+address = [  'Banhammeren 53, 8312 Henningsvær',
+             'Storvåganveien 28, 8310 Kabelvåg',
+             'Å vegen 5, 8392 Sørvågen',
+             'Reine i Lofoten, 8390 Reine',
+             'Svolværgeita, 8300 Svolvær'
 ]
 
+activity = [  "Going fishing",
+             "Lofoten aquarium",
+             "Fishing museum",
+             "Rorbue",
+             "Mountain trip",
+]
+
+categories = [  'Lodging',
+                'Transportation'
+]
 counter = 0
 
-category = Category.create(name: 'category-test')
-
+category_counter = 0
+category = Category.create(name: 'Activity')
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
 
 trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id, location: 'Holmenkollen', name: 'Nikkers-safari')
 
+2.times do
+  Category.create(name: categories[category_counter])
+  category_counter += 1
+end
 
 5.times do
   attributes = {
 
-    name: Faker::Address.state,
+    name: activity[counter],
     address: address[counter],
     remote_photo_url: pictures[counter],
     price: rand(10..50),
@@ -65,3 +81,4 @@ puts "---------seeding done--------"
 puts "User count = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count = #{TripItem.count}"
+puts "Category count = #{Category.count}"
