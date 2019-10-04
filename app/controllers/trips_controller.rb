@@ -24,12 +24,22 @@ class TripsController < ApplicationController
     @trip_item = TripItem.new
     @trips = Trip.geocoded
 
-    @markers = @trips.map do |trip|
+    #@markers = @trips.map do |trip|
+     # {
+        #lat: trip.latitude,
+       # lng: trip.longitude,
+      #  infoWindow: render_to_string(partial: "info_windowtrip", locals: { trip: trip }),
+     #   image_url: helpers.asset_url('logotravlr.svg') # did not include markers as this is primarily for centering the map.
+     # }
+
+    @trip_items = TripItem.geocoded
+
+    @markers = @trip_items.map do |trip_item|
       {
-        lat: trip.latitude,
-        lng: trip.longitude,
-        infoWindow: render_to_string(partial: "info_windowtrip", locals: { trip: trip }),
-        image_url: helpers.asset_url('logotravlr.svg') # did not include markers as this is primarily for centering the map.
+        lat: trip_item.latitude,
+        lng: trip_item.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
+        image_url: helpers.asset_url('lightbulb-regular.svg') # could probably implement different markers based on category(house for lodging etc.)
       }
     end
   end

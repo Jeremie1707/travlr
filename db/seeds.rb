@@ -11,10 +11,13 @@ require 'faker'
 puts "User count  = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count  = #{TripItem.count}"
+puts "Category count = #{Category.count}"
 puts '---------deleting all records---------------'
 TripItem.destroy_all
 Trip.destroy_all
 User.destroy_all
+Category.destroy_all
+
 
 pictures = ['https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412062/andre-benz-RAXQkgmyrcA-unsplash_jwbjde.jpg',
             'https://res.cloudinary.com/dswkxjcbj/image/upload/v1569412063/rooms-with-amazing-view-38__880_i4gabh.jpg',
@@ -30,15 +33,30 @@ address = [  'Nordlysveien 10, Oslo',
              'Via Panisperna, 236, 00184 Roma RM, Italy',
 ]
 
-counter = 0
+categories = [  'Lodging',
+                'Transportation'
+]
 
+
+counter = 0
+category_counter = 0
+category = Category.create(name: 'Activity')
+
+<<<<<<< HEAD
 category = Category.create(name: 'Loging')
+=======
+>>>>>>> master
 
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
 
 trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id, location: 'Holmenkollen', name: 'Nikkers-safari')
 
+2.times do
+  Category.create(name: categories[category_counter])
+  category_counter += 1
+  puts category_counter + 1
+end
 
 5.times do
   attributes = {
@@ -62,6 +80,7 @@ trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_dat
 end
 
 puts "---------seeding done--------"
+puts "Category count = #{Category.count}"
 puts "User count = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count = #{TripItem.count}"

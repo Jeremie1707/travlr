@@ -38,7 +38,7 @@
   <span>
     <a href="#" class="tab-button tab-button-calendar" data-tab-index="3">
       <i class="px-5 far fa-calendar-alt"></i>
-      <span class="tab-name">Calandar</span>
+      <span class="tab-name">Calendar</span>
     </a>
   </span>
 </div>
@@ -60,10 +60,11 @@
         <!-- MAP SECTION FOR TRIP SUGGESTIONS -->
           <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
             <div class="container pt-5">
-             <%= render partial: "map", locals: { markers: @markers } %>
            </div>
          </div>
-        <p>Small map here</p>
+           <div id="small-map-container">
+          <%= render partial: "map", locals: {markers: @markers} %>
+          </div>
       </div>
     </div>
   </div>
@@ -73,7 +74,7 @@
     <div class="row">
       <div class="col-5">
         <!-- LIST FOR "Your Trip" -->
-        <p>list</p>
+        <%= render partial: "partial/route_trip_item_list" %>
 
 
       </div>
@@ -89,15 +90,22 @@
   <div class="tabPanel">                         <!-- 3.section -->
     <!-- FULSCREEN MAP SECTION -->
     <h2>Map Section</h2>
+    <div class='container'>
+    <%= render partial: "map", locals: {markers: @markers} %>
+    </div>
   </div>
 
   <div class="tabPanel">                         <!-- 4.section -->
-    <!-- CALANDAR SECTION -->
-    <%= render partial: "map", locals: {markers: @markers} %>
+    <!-- CALENDAR SECTION -->
     <h2>Calandar goes here</h2>
   </div>
    <!-- FOR RENDERING POPUPS -->
   <% @trip.trip_items.each do |element| %>
   <%= render partial: "partial/trip-item", locals: { element: element } %>
   <% end %>
+
+  <% @trip.trip_items.each do |element| %>
+  <%= render partial: "partial/route_item", locals: { element: element } %>
+  <% end %>
+
   <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
