@@ -1,5 +1,5 @@
 class TripItemsController < ApplicationController
-  before_action :find_trip_item, only: [:show, :destroy]
+  before_action :find_trip_item, only: [:show, :destroy, :update]
   before_action :find_trip, only: [:create]
 
   def new
@@ -34,6 +34,10 @@ class TripItemsController < ApplicationController
     @comment = Comment.new
   end
 
+  def update
+    @trip_item.update(strong_params)
+  end
+
   def destroy
   end
 
@@ -44,10 +48,10 @@ class TripItemsController < ApplicationController
   end
 
   def strong_params
-    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id)
+    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id, :confirmed)
   end
 
   def find_trip_item
-    @trip_item = TripItem.find(params[:id])
+    @trip_item = TripItem.find(params[:trip_id])
   end
 end

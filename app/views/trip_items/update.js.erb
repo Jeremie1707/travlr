@@ -1,0 +1,8 @@
+
+function changeColor() {
+  let id = '<%= @trip_item.id%>'
+  const element = document.getElementById(`card-add-button-${id}`);
+  element.classList.add('added');
+}
+
+changeColor();

@@ -5,6 +5,7 @@
 
 
 .suggestions-item-card {
+  position: relative;
   font-family: roboto;
   height: 120px;
   // border: 1px solid black;
@@ -36,7 +37,7 @@
   text-align: initial;
 }
 
-.suggestions-item-card-information-icons {
+.card-info-icons {
 height : 20px;
 justify-content: space-between;
 margin: 15px;
@@ -104,3 +105,21 @@ border-radius: 50%;
       text-align:center;
       font-weight: bold;
     }
+
+.route-add{
+  position: absolute;
+  top: 60%;
+  right: 5%;
+}
+
+.fa-plus-circle{
+  font-size: 28px;
+  color: grey;
+}
+
+.added{
+  color: green;
+}
+
+
+
