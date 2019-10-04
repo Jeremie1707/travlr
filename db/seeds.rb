@@ -37,9 +37,11 @@ categories = [  'Lodging',
                 'Transportation'
 ]
 
+
 counter = 0
 category_counter = 0
 category = Category.create(name: 'Activity')
+
 
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
