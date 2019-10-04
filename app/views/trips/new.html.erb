@@ -1,5 +1,6 @@
 <div class="container p-5">
   <%= simple_form_for @trip do |form|%>
+    <%= form.input :name, placeholder: "Name"%>
     <%= form.input :description, placeholder: "Description"%>
     <%= form.input :location, placeholder: "Where are you going?" %>
     <%= form.input :start_date %>
