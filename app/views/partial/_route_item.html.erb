@@ -1,8 +1,10 @@
 <div class="modal fade" id="route-item-<%=element.id%>"tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header-trip-item-detail d-flex">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+        <div><h5><%= element.name %></h5></div>
+        <div><p>(<%= element.start_date %>)</p></div>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -11,13 +13,16 @@
               <div class="trip-detail-card">
                 <div class="trip-detail-card-image">
                   <%= cl_image_tag element.photo %>
+                  <i class="fas fa-heart"></i>
+                  <p class="detail-likes-counter"><%=element.likes.count%></p>
+
                 </div>
               </div>
               <div class="trip-detail-card-content">
-                <div><h5><%= element.name %></h5></div>
-                <div><p><%= element.start_date %></p></div>
-
-                <div>Price: <%= element.price %></div>
+                <div class="trip-detail-card-content-price d-flex">
+                <div ><h5>Price: </h5></div>
+                <div><p><%= element.price %></p></div>
+              </div>
                 <div class="trip-detail-card-content-description">
                   <h5>description:</h5>
                   <div><p><%= element.description %></p></div>
@@ -42,5 +47,4 @@
   </div>
 </div>
 </div>
-
 
