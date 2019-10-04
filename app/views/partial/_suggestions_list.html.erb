@@ -39,13 +39,38 @@
 
         </div>
         <!-- </a> -->
-        <div class="route-add" >
-          <a href="#" data-target="<%=element.id%>" id="card-add-button">
-            <%= link_to "add", trip_trip_item_path(@trip), method: :patch%>
-            <p><i class="fas fa-plus-circle"></i></p>
+        <% if @trip.user == current_user %>
+          <% if element.confirmed == true%>
+            <div class="route-add" >
+              <a href="#" data-target="<%=element.id%>" >
+                <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
+                <p><i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p><% end %>
+            <% else %>
+              <div class="route-add" >
+              <a href="#" data-target="<%=element.id%>" >
+                <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
+                <p><i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p><% end %>
+                <% end %>
+        <% end %>
+
           </a>
        </div>
      </div>
      <% end %>
    </div>
  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
