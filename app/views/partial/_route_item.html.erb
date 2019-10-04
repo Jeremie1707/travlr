@@ -1,4 +1,4 @@
-<div class="modal fade" id="card-trip-item-<%=element.id%>"tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="route-item-<%=element.id%>"tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header-trip-item-detail d-flex">
@@ -31,7 +31,6 @@
                   <h5>comments:</h5>
                   <% element.comments.each do |com| %>
                   <div><p><%= com.comment %></p></div>
-                  <%= render partial: 'partial/comment_form' %>
                   <% end %>
                 </div>
               </div>

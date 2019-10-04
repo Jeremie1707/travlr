@@ -49,6 +49,7 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.doubleClickZoom.enable();
+    map.travlrMapName = mapElement.dataset.mapName;
     MAPS.push(map);
   });
 };
@@ -56,7 +57,11 @@ const initMapbox = () => {
 // Event wiring for tab click: re-render map
 document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelector('.tab-button-map').addEventListener('click', () => {
-    MAPS.forEach(map => map.resize());
+    MAPS.forEach(map => {
+      if (map.travlrMapName === 'map-tab-map') {
+        map.resize();
+      }
+    });
   });
 });
 

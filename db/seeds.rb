@@ -17,6 +17,8 @@ TripItem.destroy_all
 Category.destroy_all
 Trip.destroy_all
 User.destroy_all
+Category.destroy_all
+
 
 pictures = ['https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193337/henningsvaer_jy1zjs.jpg',
             'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193325/lofoten-aquarium_xulkoy.jpg',
@@ -32,6 +34,7 @@ address = [  'Banhammeren 53, 8312 Henningsvær',
              'Svolværgeita, 8300 Svolvær'
 ]
 
+
 activity = [  "Going fishing",
              "Lofoten aquarium",
              "Fishing museum",
@@ -42,7 +45,10 @@ activity = [  "Going fishing",
 categories = [  'Lodging',
                 'Transportation'
 ]
-counter = 0
+
+category_counter = 0
+category = Category.create(name: 'Activity')
+
 
 category_counter = 0
 category = Category.create(name: 'Activity')
@@ -78,6 +84,7 @@ end
 end
 
 puts "---------seeding done--------"
+puts "Category count = #{Category.count}"
 puts "User count = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count = #{TripItem.count}"
