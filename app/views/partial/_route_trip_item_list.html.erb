@@ -19,18 +19,20 @@
           <p><%= element.start_date %></p>
         </div>
 
-        <div class="suggestions-item-card-information-icons d-flex col-6" >
-            <div class="suggestions-item-card-information-icons-avatar">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
-            </div>
-
-              <% if element.category.name =="activity"  %>
+        <div class="comment">
+            <div class="d-flex card-info-icons" >
+              <div class="suggestions-item-card-information-icons-avatar">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
+              </div>
+              <div>
+                <% if element.category.name =="activity"  %>
                 <i class="fas fa-hiking"></i>
-              <% elsif element.category.name == "transport"  %>
+                <% elsif element.category.name == "transport"  %>
                 <i class="fas fa-bus"></i>
-              <% elsif element.category.name == "housing"  %>
+                <% elsif element.category.name == "housing"  %>
                 <i class="fas fa-home"></i>
-              <% end %>
+                <% end %>
+              </div>
               <div class="comments">
                 <i class="fas fa-comment"></i>
                 <p class="comments-counter"><%=element.comments.count%></p>
@@ -39,9 +41,8 @@
                 <i class="fas fa-heart"></i>
                 <p class="likes-counter"><%=element.likes.count%></p>
               </div>
-
-
-        </div>
+            </div>
+          </div>
 
       </div>
 
