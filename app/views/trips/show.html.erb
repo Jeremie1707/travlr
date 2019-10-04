@@ -60,10 +60,11 @@
         <!-- MAP SECTION FOR TRIP SUGGESTIONS -->
           <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
             <div class="container pt-5">
-             <%= render partial: "map", locals: { markers: @markers } %>
            </div>
          </div>
-        <p>Small map here</p>
+           <div id="small-map-container">
+          <%= render partial: "map", locals: {markers: @markers} %>
+          </div>
       </div>
     </div>
   </div>
@@ -88,8 +89,10 @@
 
   <div class="tabPanel">                         <!-- 3.section -->
     <!-- FULSCREEN MAP SECTION -->
-    <%= render partial: "map", locals: {markers: @markers} %>
     <h2>Map Section</h2>
+    <div class='container'>
+    <%= render partial: "map", locals: {markers: @markers} %>
+    </div>
   </div>
 
   <div class="tabPanel">                         <!-- 4.section -->
