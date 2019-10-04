@@ -1,5 +1,5 @@
 class TripItemsController < ApplicationController
-  before_action :find_trip_item, only: [:show, :destroy]
+  before_action :find_trip_item, only: [:show, :destroy, :update]
   before_action :find_trip, only: [:create]
 
   def new
@@ -32,6 +32,11 @@ class TripItemsController < ApplicationController
 
   def show
     @comment = Comment.new
+  end
+
+  def update
+    @trip_item.confirmed = true
+    @trip_item.save
   end
 
   def destroy

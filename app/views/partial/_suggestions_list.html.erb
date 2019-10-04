@@ -1,15 +1,70 @@
 <div class="detail-item-container">
   <div class="container pt-5">
     <% @trip.trip_items.each do |element| %>
- <a href="#" data-toggle="modal" data-target
+    <!-- <a href="" data_toggle="modal" data-target="#card-trip-item-<%=element.id%>"> -->
+      <div class="suggestions-item-card d-flex">
+        <div class="suggestions item-card-image">
+          <%= cl_image_tag element.photo %>
+        </div>
+        <div class="suggestions-card-information d-flex">
+
+          <div class="suggestions-card-information-text">
+            <h6><%= element.name %></h6>
+            <p><%= element.start_date %></p>
+          </div>
+          <div class="comment">
+            <div class="d-flex card-info-icons" >
+              <div class="suggestions-item-card-information-icons-avatar">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
+              </div>
+              <div>
+                <% if element.category.name =="activity"  %>
+                <i class="fas fa-hiking"></i>
+                <% elsif element.category.name == "transport"  %>
+                <i class="fas fa-bus"></i>
+                <% elsif element.category.name == "housing"  %>
+                <i class="fas fa-home"></i>
+                <% end %>
+              </div>
+              <div class="comments">
+                <i class="fas fa-comment"></i>
+                <p class="comments-counter"><%=element.comments.count%></p>
+              </div>
+              <div class="likes">
+                <i class="fas fa-heart"></i>
+                <p class="likes-counter"><%=element.likes.count%></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- </a> -->
+        <div class="route-add" >
+          <a href="#" data-target="<%=element.id%>" id="card-add-button">
+            <%= link_to "add", trip_trip_item_path(@trip), method: :patch%>
+            <p><i class="fas fa-plus-circle"></i></p>
+          </a>
+       </div>
+     </div>
+     <% end %>
+   </div>
+ </div>
+
+
+
+
+
+
+ <div class="detail-item-container">
+  <div class="container pt-5">
+    <% @trip.trip_items.each do |element| %>
+    <a href="#" data-toggle="modal" data-target
     ="#card-trip-item-<%=element.id%>">
+
     <div class="suggestions-item-card d-flex">
-
-
       <div class="suggestions-item-card-image">
         <%= cl_image_tag element.photo %>
       </div>
-
       <%#= link_to trip_trip_item_path(element) do%>
       <div class="suggestions-card-information d-flex">
 
@@ -19,35 +74,39 @@
         </div>
 
         <div class="suggestions-item-card-information-icons d-flex col-7" >
-            <div class="suggestions-item-card-information-icons-avatar">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
-            </div>
-
-              <% if element.category.name =="activity"  %>
-                <i class="fas fa-hiking"></i>
-              <% elsif element.category.name == "transport"  %>
-                <i class="fas fa-bus"></i>
-              <% elsif element.category.name == "housing"  %>
-                <i class="fas fa-home"></i>
-              <% end %>
-              <div class="comments">
-                <i class="fas fa-comment"></i>
-                <p class="comments-counter"><%=element.comments.count%></p>
-              </div>
-              <div class="likes">
-                <i class="fas fa-heart"></i>
-                <p class="likes-counter"><%=element.likes.count%></p>
-              </div>
-
-
+          <div class="suggestions-item-card-information-icons-avatar">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
+          </div>
+          <div>
+            <% if element.category.name =="activity"  %>
+            <i class="fas fa-hiking"></i>
+            <% elsif element.category.name == "transport"  %>
+            <i class="fas fa-bus"></i>
+            <% elsif element.category.name == "housing"  %>
+            <i class="fas fa-home"></i>
+            <% end %>
+          </div>
+          <div class="comments">
+            <i class="fas fa-comment"></i>
+            <p class="comments-counter"><%=element.comments.count%></p>
+          </div>
+          <div class="likes">
+            <i class="fas fa-heart"></i>
+            <p class="likes-counter"><%=element.likes.count%></p>
+          </div>
         </div>
+        <% if @trip.user == current_user %>
+        <a  href="">
+          <p><i class="fas fa-plus-circle"></i></p>
+        </a>
 
+        <% end %>
       </div>
-
-     <%# end %>
+      <%# end %>
     </div>
- </a>
- <% end %>
+
+  </a>
+  <% end %>
 </div>
 </div>
 

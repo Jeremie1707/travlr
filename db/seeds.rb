@@ -32,7 +32,7 @@ address = [  'Nordlysveien 10, Oslo',
 
 counter = 0
 
-category = Category.create(name: 'category-test')
+category = Category.create(name: 'Loging')
 
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
