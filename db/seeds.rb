@@ -27,11 +27,11 @@ pictures = ['https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193337/henni
             'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193374/svolvoergeita_pur2sy.jpg',
 ]
 
-address = [  'Banhammeren 53, 8312 Henningsvær',
-             'Storvåganveien 28, 8310 Kabelvåg',
-             'Å vegen 5, 8392 Sørvågen',
-             'Reine i Lofoten, 8390 Reine',
-             'Svolværgeita, 8300 Svolvær'
+address = [  '8312 Henningsvær',
+             '8310 Kabelvåg',
+             '8392 Sørvågen',
+             '8390 Reine',
+             '8300 Svolvær'
 ]
 
 
@@ -54,11 +54,11 @@ category = Category.create(name: 'Loging')
 category_counter = 0
 category = Category.create(name: 'Activity')
 puts "------------seeding-----------"
-user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
+user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Petter', last_name: 'Gulliksen', remote_photo_url: "https://res.cloudinary.com/dvluu9bpc/image/upload/v1570184419/guy-two_qhhs4i.jpg" )
 
-user2 = User.create(email: 'testjer@test.as', password: 'test123', first_name: 'Jeremie', last_name: 'Po')
+user2 = User.create(email: 'testjer@test.as', password: 'test123', first_name: 'Jeremie', last_name: 'Po', remote_photo_url: 'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570184408/guy-one_gliapo.png')
 
-user3 = User.create(email: 'testand@test.as', password: 'test123', first_name: 'Andre', last_name: 'Lauritzen')
+user3 = User.create(email: 'testand@test.as', password: 'test123', first_name: 'Andre', last_name: 'Lauritzen', remote_photo_url: 'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570184408/guy-one_gliapo.png')
 
 trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id, location: 'Lofoten', name: 'Lofoten trip')
 
