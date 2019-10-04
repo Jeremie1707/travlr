@@ -1,10 +1,8 @@
-<!-- Modal -->
 <div class="modal fade" id="card-trip-item-<%=element.id%>"tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header-trip-item-detail d-flex">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -22,9 +20,9 @@
                 <div>Price: <%= element.price %></div>
                 <div class="trip-detail-card-content-description">
                   <h5>description:</h5>
-                <div><p><%= element.description %></p></div>
+                  <div><p><%= element.description %></p></div>
                 </div>
-                  <div class="trip-detail-card-content-comments">
+                <div class="trip-detail-card-content-comments">
                   <h5>comments:</h5>
                   <% element.comments.each do |com| %>
                   <div><p><%= com.comment %></p></div>
@@ -34,8 +32,8 @@
             </div>
           </div>
 
-        <!-- </div>
-        <div class="modal-footer">
+        </div>
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div> -->
@@ -43,3 +41,5 @@
     </div>
   </div>
 </div>
+</div>
+

@@ -1,15 +1,53 @@
-<div class="detail item container">
+<div class="detail-item-container">
   <div class="container pt-5">
     <% @trip.trip_items.each do |element| %>
-    <div class="trip-item-card">
+ <a href="#" data-toggle="modal" data-target
+    ="#card-trip-item-<%=element.id%>">
+    <div class="suggestions-item-card d-flex">
+
+
+      <div class="suggestions-item-card-image">
+        <%= cl_image_tag element.photo %>
+      </div>
+
       <%#= link_to trip_trip_item_path(element) do%>
-      <%= element.name %>
-      <p> 1.trip item</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-        TEST
-      </button>
-      <%# end %>
+      <div class="suggestions-card-information d-flex">
+
+        <div class="suggestions-card-information-text">
+          <h6><%= element.name %></h6>
+          <p><%= element.start_date %></p>
+        </div>
+
+        <div class="suggestions-item-card-information-icons d-flex col-7" >
+            <div class="suggestions-item-card-information-icons-avatar">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
+            </div>
+
+              <% if element.category.name =="activity"  %>
+                <i class="fas fa-hiking"></i>
+              <% elsif element.category.name == "transport"  %>
+                <i class="fas fa-bus"></i>
+              <% elsif element.category.name == "housing"  %>
+                <i class="fas fa-home"></i>
+              <% end %>
+              <div class="comments">
+                <i class="fas fa-comment"></i>
+                <p class="comments-counter"><%=element.comments.count%></p>
+              </div>
+              <div class="likes">
+                <i class="fas fa-heart"></i>
+                <p class="likes-counter"><%=element.likes.count%></p>
+              </div>
+
+
+        </div>
+
+      </div>
+
+     <%# end %>
     </div>
-    <% end %>
-  </div>
+ </a>
+ <% end %>
 </div>
+</div>
+
