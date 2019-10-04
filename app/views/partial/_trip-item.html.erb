@@ -11,6 +11,9 @@
               <div class="trip-detail-card">
                 <div class="trip-detail-card-image">
                   <%= cl_image_tag element.photo %>
+                  <i class="fas fa-heart"></i>
+                  <p class="detail-likes-counter"><%=element.likes.count%></p>
+
                 </div>
               </div>
               <div class="trip-detail-card-content">
