@@ -38,7 +38,7 @@
   <span>
     <a href="#" class="tab-button tab-button-calendar" data-tab-index="3">
       <i class="px-5 far fa-calendar-alt"></i>
-      <span class="tab-name">Calandar</span>
+      <span class="tab-name">Calendar</span>
     </a>
   </span>
 </div>
@@ -73,7 +73,7 @@
     <div class="row">
       <div class="col-5">
         <!-- LIST FOR "Your Trip" -->
-        <p>list</p>
+        <%= render partial: "partial/route_trip_item_list" %>
 
 
       </div>
@@ -100,4 +100,9 @@
   <% @trip.trip_items.each do |element| %>
   <%= render partial: "partial/trip-item", locals: { element: element } %>
   <% end %>
+
+  <% @trip.trip_items.each do |element| %>
+  <%= render partial: "partial/route_item", locals: { element: element } %>
+  <% end %>
+
   <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
