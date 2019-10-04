@@ -29,6 +29,7 @@
                   <h5>comments:</h5>
                   <% element.comments.each do |com| %>
                   <div><p><%= com.comment %></p></div>
+                  <%= render partial: 'partial/comment_form' %>
                   <% end %>
                 </div>
               </div>
