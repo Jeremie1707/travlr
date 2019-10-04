@@ -45,7 +45,7 @@ activity = [  "Going fishing",
 categories = [  'Lodging',
                 'Transportation'
 ]
-
+counter = 0
 category_counter = 0
 category = Category.create(name: 'Activity')
 
@@ -56,7 +56,7 @@ category = Category.create(name: 'Activity')
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Tess', last_name: 'Est')
 
-trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id, location: 'Holmenkollen', name: 'Nikkers-safari')
+trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id, location: 'Lofoten', name: 'Lofoten trip')
 
 2.times do
   Category.create(name: categories[category_counter])
