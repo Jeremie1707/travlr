@@ -54,13 +54,20 @@ category = Category.create(name: 'Loging')
 category_counter = 0
 category = Category.create(name: 'Activity')
 puts "------------seeding-----------"
-user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Petter', last_name: 'Gulliksen', remote_photo_url: "https://res.cloudinary.com/dvluu9bpc/image/upload/v1570184419/guy-two_qhhs4i.jpg" )
+user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Petter', last_name: 'Gulliksen', remote_photo_url: "https://res.cloudinary.com/wagonapp/image/upload/v1570273638/gi5wgyp0ufiucnvnvsam.png" )
 
-user2 = User.create(email: 'testjer@test.as', password: 'test123', first_name: 'Jeremie', last_name: 'Po', remote_photo_url: 'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570184408/guy-one_gliapo.png')
+user2 = User.create(email: 'testjer@test.as', password: 'test123', first_name: 'Jeremie', last_name: 'Poiraudau', remote_photo_url: 'https://res.cloudinary.com/wagonapp/image/upload/v1570273822/o6xd2s1wdnzmutfx4ele.png')
 
-user3 = User.create(email: 'testand@test.as', password: 'test123', first_name: 'Andre', last_name: 'Lauritzen', remote_photo_url: 'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570184408/guy-one_gliapo.png')
+user3 = User.create(email: 'testand@test.as', password: 'test123', first_name: 'Andre', last_name: 'Lauritzen', remote_photo_url: 'https://res.cloudinary.com/wagonapp/image/upload/v1570273827/wrtrbcyjxc85qgznob46.png')
+
+user4 = User.create(email: 'testmag@test.as', password: 'test123', first_name: 'Magnus', last_name: 'Berntsen', remote_photo_url: 'https://res.cloudinary.com/wagonapp/image/upload/v1570273832/wpiskpjvemufpip1qeac.png')
 
 trip = Trip.create(description: 'fint hus', start_date: Date.today.to_s, end_date: (Date.tomorrow + rand(10..50)).to_s, user_id: user.id, location: 'Lofoten', name: 'Lofoten trip')
+
+participant1 = Participant.create(trip_id: trip.id, user_id: user.id)
+participant2 = Participant.create(trip_id: trip.id, user_id: user2.id)
+participant3 = Participant.create(trip_id: trip.id, user_id: user3.id)
+participant4 = Participant.create(trip_id: trip.id, user_id: user4.id)
 
 2.times do
   Category.create(name: categories[category_counter])

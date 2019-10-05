@@ -17,7 +17,7 @@
           <div class="comment">
             <div class="d-flex card-info-icons" >
               <div class="suggestions-item-card-information-icons-avatar">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-suggestion-item-card" %>
+                <%= cl_image_tag element.user.photo, class: "avatar-suggestion-item-card" %>
               </div>
               <div>
                 <% if element.category.name =="activity"  %>

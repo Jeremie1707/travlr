@@ -10,10 +10,11 @@
     <p><%= @trip.end_date %></p>
   </div>
   <div id="avatars" class="ml-3 m-2">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+    <%#= cl_image_tag current_user.photo, class: "avatar" %>
+    <% @trip.participants.each do |participant| %>
+    <%= cl_image_tag participant.user.photo, class: "avatar" %>
+    <% end %>
+
   </div>
 </div>
 <div class="buttonContainer page-tab-bar">
