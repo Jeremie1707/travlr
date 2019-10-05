@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header-trip-item-detail d-flex">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+        <%= cl_image_tag element.user.photo, class: "avatar" %>
         <div><h5><%= element.name %></h5></div>
         <div><p>(<%= element.start_date %>)</p></div>
       </div>
