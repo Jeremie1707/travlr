@@ -12,12 +12,19 @@
             <div class="col-12 ml-auto">
               <div class="trip-detail-card">
                 <div class="trip-detail-card-image">
+                  <% if element.photo.file != nil %>
                   <%= cl_image_tag element.photo %>
+
+                  <% else %>
+                 <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/#{element.longitude},#{element.latitude},10,0,0/400x400@2x?access_token=#{ENV['MAPBOX_API_KEY']}"%>
+                  <% end %>
+
                   <i class="fas fa-heart"></i>
                   <p class="detail-likes-counter"><%=element.likes.count%></p>
 
                 </div>
               </div>
+
               <div class="trip-detail-card-content">
                 <div class="trip-detail-card-content-price d-flex">
                 <div ><h5>Price: </h5></div>
