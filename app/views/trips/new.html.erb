@@ -1,11 +1,7 @@
 <div class="container p-5">
   <%= simple_form_for @trip do |form|%>
-    <%= form.input :name, placeholder: "Name"%>
-    <%= form.input :description, placeholder: "Description"%>
+
     <%= form.input :location, placeholder: "Where are you going?" %>
-    <%= form.input :start_date %>
-    <%= form.input :end_date %>
-    <%= form.input :users, as: :select, collection: @users, label_method: :full_name, input_html: { multiple: true }, include_blank: false, include_hidden: false%>
     <%= form.submit %>
   <% end %>
 </div>

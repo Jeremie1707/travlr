@@ -1,0 +1,6 @@
+<div class="container">
+<%= simple_form_for(@trip, url: wizard_path) do |f| %>
+<%= f.input :users, as: :select, collection: @users, label_method: :full_name, input_html: { multiple: true }, include_blank: false, include_hidden: false%>
+<%= f.submit %>
+<% end %>
+</div>
