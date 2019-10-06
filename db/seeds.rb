@@ -47,12 +47,12 @@ categories = [  'Lodging',
 ]
 counter = 0
 category_counter = 0
-category = Category.create(name: 'Activity')
+category = Category.create(name: 'activity')
 
-category = Category.create(name: 'Loging')
+category = Category.create(name: 'housing')
+category = Category.create(name: 'transport')
 
 category_counter = 0
-category = Category.create(name: 'Activity')
 puts "------------seeding-----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Petter', last_name: 'Gulliksen', remote_photo_url: "https://res.cloudinary.com/wagonapp/image/upload/v1570273638/gi5wgyp0ufiucnvnvsam.png" )
 
