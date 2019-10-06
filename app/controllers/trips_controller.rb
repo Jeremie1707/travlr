@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   # include Wicked::Wizard
-  # steps  :add_description, :add_start_date, :add_end_date, :add_
+  # steps  :add_description, :add_start_date, :add_end_date
 
   before_action :set_trip, only: [:show, :update]
   before_action :set_users, only: [:create]
@@ -13,7 +13,8 @@ class TripsController < ApplicationController
     @trip = Trip.new(strong_params)
     @trip.user = current_user
     if @trip.save
-      redirect_to trip_path(@trip)
+      # redirect_to trip_path(@trip)
+      redirect_to trip_form_index_path
       @trip.users = @users unless @users.empty?
     else
       render :new, alert: @trip.errors.full_messages
