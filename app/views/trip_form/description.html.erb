@@ -1,0 +1,8 @@
+
+<div class="container">
+  <%= simple_form_for(@trip, url: wizard_path) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit :submit, remote: true %>
+  <% end %>
+</div>
