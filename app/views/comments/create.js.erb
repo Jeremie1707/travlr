@@ -5,14 +5,14 @@ function refreshForm(innerHTML) {
   newCommentForm.innerHTML = innerHTML;
 }
 
-function addReview(commentHTML) {
-  const comments = document.getElementById('comments');
-  comments.insertAdjacentHTML('beforeend', reviewHTML);
+function addComment(commentHTML) {
+  const comments = document.getElementById('comments-list-<%= @trip_item.id %>');
+  comments.insertAdjacentHTML('beforeend', commentHTML);
 }
 
 <% if @comment.errors.any? %>
-  refreshForm('<%= j render "comments/form", trip_item: @trip_item, comment: @comment %>');
+  refreshForm('<%= j render "comments/form", trip: @trip_item.trip, trip_item: @trip_item, comment: @comment %>');
 <% else %>
-  addReview('<%= j render "comments/show", comment: @comment %>');
-  refreshForm('<%= j render "comments/form", trip_item: @trip_item, comment: Comment.new %>');
+  addComment('<%= j render "comments/show", comment: @comment %>');
+  refreshForm('<%= j render "comments/form", trip: @trip_item.trip, trip_item: @trip_item, comment: Comment.new %>');
 <% end %>
