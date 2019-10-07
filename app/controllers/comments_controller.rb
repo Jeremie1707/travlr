@@ -1,12 +1,18 @@
 class CommentsController < ApplicationController
+  before_action :set_trip_item, only: [:create, :show]
+  # def new
+  #   @comment = Comment.new
+  # end
+
   def create
-    @trip_item = TripItem.find(params[:trip_item_id])
-    @comment = Comment.new(comment_params)
+    @trip = Trip.find(params[:trip_id])
+    @comment = Comment.new(strong_params)
+    @comment.user = current_user
     @comment.trip_item = @trip_item
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to trip_item_path(@trip_item) }
-        format.js  # <-- will render `app/views/comments/create.js.erb`
+        format.html { redirect_to trip_item_path(@trip, @trip_item) }
+        format.js # <-- will render `app/views/comments/create.js.erb`
       end
     else
       respond_to do |format|
@@ -16,9 +22,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
-  def review_params
+  def strong_params
     params.require(:comment).permit(:comment)
   end
+
+  def set_trip_item
+    @trip_item = TripItem.find(params[:trip_item_id])
+  end
+
 end

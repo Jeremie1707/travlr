@@ -1,6 +1,6 @@
 class TripItemsController < ApplicationController
   before_action :find_trip_item, only: [:show, :destroy, :update]
-  before_action :find_trip, only: [:create]
+  before_action :find_trip, only: [:create, :show]
 
   def new
     @trip_item = TripItem.new
