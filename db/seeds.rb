@@ -42,15 +42,18 @@ activity = [  "Going fishing",
              "Mountain trip",
 ]
 
-categories = [  'Lodging',
-                'Transportation'
+categories = [
+{ "name" => "activity", "color" => "#1FB09A" },
+{ "name" => "housing", "color" => "#ED8E34" },
+{ "name" => "transport", "color" => "red" }
 ]
-counter = 0
-category_counter = 0
-category = Category.create(name: 'activity')
 
-category = Category.create(name: 'housing')
-category = Category.create(name: 'transport')
+
+counter = 0
+
+# category = Category.create(name: 'activity')
+# category = Category.create(name: 'housing')
+# category = Category.create(name: 'transport')
 
 category_counter = 0
 puts "------------seeding-----------"
@@ -69,12 +72,17 @@ participant2 = Participant.create(trip_id: trip.id, user_id: user2.id)
 participant3 = Participant.create(trip_id: trip.id, user_id: user3.id)
 participant4 = Participant.create(trip_id: trip.id, user_id: user4.id)
 
-2.times do
-  Category.create(name: categories[category_counter])
-  category_counter += 1
+
+categories.each do |category|
+Category.create(name: category["name"], color: category["color"])
+category_counter += 1
 end
 
+# category = Category.create(name: activity, color: "#1FB09A")
+
+
 5.times do
+
   attributes = {
 
     name: activity[counter],
@@ -87,7 +95,7 @@ end
     description: Faker::Restaurant.review,
     user_id: user.id,
     trip_id: trip.id,
-    category_id: category.id
+    category_id: rand(1..3).to_s
   }
 
   TripItem.create(attributes)

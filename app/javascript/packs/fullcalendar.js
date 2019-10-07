@@ -12,8 +12,7 @@ const renderCalendar = (elementId) => {
       height: 40,
       plugins: [ dayGridPlugin, interactionPlugin ],
       editable: true,
-      events: `/trips/${id}.json`,
-
+      events: `/trips/${id}.json`
     });
 
     calendar.render();
