@@ -22,6 +22,19 @@
     text-align: left;
   }
 }
+.suggestions-first-card {
+  font-family: roboto;
+  overflow: hidden;
+    p   {
+    font-size: 28px;
+    padding: 10px;
+    text-align: left;
+    color: #1FB09A;
+  }
+  i {
+    color:#1FB09A;
+  }
+}
 
 .suggestions-item-card img {
   width: 120px ;

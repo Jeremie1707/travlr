@@ -1,5 +1,10 @@
 <div class="detail-item-container">
-  <div class="container pt-5">
+  <div class="container">
+    <div class="suggestions-first-card">
+      <button type="button" class="btn add-item" data-toggle="modal" data-target="#trip-item-form">
+      <p class="pt-3 pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
+      </button>
+    </div>
     <% @trip.trip_items.each do |element| %>
     <div class="suggestions-item-card d-flex">
       <div class="suggestions item-card-image">
