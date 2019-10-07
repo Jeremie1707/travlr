@@ -3,6 +3,26 @@
   background: #31333B;
 }
 
+.nav-link{
+  color: #A4B0C3 !important;
+  padding: 0.5rem 0 0 0;
+  opacity: 0.8;
+}
+
+.profile-avatar{
+  margin: 0 2rem 0 2rem;
+}
+
+
+.navbar-nav{
+  padding: 0 1rem
+}
+
+.nav-link:hover{
+  border-bottom: 2px solid #1FB09A;
+  opacity: 1;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

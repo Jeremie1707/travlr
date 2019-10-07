@@ -7,40 +7,41 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
 puts "User count  = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count  = #{TripItem.count}"
 puts "Category count = #{Category.count}"
-puts '---------deleting all records---------------'
+puts '---------- deleting all records ----------'
 TripItem.destroy_all
 Category.destroy_all
 Trip.destroy_all
 User.destroy_all
-Category.destroy_all
+
 
 
 pictures = ['https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193337/henningsvaer_jy1zjs.jpg',
             'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193325/lofoten-aquarium_xulkoy.jpg',
             'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193346/Lofoten_-_Henningsvaer_xqi7ng.jpg',
             'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193364/reine_udowot.jpg',
-            'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193374/svolvoergeita_pur2sy.jpg',
+            'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570193374/svolvoergeita_pur2sy.jpg'
 ]
 
-address = [  '8312 Henningsvær',
-             '8310 Kabelvåg',
-             '8392 Sørvågen',
-             '8390 Reine',
-             '8300 Svolvær'
+address = [ '8312 Henningsvær',
+            '8310 Kabelvåg',
+            '8392 Sørvågen',
+            '8390 Reine',
+            '8300 Svolvær'
 ]
 
 
-activityname = [  "Going fishing",
+
+activity = [ "Going fishing",
              "Lofoten aquarium",
              "Fishing museum",
              "Rorbue",
-             "Mountain trip",
+             "Mountain trip"
 ]
+
 
 categories = [
 { "name" => "activity", "color"  => "#1FB09A" },
@@ -49,11 +50,9 @@ categories = [
 ]
 
 
-counter = 0
-
 
 category_counter = 0
-puts "------------seeding-----------"
+puts "---------- seeding ----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Petter', last_name: 'Gulliksen', remote_photo_url: "https://res.cloudinary.com/wagonapp/image/upload/v1570273638/gi5wgyp0ufiucnvnvsam.png" )
 
 user2 = User.create(email: 'testjer@test.as', password: 'test123', first_name: 'Jeremie', last_name: 'Poiraudau', remote_photo_url: 'https://res.cloudinary.com/wagonapp/image/upload/v1570273822/o6xd2s1wdnzmutfx4ele.png')
@@ -69,6 +68,7 @@ participant2 = Participant.create(trip_id: trip.id, user_id: user2.id)
 participant3 = Participant.create(trip_id: trip.id, user_id: user3.id)
 participant4 = Participant.create(trip_id: trip.id, user_id: user4.id)
 
+
 categoryarray = []
 categories.each do |category|
 categoryarray << Category.create(name: category["name"], color: category["color"])
@@ -79,11 +79,11 @@ puts categoryarray
 
 
 
-8.times do
 
+5.times do
   attributes = {
 
-    name: activityname[counter],
+    name: activity[counter],
     address: address[counter],
     remote_photo_url: pictures[counter],
     price: rand(10..50),
@@ -101,8 +101,8 @@ puts categoryarray
   puts counter
 end
 
-puts "---------seeding done--------"
-puts "Category count = #{Category.count}"
+puts "---------- seeding done ----------"
+
 puts "User count = #{User.count}"
 puts "Trip count = #{Trip.count}"
 puts "Trip item count = #{TripItem.count}"

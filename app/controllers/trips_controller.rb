@@ -22,18 +22,10 @@ class TripsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @trip_item = TripItem.new
     @trips = Trip.geocoded
-
-    #@markers = @trips.map do |trip|
-     # {
-        #lat: trip.latitude,
-       # lng: trip.longitude,
-      #  infoWindow: render_to_string(partial: "info_windowtrip", locals: { trip: trip }),
-     #   image_url: helpers.asset_url('logotravlr.svg') # did not include markers as this is primarily for centering the map.
-     # }
-
-    @trip_items = TripItem.geocoded
+    @trip_items = @trip.trip_items.geocoded
 
      respond_to do |format|
       format.html do
@@ -51,14 +43,6 @@ class TripsController < ApplicationController
   end
 
   def index
-    # @trips = Trip.all
-    #@trips = Trip.geocoded
-
-    #@markers = @trips.map do |trip|
-      #{
-       # lat: trip.latitude,
-        #lng: trip.longitude # did not include markers as this is primarily for centering the map.
-      #}
   end
 
   def edit
