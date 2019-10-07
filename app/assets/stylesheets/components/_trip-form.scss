@@ -1,0 +1,31 @@
+#trip-item-form {
+  .modal-header {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    button.close {
+      padding-bottom: 0.2rem;
+    }
+  }
+
+  .modal-body {
+    padding-top: 0;
+  }
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+.form-check {
+  padding-left: .40rem;
+}
+
+.form-control-label, label.file {
+  padding-left: .40rem;
+}
+
+.form-control-file {
+  padding-left: .40rem;
+}

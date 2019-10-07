@@ -6,7 +6,6 @@ class TripItem < ApplicationRecord
   belongs_to :trip
   belongs_to :category
   has_many :comments, dependent: :destroy
-  has_many :action_log_items
+  has_many :action_log_items, dependent: :destroy
   has_many :likes, dependent: :destroy
-  mount_uploader :photo, PhotoUploader
 end

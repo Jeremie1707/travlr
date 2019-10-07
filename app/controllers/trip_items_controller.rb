@@ -1,6 +1,6 @@
 class TripItemsController < ApplicationController
-  before_action :find_trip_item, only: [:show, :destroy, :update]
-  before_action :find_trip, only: [:create, :show]
+  before_action :find_trip_item, only: [:show, :update, :like]
+  before_action :find_trip, only: [:create, :show, :destroy]
 
   def new
     @trip_item = TripItem.new
@@ -14,8 +14,8 @@ class TripItemsController < ApplicationController
       redirect_to trip_path(@trip)
      else
        render :new
-    end
-    Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
+     end
+     Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
   end
 
   def index
@@ -31,6 +31,10 @@ class TripItemsController < ApplicationController
     end
   end
 
+  def like
+    Like.create!(trip_item_id: @trip_item.id, user_id: current_user.id)
+  end
+
   def show
     @comment = Comment.new
   end
@@ -41,8 +45,12 @@ class TripItemsController < ApplicationController
     redirect_to trip_path(@trip)
   end
 
-  def destroy
-  end
+ # def destroy
+ #   @trip_item = TripItem.find(params[:id])
+  #  @trip_item.delete
+   # redirect_to :back
+ # end
+ # Tons of trouble with dependent destroy and redirection. Not really worth it for something we won't show.
 
   private
 
@@ -55,6 +63,6 @@ class TripItemsController < ApplicationController
   end
 
   def find_trip_item
-    @trip_item = TripItem.find(params[:id]) # changed it to :id in
+    @trip_item = TripItem.find(params[:id]) # changed it to :id instead of trip_item_id for the edit to work. Might cause issues - Petter
   end
 end
