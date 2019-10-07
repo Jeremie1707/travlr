@@ -50,7 +50,7 @@ categories = [
 ]
 
 
-
+counter = 0
 category_counter = 0
 puts "---------- seeding ----------"
 user = User.create(email: 'test@test.as', password: 'test123', first_name: 'Petter', last_name: 'Gulliksen', remote_photo_url: "https://res.cloudinary.com/wagonapp/image/upload/v1570273638/gi5wgyp0ufiucnvnvsam.png" )
