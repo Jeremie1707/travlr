@@ -35,7 +35,9 @@ class TripItemsController < ApplicationController
   end
 
   def update
+    find_trip
     @trip_item.update(strong_params)
+    redirect_to trip_path(@trip)
   end
 
   def destroy
