@@ -33,6 +33,8 @@ address = [ '8312 Henningsvær',
             '8300 Svolvær'
 ]
 
+
+
 activity = [ "Going fishing",
              "Lofoten aquarium",
              "Fishing museum",
@@ -40,11 +42,14 @@ activity = [ "Going fishing",
              "Mountain trip"
 ]
 
-counter = 0
-category_counter = 0
-category = Category.create(name: 'Activity')
-category = Category.create(name: 'Housing')
-category = Category.create(name: 'Transport')
+
+categories = [
+{ "name" => "activity", "color"  => "#1FB09A" },
+{ "name" => "housing", "color" => "#ED8E34" },
+{ "name" => "transport", "color" => "red" }
+]
+
+
 
 category_counter = 0
 puts "---------- seeding ----------"
@@ -63,6 +68,18 @@ participant2 = Participant.create(trip_id: trip.id, user_id: user2.id)
 participant3 = Participant.create(trip_id: trip.id, user_id: user3.id)
 participant4 = Participant.create(trip_id: trip.id, user_id: user4.id)
 
+
+categoryarray = []
+categories.each do |category|
+categoryarray << Category.create(name: category["name"], color: category["color"])
+category_counter += 1
+end
+puts category_counter
+puts categoryarray
+
+
+
+
 5.times do
   attributes = {
 
@@ -72,11 +89,11 @@ participant4 = Participant.create(trip_id: trip.id, user_id: user4.id)
     price: rand(10..50),
     link: "www.travlr.group",
     start_date: Date.today.to_s,
-    end_date: (Date.today + rand(10..50)).to_s,
+    end_date: (Date.today + rand(2..3)).to_s,
     description: Faker::Restaurant.review,
     user_id: user.id,
     trip_id: trip.id,
-    category_id: category.id
+    category_id: categoryarray[rand(0..2)].id
   }
 
   TripItem.create(attributes)

@@ -51,7 +51,13 @@
       <div>
         <div id="small-map-container">
           <%= render partial: "map", locals: {markers: @markers} %>
+
         </div>
+
+          </div>
+           <div id="small-calendar-container" data-id="<%= @trip.id %>" class="trip-suggestions-calendar">
+          </div>
+
       </div>
     </div>
   </div>
@@ -84,7 +90,11 @@
 
   <div class="tabPanel">                         <!-- 4.section -->
     <!-- CALENDAR SECTION -->
-    <h2>Calendar goes here</h2>
+
+    <div class='container'>
+      <%= render partial: "partial/calendar" %>
+    </div>
+
   </div>
    <!-- FOR RENDERING POPUPS -->
   <% @trip.trip_items.each do |element| %>
@@ -97,6 +107,10 @@
 
   <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
 
+  <%= javascript_pack_tag 'fullcalendar' %>
+
+
 <% @trip.trip_items.each do |element| %>
   <%= render partial: "partial/edit", locals: {element: @trip_items.first, trip_id: @trip} %>
 <% end %>
+
