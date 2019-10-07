@@ -15,6 +15,7 @@ class TripItemsController < ApplicationController
      else
        render :new
     end
+    Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
   end
 
   def index
@@ -54,6 +55,6 @@ class TripItemsController < ApplicationController
   end
 
   def find_trip_item
-    @trip_item = TripItem.find(params[:id])
+    @trip_item = TripItem.find(params[:id]) # changed it to :id in
   end
 end
