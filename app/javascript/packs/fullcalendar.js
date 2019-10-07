@@ -9,9 +9,11 @@ const renderCalendar = (elementId) => {
     const id = calendarEl.dataset.id;
 
     var calendar = new Calendar(calendarEl, {
+      height: 40,
       plugins: [ dayGridPlugin, interactionPlugin ],
       editable: true,
-      events: `/trips/${id}.json`
+      events: `/trips/${id}.json`,
+
     });
 
     calendar.render();
@@ -21,8 +23,11 @@ const renderCalendar = (elementId) => {
 document.addEventListener('DOMContentLoaded', function(event) {
   document.querySelector('.tab-button-calendar').addEventListener('click', () => {
     renderCalendar('calendar');
+
   });
     renderCalendar('small-calendar-container');
+      // windowResize: function(view);
+
 
 });
 
