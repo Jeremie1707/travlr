@@ -99,7 +99,7 @@
 
   <div class="tabPanel">                         <!-- 4.section -->
     <!-- CALENDAR SECTION -->
-    <h2>Calandar goes here</h2>
+    <h2>Calendar goes here</h2>
   </div>
    <!-- FOR RENDERING POPUPS -->
   <% @trip.trip_items.each do |element| %>
@@ -111,3 +111,7 @@
   <% end %>
 
   <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
+
+<% @trip.trip_items.each do |element| %>
+  <%= render partial: "partial/edit", locals: {element: @trip_items.first, trip_id: @trip} %>
+<% end %>

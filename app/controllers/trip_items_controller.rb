@@ -35,7 +35,9 @@ class TripItemsController < ApplicationController
   end
 
   def update
+    find_trip
     @trip_item.update(strong_params)
+    redirect_to trip_path(@trip)
   end
 
   def destroy
@@ -52,6 +54,6 @@ class TripItemsController < ApplicationController
   end
 
   def find_trip_item
-    @trip_item = TripItem.find(params[:trip_id])
+    @trip_item = TripItem.find(params[:id])
   end
 end
