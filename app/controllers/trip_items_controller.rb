@@ -52,6 +52,6 @@ class TripItemsController < ApplicationController
   end
 
   def find_trip_item
-    @trip_item = TripItem.find(params[:trip_id])
+    @trip_item = TripItem.find(params[:id])
   end
 end

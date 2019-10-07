@@ -24,16 +24,7 @@ class TripsController < ApplicationController
   def show
     @trip_item = TripItem.new
     @trips = Trip.geocoded
-
-    #@markers = @trips.map do |trip|
-     # {
-        #lat: trip.latitude,
-       # lng: trip.longitude,
-      #  infoWindow: render_to_string(partial: "info_windowtrip", locals: { trip: trip }),
-     #   image_url: helpers.asset_url('logotravlr.svg') # did not include markers as this is primarily for centering the map.
-     # }
-
-    @trip_items = TripItem.geocoded
+    @trip_items = @trip.trip_items.geocoded
 
     @markers = @trip_items.map do |trip_item|
       {
@@ -46,14 +37,6 @@ class TripsController < ApplicationController
   end
 
   def index
-    # @trips = Trip.all
-    #@trips = Trip.geocoded
-
-    #@markers = @trips.map do |trip|
-      #{
-       # lat: trip.latitude,
-        #lng: trip.longitude # did not include markers as this is primarily for centering the map.
-      #}
   end
 
   def edit
