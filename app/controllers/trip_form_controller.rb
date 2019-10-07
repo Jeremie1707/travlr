@@ -39,9 +39,8 @@ class TripFormController < ApplicationController
 
   def set_users
     @users = []
-    ids = [current_user.id]
-    ids << params[:trip][:users] unless params[:trip].nil?
-    ids.each { |user| @users << User.find(user.to_i) } unless ids.nil?
+    @users << User.find(current_user.id)
+    params[:trip][:users].each { |user| @users << User.find(user) } unless params[:trip].nil?
     @users
   end
 

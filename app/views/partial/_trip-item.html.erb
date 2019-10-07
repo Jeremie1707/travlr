@@ -40,11 +40,9 @@
                   <div><p><%= element.description %></p></div>
                 </div>
                 <div class="trip-detail-card-content-comments">
-                  <h5>comments:</h5>
-                  <% element.comments.each do |com| %>
-                  <div><p><%= com.comment %></p></div>
-                  <%= render partial: 'partial/comment_form' %>
-                  <% end %>
+                   <div>
+                    <%= render 'comments/index', comments: element.comments, trip_item: element %>
+                    <%= render 'comments/form', trip: @trip, trip_item: element, comment: @comment %></div>
                 </div>
               </div>
             </div>

@@ -22,6 +22,7 @@ class TripsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @trip_item = TripItem.new
     @trips = Trip.geocoded
     @trip_items = @trip.trip_items.geocoded
