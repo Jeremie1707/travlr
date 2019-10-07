@@ -1,5 +1,5 @@
 class TripItemsController < ApplicationController
-  before_action :find_trip_item, only: [:show, :destroy, :update]
+  before_action :find_trip_item, only: [:show, :destroy, :update, :like]
   before_action :find_trip, only: [:create, :show]
 
   def new
@@ -14,8 +14,8 @@ class TripItemsController < ApplicationController
       redirect_to trip_path(@trip)
      else
        render :new
-    end
-    Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
+     end
+      Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
   end
 
   def index
@@ -30,6 +30,11 @@ class TripItemsController < ApplicationController
       }
     end
   end
+
+  def like
+    Like.create!(trip_item_id: @trip_item.id, user_id: current_user.id)
+  end
+
 
   def show
     @comment = Comment.new
@@ -53,6 +58,6 @@ class TripItemsController < ApplicationController
   end
 
   def find_trip_item
-    @trip_item = TripItem.find(params[:id]) # changed it to :id in
+    @trip_item = TripItem.find(params[:id]) # changed it to :id instead of trip_item_id for the edit to work. Might cause issues - Petter
   end
 end
