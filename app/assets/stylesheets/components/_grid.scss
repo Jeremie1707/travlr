@@ -1,0 +1,41 @@
+.wrapper{
+  margin: 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(auto, auto);
+}
+
+.wrapper > div{
+  // background: #eee;
+  padding: 1rem;
+}
+
+.nested{
+  display:grid;
+  grid-template-columns: 1fr;
+}
+
+.nested-1{
+  align-self:start;
+  justify-self:start;
+}
+
+.nested-2{
+  align-self:start;
+  justify-self:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -46,30 +46,15 @@
 
 
   <div class="tabPanel">                        <!-- 1.section -->
-    <div class="add-item d-flex justify-content-start">
-      <button type="button" class="btn" data-toggle="modal" data-target="#trip-item-form">
-        <p class="pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
-      </button>
-    </div>
-    <div class="row">
-
-      <div class="col-5">
-          <!-- LIST SECTION FOR TRIP SUGGESTIONS -->
-         <%= render partial: "partial/suggestions_list" %>
-      </div>
-      <div class="col-5 text-dark">
-        <!-- MAP SECTION FOR TRIP SUGGESTIONS -->
-          <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
-            <div class="container pt-5">
-           </div>
-         </div>
-           <div id="small-map-container">
+    <div class="wrapper">
+      <%= render partial: "partial/suggestions_list" %>
+      <div>
+        <div id="small-map-container">
           <%= render partial: "map", locals: {markers: @markers} %>
-          </div>
+        </div>
       </div>
     </div>
   </div>
-
 
   <div class="tabPanel">                        <!-- 2.section -->
     <div class="row">
