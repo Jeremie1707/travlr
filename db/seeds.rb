@@ -83,7 +83,7 @@ end
     price: rand(10..50),
     link: "www.travlr.group",
     start_date: Date.today.to_s,
-    end_date: (Date.today + rand(1..4)).to_s,
+    end_date: (Date.today + rand(2..3)).to_s,
     description: Faker::Restaurant.review,
     user_id: user.id,
     trip_id: trip.id,
