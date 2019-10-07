@@ -1,6 +1,6 @@
 class TripItemsController < ApplicationController
-  before_action :find_trip_item, only: [:show, :destroy, :update, :like]
-  before_action :find_trip, only: [:create, :show]
+  before_action :find_trip_item, only: [:show, :update, :like]
+  before_action :find_trip, only: [:create, :show, :destroy]
 
   def new
     @trip_item = TripItem.new
@@ -15,7 +15,7 @@ class TripItemsController < ApplicationController
      else
        render :new
      end
-      Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
+     Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
   end
 
   def index
@@ -35,7 +35,6 @@ class TripItemsController < ApplicationController
     Like.create!(trip_item_id: @trip_item.id, user_id: current_user.id)
   end
 
-
   def show
     @comment = Comment.new
   end
@@ -46,8 +45,12 @@ class TripItemsController < ApplicationController
     redirect_to trip_path(@trip)
   end
 
-  def destroy
-  end
+ # def destroy
+ #   @trip_item = TripItem.find(params[:id])
+  #  @trip_item.delete
+   # redirect_to :back
+ # end
+ # Tons of trouble with dependent destroy and redirection. Not really worth it for something we won't show.
 
   private
 
