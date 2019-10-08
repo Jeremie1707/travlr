@@ -26,7 +26,7 @@
                  <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+1fb09a(#{element.longitude},#{element.latitude})/#{element.longitude},#{element.latitude},10,0,0/400x400@2x?access_token=#{ENV['MAPBOX_API_KEY']}"%>
                   <% end %>
 
-                  <i class="fas fa-heart"></i>
+                 <button type="button" class="btn"><p class="add-item"><%= link_to trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i></p> </button>
                   <p class="detail-likes-counter"><%=element.likes.count%></p>
 
                 </div>
@@ -50,23 +50,12 @@
             </div>
           </div>
         </div>
-        <a href="#" data-target="<%=element.id%>" >
-            <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
-            <p><i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p>
-          <% end %>
-            </a>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
         <button type="button" class="btn" data-toggle="modal" data-target="#edit-trip-item-form">
               <p class="pl-5 add-item">Edit <i class="fas fa-pen"></i>&nbsp;</p>
             </button>
+        <button type="button" class="btn"><p class="add-item"><%= link_to "Like", trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i></p>
+    </button>
       </div>
-      <%# raise %>
-     <%#= link_to "Delete item", trip_trip_item_path(@trip, element), method: :delete, data: { confirm: 'Do you want to delete this item?'} %>
-     <button type="button" class="btn"><p class="add-item"><i class="fas fa-heart"></i><%= link_to "Like", trip_trip_item_likes_path(@trip, element), method: :post %></p>
-     </button>
     </div>
   </div>
 </div>

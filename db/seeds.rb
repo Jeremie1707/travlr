@@ -47,9 +47,9 @@ activity = [ "Going fishing",
 
 
 categories = [
-{ "name" => "activity", "color"  => "#1FB09A" },
-{ "name" => "housing", "color" => "#ED8E34" },
-{ "name" => "transport", "color" => "red" }
+{ "name" => "activity", "color"  => "#FE621D" },
+{ "name" => "housing", "color" => "#EF476F" },
+{ "name" => "transport", "color" => "#6153CC" }
 ]
 
 
