@@ -26,7 +26,7 @@
                  <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+1fb09a(#{element.longitude},#{element.latitude})/#{element.longitude},#{element.latitude},10,0,0/400x400@2x?access_token=#{ENV['MAPBOX_API_KEY']}"%>
                   <% end %>
 
-                  <i class="fas fa-heart"></i>
+                 <button type="button" class="btn"><p class="add-item"><%= link_to trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i></p> </button>
                   <p class="detail-likes-counter"><%=element.likes.count%></p>
 
                 </div>
@@ -53,6 +53,8 @@
         <button type="button" class="btn" data-toggle="modal" data-target="#edit-trip-item-form">
               <p class="pl-5 add-item">Edit <i class="fas fa-pen"></i>&nbsp;</p>
             </button>
+        <button type="button" class="btn"><p class="add-item"><%= link_to "Like", trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i></p>
+    </button>
       </div>
     </div>
   </div>
