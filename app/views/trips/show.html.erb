@@ -52,8 +52,19 @@
 </div>
 
 
-  <div class="tabPanel">                        <!-- 1.section -->
+  <div class="tabPanel">
+   <div class="d-flex">
+    <div class="row">
+      </div>
+   <div>
+    <button type="button" class="btn add-item" data-toggle="modal" data-target="#trip-item-form">
+        <p class="pt-3 pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;</p>
+      </button>
+   </div>
+    </div>
+                  <!-- 1.section -->
     <div class="wrapper">
+
       <%= render partial: "partial/2_suggestions_list" %>
       <div>
         <div id="small-map-container">
