@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :trips, only: [:new, :show, :create, :update ] do
     resources :trip_items, only: [ :index, :show, :new, :create, :update, :destroy] do
       resources :comments, only: [ :create ]
+      resources :likes, only: [ :create ]
     end
   end
 end
