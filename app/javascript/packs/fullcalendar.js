@@ -51,10 +51,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   });
     renderCalendar('small-calendar-container');
+    renderCalendar('big-calendar-container');
       // windowResize: function(view);
 
 
 });
+
 
 // $(document).ready(function() {
 //     $('#calendar').fullCalendar({
