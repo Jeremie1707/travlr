@@ -50,6 +50,11 @@
             </div>
           </div>
         </div>
+        <a href="#" data-target="<%=element.id%>" >
+            <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
+            <p><i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p>
+          <% end %>
+            </a>
         <!-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>

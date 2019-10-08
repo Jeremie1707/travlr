@@ -12,6 +12,9 @@ puts "Trip count = #{Trip.count}"
 puts "Trip item count  = #{TripItem.count}"
 puts "Category count = #{Category.count}"
 puts '---------- deleting all records ----------'
+Comment.destroy_all
+Like.destroy_all
+Participant.destroy_all
 TripItem.destroy_all
 Category.destroy_all
 Trip.destroy_all
@@ -74,10 +77,18 @@ categories.each do |category|
 categoryarray << Category.create(name: category["name"], color: category["color"])
 category_counter += 1
 end
-puts category_counter
-puts categoryarray
+puts " categories: #{category_counter}"
 
-
+start_dates = []
+end_dates = []
+counter_start = 0
+counter_end = 1
+5.times do
+  start_dates << (Date.today + counter_start).to_s
+  end_dates << (Date.today + counter_end).to_s
+  counter_start += 1
+  counter_end += 2
+end
 
 
 5.times do
@@ -88,8 +99,8 @@ puts categoryarray
     remote_photo_url: pictures[counter],
     price: rand(10..50),
     link: "www.travlr.group",
-    start_date: Date.today.to_s,
-    end_date: (Date.today + rand(2..3)).to_s,
+    start_date: start_dates[counter],
+    end_date: end_dates[counter],
     description: Faker::Restaurant.review,
     user_id: user.id,
     trip_id: trip.id,

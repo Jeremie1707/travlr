@@ -45,12 +45,12 @@ class TripItemsController < ApplicationController
     redirect_to trip_path(@trip)
   end
 
- # def destroy
- #   @trip_item = TripItem.find(params[:id])
-  #  @trip_item.delete
-   # redirect_to :back
- # end
- # Tons of trouble with dependent destroy and redirection. Not really worth it for something we won't show.
+  # def destroy
+  #   @trip_item = TripItem.find(params[:id])
+  #   @trip_item.delete
+  #   redirect_to :back
+  # end
+  # Tons of trouble with dependent destroy and redirection. Not really worth it for something we won't show.
 
   private
 

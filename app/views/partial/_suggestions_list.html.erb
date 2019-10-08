@@ -2,7 +2,7 @@
   <div class="container">
     <div class="suggestions-first-card">
       <button type="button" class="btn add-item" data-toggle="modal" data-target="#trip-item-form">
-      <p class="pt-3 pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
+        <p class="pt-3 pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;Add a trip suggestion</p>
       </button>
     </div>
     <% @trip.trip_items.each do |element| %>
@@ -41,29 +41,11 @@
             </div>
           </div>
         </div>
-        <% if @trip.user == current_user %>
-          <% if element.confirmed == true%>
-          <div class="route-add" >
-            <a href="#" data-target="<%=element.id%>" >
-            <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
-            <p><i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p>
-          <% end %>
-            </a>
-          </div>
-          <% else %>
-          <div class="route-add" >
-            <a href="#" data-target="<%=element.id%>" >
-            <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
-            <p><i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p>
-            <% end %>
-            </a>
-          </div>
-          <% end %>
-        <% end %>
-          </div>
+
       </div>
-    <% end %>
     </div>
+    <% end %>
+  </div>
 </div>
 
 
