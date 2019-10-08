@@ -7,7 +7,7 @@
   <% @trip.trip_items.each do |element| %>
   <div class="nested-box">
     <div class="image-container">
-      <a href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
+      <a id="card-image-<%= element.id %>" href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
         <%= cl_image_tag element.photo, class:"card-image" %>
       </a>
     </div>
