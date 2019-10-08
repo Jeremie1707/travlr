@@ -48,15 +48,15 @@ class TripItemsController < ApplicationController
 
   private
 
-  # def find_trip
-  #   @trip = Trip.find(params[:trip_id])
-  # end
+  def find_trip
+    @trip = Trip.find(params[:trip_id])
+  end
 
   def strong_params
     params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id, :confirmed)
   end
 
-  # def find_trip_item
-  #   @trip_item = TripItem.find(params[:id]) # changed it to :id instead of trip_item_id for the edit to work. Might cause issues - Petter
-  # end
+  def find_trip_item
+    @trip_item = TripItem.find(params[:id]) # changed it to :id instead of trip_item_id for the edit to work. Might cause issues - Petter
+  end
 end
