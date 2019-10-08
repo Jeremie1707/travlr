@@ -14,7 +14,7 @@
       </div>
       <div class="suggestions-card-information d-flex">
         <div class="suggestions-card-information-text">
-          <h6><%= element.name %></h6>
+          <h4><%= element.name %></h4>
           <p><%= element.start_date %></p>
         </div>
         <div class="comment">
@@ -48,7 +48,15 @@
   </div>
 </div>
 
+<div class="nested">
+  <% @trip.trip_items.each do |element| %>
+    <div class="nested-box">
+      <%= cl_image_tag element.photo %>
+    </div>
+  <% end %>
 
+</div>
+</div>
 
 
 

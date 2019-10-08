@@ -1,27 +1,6 @@
 .suggestions-item-card body {
   font-family: roboto;
 }
-
-.suggestions-item-card {
-  position: relative;
-  font-family: roboto;
-  height: 120px;
-  // border: 1px solid black;
-  border-radius: 6px;
-  margin: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  overflow: hidden;
-    h6 {
-  font-size: 15px;
-  padding: 10px;
-  color: #1C4F5A;
-  }
-    p   {
-    font-size: 12px;
-    padding: 10px;
-    text-align: left;
-  }
-}
 .suggestions-first-card {
   font-family: roboto;
   overflow: hidden;
@@ -35,6 +14,29 @@
     color:#1FB09A;
   }
 }
+
+.suggestions-item-card {
+  position: relative;
+  font-family: roboto;
+  height: 120px;
+  // border: 1px solid black;
+  border-radius: 6px;
+  margin: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+    h4 {
+  font-size: 22px;
+  padding: 1rem 1rem 0.3rem 0.5rem;
+  color: #1C4F5A;
+  margin:0
+  }
+    p   {
+    font-size: 14px;
+    padding: 0 0 0 0.6rem;
+    text-align: left;
+  }
+}
+
 
 .suggestions-item-card img {
   width: 120px ;
@@ -105,6 +107,27 @@ border-radius: 50%;
   left:12px;
 }
 
+.fa-heart{
+  color: #e03a3a;
+  opacity: 0.8;
+}
+
+.fa-heart:hover{
+  color: #e03a3a;
+  opacity: 1;
+}
+
+
+.fa-comment{
+  color: #3898b5;
+  opacity: 0.8;
+}
+
+.fa-comment:hover{
+  color: #3898b5;
+  opacity: 1;
+}
+
 
 
 .likes p {
@@ -123,10 +146,32 @@ border-radius: 50%;
   right: 5%;
 }
 
-.fa-plus-circle{
-  font-size: 28px;
-  color: grey;
+// .fa-plus-circle{
+//   font-size: 50px;
+//   color: #1fb09a;
+// }
+
+.add-button > a > p{
+  font-size: 24px;
+  color: #1fb09a;
+  opacity: 0.7;
 }
+
+.add-button > a > p:hover{
+  font-size: 24px;
+  color: #1fb09a;
+  opacity: 1;
+  text-decoration: none !important;
+}
+
+.add-button > a:hover{
+  font-size: 24px;
+  color: #1fb09a;
+  opacity: 1;
+  text-decoration: none !important;
+}
+
+
 
 .added{
   color: green;
