@@ -1,12 +1,14 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-// import listPlugin from '@fullcalendar/list';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
-// import bootstrapPlugin from '@fullcalendar/bootstrap';
+import bootstrapPlugin from '@fullcalendar/bootstrap';
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
-// import '@fullcalendar/list/main.css';
-// import '@fullcalendar/bootstrap/main.css';
+import '@fullcalendar/list/main.css';
+import '@fullcalendar/timegrid/main.css';
+import '@fullcalendar/bootstrap/main.css';
 
 
 const renderCalendar = (elementId) => {
@@ -15,13 +17,13 @@ const renderCalendar = (elementId) => {
 
     var calendar = new Calendar(calendarEl, {
 
-      plugins: [ dayGridPlugin, interactionPlugin, /*listPlugin, bootstrapPlugin*/ ],
-    //   themeSystem: 'bootstrap',
-    //   header: {
-    //   left: 'prev,next today',
-    //   center: 'title',
-    //   right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-    // },
+      plugins: [ dayGridPlugin, interactionPlugin, listPlugin, bootstrapPlugin ],
+      themeSystem: 'bootstrap',
+      header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+    },
       editable: false,
       events: `/trips/${id}.json`,
       eventClick: (eventClickInfo) => {
