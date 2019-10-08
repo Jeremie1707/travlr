@@ -26,7 +26,6 @@ class TripsController < ApplicationController
     @trip_item = TripItem.new
     @trips = Trip.geocoded
     @trip_items = @trip.trip_items.geocoded
-
      respond_to do |format|
       format.html do
         @markers = @trip_items.map do |trip_item|
