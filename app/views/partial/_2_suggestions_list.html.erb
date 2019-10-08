@@ -1,4 +1,9 @@
 <div class="nested">
+  <div>
+    <button type="button" class="btn add-item" data-toggle="modal" data-target="#trip-item-form">
+        <p class="pt-3 pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;</p>
+      </button>
+   </div>
   <% @trip.trip_items.each do |element| %>
   <div class="nested-box">
     <div class="image-container">
@@ -41,10 +46,11 @@
     </div>
     <div class="add-button">
       <a class="add-button" href="#" data-target="<%=element.id%>" >
-        <%= link_to trip_trip_item_path(element, trip_item: { confirmed: true }), remote: true, method: :patch do %>
+        <%= link_to trip_trip_item_path(@trip, element, trip_item: { trip_id: @trip, id: element.id,confirmed: true }), method: :patch do %>
         <p>Add to Route<i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p>
         <% end %>
       </a>
+
     </div>
   </div>
   <% end %>

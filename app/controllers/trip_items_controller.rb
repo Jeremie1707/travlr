@@ -1,5 +1,5 @@
 class TripItemsController < ApplicationController
-  before_action :find_trip_item, only: [:show, :update, :like]
+  before_action :find_trip_item, only: [:show, :like]
   before_action :find_trip, only: [:create, :show, :destroy]
 
   def new
@@ -40,29 +40,23 @@ class TripItemsController < ApplicationController
   end
 
   def update
-    find_trip
-    @trip_item.update(strong_params)
-    redirect_to trip_path(@trip)
+    @trip_item = TripItem.find(params[:id])
+    @trip_item.update_attributes(strong_params)
+    @trip_item.save
+    # redirect_to trip_path(@trip)
   end
-
-  # def destroy
-  #   @trip_item = TripItem.find(params[:id])
-  #   @trip_item.delete
-  #   redirect_to :back
-  # end
-  # Tons of trouble with dependent destroy and redirection. Not really worth it for something we won't show.
 
   private
 
-  def find_trip
-    @trip = Trip.find(params[:trip_id])
-  end
+  # def find_trip
+  #   @trip = Trip.find(params[:trip_id])
+  # end
 
   def strong_params
     params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id, :confirmed)
   end
 
-  def find_trip_item
-    @trip_item = TripItem.find(params[:id]) # changed it to :id instead of trip_item_id for the edit to work. Might cause issues - Petter
-  end
+  # def find_trip_item
+  #   @trip_item = TripItem.find(params[:id]) # changed it to :id instead of trip_item_id for the edit to work. Might cause issues - Petter
+  # end
 end
