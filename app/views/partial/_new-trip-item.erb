@@ -1,8 +1,9 @@
 <!-- MODAL: _NEW-TRIP-ITEM -->
 <div class="modal fade" id="trip-item-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered trip-item-form" role="document">
+  <div class="modal-dialog modal-dialog-scrollable trip-item-form" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header-trip-item-detail">
+        <h5>Add a stop on your trip!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,6 +18,8 @@
           <%= f.input :address, placeholder: "Add the address" %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :start_date ,placeholder: "when does it start?" %>
+          <%= f.input :end_date ,placeholder: "when does it end?" %>
           <%= f.input :description, placeholder: "Add a description of your item" %>
           <%= f.input :price, placeholder: "What is the price?"%>
           <%= f.input :link, placeholder: "Add a link for more info"%>

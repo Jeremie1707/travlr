@@ -51,13 +51,10 @@
       <div>
         <div id="small-map-container">
           <%= render partial: "map", locals: {markers: @markers} %>
-
+          <button class="btn btn-enter mt-5 Big-Calendar">Big calendar</button>
+          <div id="small-calendar-container" data-id="<%= @trip.id %>" class="trip-suggestions-calendar">
         </div>
-
-          </div>
-           <div id="small-calendar-container" data-id="<%= @trip.id %>" class="trip-suggestions-calendar">
-          </div>
-
+        </div>
       </div>
     </div>
   </div>
