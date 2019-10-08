@@ -1,10 +1,15 @@
 import "bootstrap";
+import flatpickr from "flatpickr";
+import 'flatpickr/dist/flatpickr.min.css'
+import { initFlatpickr } from '../plugins/flatpickr'
+
 import { setupTabEventListeners } from "../components/dashboard_nav";
-setupTabEventListeners()
 import { setupButtonEventListeners } from "../components/add_button";
-setupButtonEventListeners()
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 
+setupButtonEventListeners()
+setupTabEventListeners()
+initFlatpickr();
 initMapbox();

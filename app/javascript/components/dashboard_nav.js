@@ -12,8 +12,10 @@ const showPanels = (tabIndex) =>{
       node.classList.remove('show-panel')
     }
   });
-  tabPanels[tabIndex].classList.add('show-panel')
-  tabButtons[tabIndex].classList.add('show-button')
+  if (tabPanels.length) {
+    tabPanels[tabIndex].classList.add('show-panel')
+    tabButtons[tabIndex].classList.add('show-button')
+  }
 }
 showPanels(0)
 

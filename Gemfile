@@ -5,6 +5,7 @@ gem 'bootsnap', require: false
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'devise'
+gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
 gem 'geocoder'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
