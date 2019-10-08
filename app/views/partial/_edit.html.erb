@@ -1,8 +1,10 @@
 <div class="modal fade" id="edit-trip-item-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header-trip-item-detail">
+
         <h5 class="modal-title" id="exampleModalLongTitle">Edit trip-suggestion</h5>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -19,12 +21,14 @@
           <%= f.input :address, placeholder: "The address of your item" %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
+           <%= f.input :start_date ,placeholder: "when does it start?" %>
+          <%= f.input :end_date ,placeholder: "when does it end?" %>
           <%= f.input :description, placeholder: "Edit the description of your item" %>
           <%= f.input :price, placeholder: "What is the price?"%>
           <%= f.input :link, placeholder: "Add a link for more info"%>
           <%= f.association :category, as: :radio_buttons %>
           <div class="modal-footer justify-content-center">
-            <%= f.button :submit, "Update", class: 'btn btn-success' %>
+          <div> <%= f.button :submit, "Update", class: 'btn btn-success' %></div>
           </div>
           <% end %>
         </div>
