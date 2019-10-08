@@ -12,7 +12,8 @@ const initFlatpickr = () => {
     flatpickr(".datepicker", {
       // enableTime: true,
       // Select the altvailable meetings dates from groups/show.html.erb file
-      minDate: "today"
+      minDate: "today",
+      altInput: true
     });
   }
 }
