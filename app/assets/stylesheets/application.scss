@@ -2,6 +2,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+//@import '~flatpickr/dist/themes/light.css';
+
 
 // Graphical variables
 @import "config/fonts";
@@ -16,5 +18,5 @@
 @import "components/trip-detail-modal";
 // @import "components/trip-item-card";
 @import "components/trip-detail-modal";
-@import "components/map"
+@import "components/map";
 

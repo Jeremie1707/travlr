@@ -1,8 +1,8 @@
 
 <div class="container">
   <%= simple_form_for(@trip, url: wizard_path) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'} %>
+  <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'} %>
   <%= f.submit :submit %>
   <% end %>
 </div>
