@@ -5,21 +5,17 @@
   width: 100vw;
   flex-direction: column;
   text-align: center;
-
-    .fa-globe-americas{
-      font-size: 3.5rem;
-      color: #1FB09A;
-    }
-
 }
 
-.nested-trip-creation {
-margin: 20vh auto 15vh  auto;
+.nested-trip-creation.destination {
+margin: 20vh auto 20vh  auto;
 width:60vw;
-
 }
 
-
+.nested-trip-creation.description {
+margin: 14vh auto 20vh  auto;
+width:60vw;
+}
 
 .nested-trip-creation .form-control{
   background: transparent;
@@ -32,11 +28,15 @@ width:60vw;
 }
  .nested-trip-creation .form-group{
   background: transparent;
-  border-bottom: 2px #A4B0C3solid;
+  border-bottom: 2px #A4B0C3 solid;
   input::placeholder {
   color: #A4B0C3;
 
   }
+}
+
+.header.description {
+  margin-top: 3rem;
 }
 
 .form-destination {
@@ -50,14 +50,14 @@ width:60vw;
 .footer-flex-item{
   justify-content: space-around;
   align-items: center;
+
 }
 
 .footer-end{
  margin-top: -3vh;
- i {
-  margin: 2.5rem;
-  font-size:2rem;
- }
+ position: sticky;
+  bottom: 0;
+
 }
 
 .grow-footer {
@@ -65,5 +65,29 @@ width:60vw;
   border-bottom: 2px white solid;
   height: 2px;
   margin: 0 2rem;
-
 }
+
+
+  .container-trip-creation  i {
+  margin: 2.5rem;
+  font-size:2rem;
+ }
+
+ .destination-form i.fa-globe-americas {
+  margin: 2.5rem;
+  font-size: 3.5rem;
+  color:#1FB09A;
+ }
+
+ .date-form i.fa-calendar-alt {
+  margin: 2.5rem;
+  font-size: 3.5rem;
+  color:#1FB09A;
+ }
+
+  .friends-form i.fa-users{
+  margin: 2.5rem;
+  font-size: 3.5rem;
+  color:#1FB09A;
+ }
+
