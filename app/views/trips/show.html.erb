@@ -50,7 +50,7 @@
       <%= render partial: "partial/2_suggestions_list" %>
       <div>
         <div id="small-map-container">
-          <%= render partial: "map", locals: {markers: @markers} %>
+          <%= render partial: "map", locals: {markers: @markers_for_suggestions} %>
           <div class="container-calendar">
             <a href="#" class="tab-button tab-button-calendar" data-tab-index="3">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -76,7 +76,7 @@
       </div>
       <div class="col-5">
         <p>map</p>
-        <%= image_tag image_url('Group_22.png') %>
+        <%= render partial: "partial/map_for_route", locals: {markers: @markers_for_confirmed} %>
 
 
       </div>

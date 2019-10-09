@@ -10,12 +10,12 @@ class TripItemsController < ApplicationController
      @trip_item = TripItem.new(strong_params)
      @trip_item.user = current_user
      @trip_item.trip = @trip
-     if @trip_item.save!
+     if @trip_item.save
       redirect_to trip_path(@trip)
+      Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
      else
        render :new
      end
-     Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
   end
 
   def index

@@ -24,21 +24,15 @@ class TripsController < ApplicationController
   def show
     @comment = Comment.new
     @trip_item = TripItem.new
-    @trips = Trip.geocoded
-    @trip_items = @trip.trip_items.geocoded
-     respond_to do |format|
-      format.html do
-        @markers = @trip_items.map do |trip_item|
-        {
-          lat: trip_item.latitude,
-          lng: trip_item.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
-          image_url: helpers.asset_url('lightbulb-regular.svg') # could probably implement different markers based on category(house for lodging etc.)
-        }
-        end
-      end
-      format.json
-    end
+    # set markers for trip suggestions map
+    @map_items_suggestions = @trip.trip_items.geocoded
+    @markers_for_suggestions = create_markers(@map_items_suggestions)
+
+    # set markers for Route map
+    @map_trip_items_confirmed = TripItem.where("trip_id = ? and confirmed = ?", "#{@trip.id}", "true").geocoded
+    @map_for_confirmed = create_markers(@map_trip_items_confirmed)
+
+    @trip_items = @trip.trip_items
   end
 
   def index
@@ -54,6 +48,23 @@ class TripsController < ApplicationController
   end
 
   private
+
+  def create_markers(trip_items)
+    respond_to do |format|
+      format.html do
+        @humbug = trip_items.map do |trip_item|
+        {
+          lat: trip_item.latitude,
+          lng: trip_item.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
+          image_url: helpers.asset_url('lightbulb-regular.svg') # could probably implement different markers based on category(house for lodging etc.)
+        }
+        end
+      end
+      format.json
+    end
+    @humbug
+  end
 
   def set_trip
     @trip = Trip.find(params[:id])
