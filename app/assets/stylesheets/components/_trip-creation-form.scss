@@ -13,8 +13,21 @@ width:60vw;
 }
 
 .nested-trip-creation.description {
-margin: 14vh auto 20vh  auto;
-width:60vw;
+margin: 12vh auto 20vh  auto;
+width:40vw;
+}
+
+.nested-trip-creation.date {
+margin: 18vh auto 20vh  auto;
+width:25vw;
+}
+
+.nested-trip-creation.friends {
+margin: 20vh auto 20vh  auto;
+width:40vw;
+  h2 {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .nested-trip-creation .form-control{
@@ -30,13 +43,28 @@ width:60vw;
   background: transparent;
   border-bottom: 2px #A4B0C3 solid;
   input::placeholder {
-  color: #A4B0C3;
-
+  color: rgba(164, 176, 195, 0.8);
   }
-}
+  textarea::placeholder{
+      color: rgba(164, 176, 195, 0.8);
+    };
+  }
+
+  .form-control.datepicker {
+      border: 2px #A4B0C3 solid;
+    }
+    .form-group.string.optional.trip_start_date {
+      border-bottom: 0px transparent solid !important;
+      margin-top: 2rem;
+
+    }
+     .form-group.string.optional.trip_end_date {
+      border-bottom: 0px transparent solid !important;
+
+    }
 
 .header.description {
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
 .form-destination {
