@@ -1,6 +1,6 @@
   <div class="row justify-content-center">
   <%= simple_form_for([trip, trip_item, comment], remote: true) do |form| %>
-    <%= form.input :comment, as: :text, placeholder: "What do you think?" %>
+    <%= form.input :comment, as: :text, input_html: {class: 'comment-box'}, placeholder: "What do you think?" %>
     <div class="row justify-content-center">
     <%= form.button :submit %>
     </div>
