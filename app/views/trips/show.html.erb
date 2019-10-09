@@ -2,12 +2,19 @@
 <div class="d-flex justify-content-start">
   <div class="ml-3">
     <h1 class="mb-0"><%= @trip.name %>&nbsp;</h1>
-    <p><%= @trip.description %></p>
-  </div>
-  <div class="d-flex mt-2 ml-2" id="date">
-    <p><%= @trip.start_date %> </p>
+    <div class="d-flex justify-content-start">
+    <p class="trip-description"><%= @trip.description %></p>
+    <p>&nbsp;</p>
+    <p class="trip-date"><%= @trip.start_date %> </p>
     <p> &nbsp; to &nbsp; </p>
     <p><%= @trip.end_date %></p>
+    </div>
+
+  </div>
+  <div class="d-flex mt-2 ml-2" id="date">
+   <!--  <p><%= @trip.start_date %> </p>
+    <p> &nbsp; to &nbsp; </p>
+    <p><%= @trip.end_date %></p> -->
   </div>
   <div id="avatars" class="ml-3 m-2">
     <%#= cl_image_tag current_user.photo, class: "avatar" %>
@@ -45,8 +52,19 @@
 </div>
 
 
-  <div class="tabPanel">                        <!-- 1.section -->
+  <div class="tabPanel">
+   <div class="d-flex">
+    <div class="row">
+      </div>
+   <div>
+    <button type="button" class="btn add-item" data-toggle="modal" data-target="#trip-item-form">
+        <p class="pt-3 pl-5 add-item"><i class="fas fa-plus-circle"></i> &nbsp;</p>
+      </button>
+   </div>
+    </div>
+                  <!-- 1.section -->
     <div class="wrapper">
+
       <%= render partial: "partial/2_suggestions_list" %>
       <div>
         <div id="small-map-container">

@@ -57,6 +57,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 });
 
+document.addEventListener('DOMContentLoaded', function(event) {
+  document.querySelector('.fa-expand-arrows-alt').addEventListener('click', () => {
+    renderCalendar('calendar');
+
+  });
+    renderCalendar('big-calendar-container');
+      // windowResize: function(view);
+
+
+});
 
 // $(document).ready(function() {
 //     $('#calendar').fullCalendar({
