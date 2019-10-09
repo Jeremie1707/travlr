@@ -7,7 +7,6 @@
 
 
 const initFlatpickr = () => {
-  console.log("TEST FLATPICKR");
   if(document.querySelectorAll('.datepicker').length > 0) {
     flatpickr(".datepicker", {
       // enableTime: true,
