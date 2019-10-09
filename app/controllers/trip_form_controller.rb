@@ -11,7 +11,7 @@ class TripFormController < ApplicationController
       @trip = Trip.last
     when :friends
       @trip = Trip.last
-      @users = User.all
+      @users = User.where.not(id: current_user.id)
     end
     render_wizard
   end
