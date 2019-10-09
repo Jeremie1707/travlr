@@ -6,5 +6,6 @@ class Trip < ApplicationRecord
   has_many :trip_items, dependent: :destroy
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-
+  validates :description, length: { maximum: 40 }
+  validates :location, presence: true, length: { minimum: 1 }
 end
