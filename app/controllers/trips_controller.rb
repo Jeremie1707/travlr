@@ -63,6 +63,7 @@ class TripsController < ApplicationController
       end
       format.json
     end
+    raise
     @humbug
   end
 

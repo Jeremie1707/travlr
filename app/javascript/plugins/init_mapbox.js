@@ -41,7 +41,7 @@ function flyToLocation(currentLocation) {
 }
 
 const initMapbox = () => {
-  console.log('initMapbox()');
+  // console.log('initMapbox()');
   const mapElements = document.querySelectorAll('.mapbox-map');
   mapElements.forEach(mapElement => {
     const map = buildMap(mapElement);
