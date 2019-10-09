@@ -4,9 +4,9 @@
       <div class = "header"><h2>Name of your <span class="form-destination">Trip </span>:</h2></div>
       <div class="container">
         <%= simple_form_for(@trip, url: wizard_path) do |f| %>
-        <%= f.input :name, placeholder: "Trip to Lofoten", label: false, class:"creation-trip-name" %>
-        <div class = "header description"><h2>Description:</span></h2></div>
-        <%= f.input :description,  placeholder: "Amazing hiking trip with my friends", label: false, class:"creation-trip-description" %>
+        <%= f.input :name, required: true, placeholder: "Trip to Lofoten", label: false, class:"creation-trip-name" %>
+        <div class = "header description"><h2>description:</span></h2></div>
+        <%= f.input :description, required: true, placeholder: "Amazing hiking trip with my friends", label: false, class:"creation-trip-description" %>
         <%= f.submit :submit, remote: true, class:"btn btn-trip-creation-form"%>
         <% end %>
       </div>
