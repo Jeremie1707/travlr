@@ -1,7 +1,28 @@
-<div class="container p-5">
-  <%= simple_form_for @trip do |form|%>
+<div class="container-trip-creation d-flex">
+  <div class="col-12 ">
+    <div class="nested-trip-creation ">
+      <div class = "header"><h2>What is your <span class="form-destination">destination</span>?</h2></div>
+      <div class="container p-5">
+        <%= simple_form_for @trip do |form|%>
 
-    <%= form.input :location, placeholder: "Where are you going?" %>
-    <%= form.submit %>
-  <% end %>
+        <%= form.input :location, placeholder: "Lofoten...Paris...", label: false %>
+        <%= form.submit class:"btn btn-trip-creation-form" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 footer-end">
+      <div class="row footer-flex-item ">
+        <div class="grow-footer"></div>
+      <div><i class="fas fa-globe-americas"></i></div>
+      <div class="grow-footer"></div>
+      <div><i class="fas fa-users"></i></div>
+      <div class="grow-footer"></div>
+      <div><i class="fas fa-calendar-alt"></i></div>
+      <div class="grow-footer"></div>
+      </div>
+
+    </div>
+  </div>
 </div>
+
+

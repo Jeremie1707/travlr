@@ -1,0 +1,69 @@
+.container-trip-creation {
+  background-color: #31333B;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  text-align: center;
+
+    .fa-globe-americas{
+      font-size: 3.5rem;
+      color: #1FB09A;
+    }
+
+}
+
+.nested-trip-creation {
+margin: 20vh auto 15vh  auto;
+width:60vw;
+
+}
+
+
+
+.nested-trip-creation .form-control{
+  background: transparent;
+  border: 1px solid transparent;
+  text-align: center;
+  font-size:1.5rem;
+  color: white !important ;
+
+
+}
+ .nested-trip-creation .form-group{
+  background: transparent;
+  border-bottom: 2px #A4B0C3solid;
+  input::placeholder {
+  color: #A4B0C3;
+
+  }
+}
+
+.form-destination {
+  color: #1FB09A;
+}
+
+.align-end {
+  align-self: flex-end;
+}
+
+.footer-flex-item{
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-end{
+ margin-top: -3vh;
+ i {
+  margin: 2.5rem;
+  font-size:2rem;
+ }
+}
+
+.grow-footer {
+  flex-grow: 1;
+  border-bottom: 2px white solid;
+  height: 2px;
+  margin: 0 2rem;
+
+}
