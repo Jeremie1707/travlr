@@ -1,8 +1,25 @@
-
-<div class="container">
-  <%= simple_form_for(@trip, url: wizard_path) do |f| %>
-  <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'} %>
-  <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'} %>
-  <%= f.submit :submit %>
-  <% end %>
+<div class="container-trip-creation d-flex">
+  <div class="col-12 ">
+    <div class="nested-trip-creation date ">
+      <div class = "header"><h2>When is it ?</h2></div>
+      <div class="container">
+        <%= simple_form_for(@trip, url: wizard_path) do |f| %>
+        <%= f.input :start_date, as: :string, placeholder: "Start date", label: false, input_html: {class: 'datepicker'} %>
+        <%= f.input :end_date, as: :string, placeholder: "End date",label: false, input_html: {class: 'datepicker'} %>
+        <%= f.submit :submit, class:"btn btn-trip-creation-form" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 footer-end date-form">
+      <div class="row footer-flex-item ">
+        <div class="grow-footer"></div>
+        <div><i class="fas fa-globe-americas"></i></div>
+        <div class="grow-footer"></div>
+        <div><i class="fas fa-calendar-alt"></i></div>
+        <div class="grow-footer"></div>
+        <div><i class="fas fa-users"></i></div>
+        <div class="grow-footer"></div>
+      </div>
+    </div>
+  </div>
 </div>
