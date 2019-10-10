@@ -50,7 +50,7 @@
       <%= render partial: "partial/2_suggestions_list" %>
       <div>
         <div id="small-map-container">
-          <%= render partial: "map", locals: {markers: @markers_for_suggestions} %>
+          <%= render partial: "partial/suggestions_map", locals: {markers: @markers_for_suggestions} %>
           <div class="container-calendar">
             <a href="#" class="tab-button tab-button-calendar" data-tab-index="3">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -76,7 +76,7 @@
       </div>
       <div class="col-5">
         <p>map</p>
-        <%= render partial: "partial/map_for_route", locals: {markers: @markers_for_confirmed} %>
+        <%= render partial: "partial/map_for_route", locals: {markers: @markers_for_confirmed, name: 'map-tab-route'} %>
 
 
       </div>
@@ -88,7 +88,7 @@
     <!-- FULSCREEN MAP SECTION -->
     <h2>Map Section</h2>
     <div class='container'>
-    <%= render partial: "map", locals: {markers: @markers, name: 'map-tab-map'} %>
+    <%= render partial: "map", locals: {markers: @markers_for_suggestions, name: 'map-tab-map'} %>
     </div>
   </div>
 
@@ -111,8 +111,8 @@
 
   <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
 
-  <%= javascript_pack_tag 'fullcalendar' %>
-  <%= stylesheet_pack_tag 'fullcalendar', media: 'all' %>
+  <%#= javascript_pack_tag 'fullcalendar' %>
+  <%#= stylesheet_pack_tag 'fullcalendar', media: 'all' %>
 
 
 <% @trip.trip_items.each do |element| %>
