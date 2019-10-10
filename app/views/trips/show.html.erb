@@ -3,11 +3,11 @@
   <div class="ml-3">
     <h1 class="mb-0"><%= @trip.name %>&nbsp;</h1>
     <div class="d-flex justify-content-start">
-    <p class="trip-description"><%= @trip.description %></p>
-    <p>&nbsp;</p>
-    <p class="trip-date"><%= @trip.start_date %> </p>
-    <p> &nbsp; to &nbsp; </p>
-    <p><%= @trip.end_date %></p>
+      <p class="trip-description"><%= @trip.description %></p>
+      <p>&nbsp;</p>
+      <p class="trip-date"><%= @trip.start_date %> </p>
+      <p> &nbsp; to &nbsp; </p>
+      <p><%= @trip.end_date %></p>
     </div>
 
   </div>
@@ -52,99 +52,101 @@
 </div>
 
 
-  <div class="tabPanel">
-   <div class="d-flex suggestion-tab-flex-top">
-    <div class="row">
+<div class="tabPanel">
+ <div class="d-flex suggestion-tab-flex-top">
+  <div class="row">
+  </div>
+  <a href class="btn btn-2 pl-5" data-toggle="modal" data-target="#trip-item-form">
+    <i class="fas fa-plus-circle"> Add a new stop to your trip!</i>
+  </a>
+  <div>
+  </div>
+</div>
+<!-- 1.section -->
+<div class="wrapper">
+
+  <%= render partial: "partial/2_suggestions_list" %>
+
+  <div class="map-wrapper">
+    <ul class="nav nav-tabs md-tabs switches" id="myTabMD" role="tablist">
+      <li class="nav-item switch">
+        <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
+        aria-selected="true"><i class="fas fa-globe-europe"></i></a>
+      </li>
+      <li class="nav-item switch">
+        <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+        aria-selected="false"><i class="far fa-calendar-alt"></i></a>
+      </li>
+
+    </ul>
+    <div class="tab-content card" id="myTabContentMD">
+      <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
+        <!--  MAP -->
+        <%= render partial: "partial/suggestions_map", locals: {markers: @markers_for_suggestions} %>
       </div>
-      <a href class="btn btn-2 pl-5" data-toggle="modal" data-target="#trip-item-form">
-        <i class="fas fa-plus-circle"> Add a new stop to your trip!</i>
-      </a>
-   <div>
-   </div>
-    </div>
-                  <!-- 1.section -->
-    <div class="wrapper">
+      <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+        <!-- CALENDAR -->
 
-      <%= render partial: "partial/2_suggestions_list" %>
-
-      <div class="map-wrapper">
-        <ul class="nav nav-tabs md-tabs switches" id="myTabMD" role="tablist">
-        <li class="nav-item switch">
-          <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
-            aria-selected="true"><i class="fas fa-globe-europe"></i></a>
-        </li>
-        <li class="nav-item switch">
-          <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
-            aria-selected="false"><i class="far fa-calendar-alt"></i></a>
-        </li>
-
-      </ul>
-      <div class="tab-content card" id="myTabContentMD">
-        <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
-          <!--  MAP -->
-          <%= render partial: "partial/suggestions_map", locals: {markers: @markers_for_suggestions} %>
-        </div>
-        <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
-          <!-- CALENDAR -->
-
-          <div class="container-calendar">
-            <a href="#" class="tab-button tab-button-calendar" data-tab-index="1">
+        <div class="container-calendar">
+          <a href="#" class="tab-button tab-button-calendar" data-tab-index="1">
             <i class="fas fa-expand-arrows-alt"></i>
-            </a>
-            <div id="small-calendar-container" data-id="<%= @trip.id %>" class="trip-suggestions-calendar"></div>
-          </div>
+          </a>
+          <div id="small-calendar-container" data-id="<%= @trip.id %>" class="trip-suggestions-calendar"></div>
         </div>
-  </div>
-
-  <div class="tabPanel">                        <!-- 2.section -->
-    <div class="row">
-      <div class="col-5">
-        <!-- LIST FOR "Your Trip" -->
-        <%= render partial: "partial/route_trip_item_list" %>
-
-
-      </div>
-      <div class="col-5">
-        <p>map</p>
-        <%= render partial: "partial/map_for_route", locals: {markers: @markers_for_confirmed, name: 'map-tab-route'} %>
-
-
       </div>
     </div>
   </div>
+</div>
+</div>
+<div class="tabPanel">                        <!-- 2.section -->
+  <div class="row">
+    <div class="col-5">
+      <!-- LIST FOR "Your Trip" -->
+      <%= render partial: "partial/route_trip_item_list" %>
 
 
-  <div class="tabPanel">                         <!-- 3.section -->
-    <!-- FULSCREEN MAP SECTION -->
-    <div class='container'>
+    </div>
+    <div class="col-5">
+      <p>map</p>
+      <%= render partial: "partial/map_for_route", locals: {markers: @markers_for_confirmed, name: 'map-tab-route'} %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="tabPanel">                         <!-- 3.section -->
+  <!-- FULSCREEN MAP SECTION -->
+  <div class='container'>
     <%= render partial: "map", locals: {markers: @markers_for_suggestions, name: 'map-tab-map'} %>
-    </div>
+  </div>
+</div>
+
+<div class="tabPanel">                         <!-- 4.section -->
+  <!-- CALENDAR SECTION -->
+
+  <div class='big-calendar-container'>
+    <%= render partial: "partial/calendar" %>
   </div>
 
-  <div class="tabPanel">                         <!-- 4.section -->
-    <!-- CALENDAR SECTION -->
+</div>
+<!-- FOR RENDERING POPUPS -->
+<% @trip.trip_items.each do |element| %>
+<%= render partial: "partial/trip-item", locals: { element: element } %>
+<% end %>
 
-    <div class='big-calendar-container'>
-      <%= render partial: "partial/calendar" %>
-    </div>
+<% @trip.trip_items.each do |element| %>
+<%= render partial: "partial/route_item", locals: { element: element } %>
+<% end %>
 
-  </div>
-   <!-- FOR RENDERING POPUPS -->
-  <% @trip.trip_items.each do |element| %>
-  <%= render partial: "partial/trip-item", locals: { element: element } %>
-  <% end %>
+<%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
 
-  <% @trip.trip_items.each do |element| %>
-  <%= render partial: "partial/route_item", locals: { element: element } %>
-  <% end %>
-
-  <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
-
-  <%= javascript_pack_tag 'fullcalendar' %>
-  <%= stylesheet_pack_tag 'fullcalendar', media: 'all' %>
+<%= javascript_pack_tag 'fullcalendar' %>
+<%= stylesheet_pack_tag 'fullcalendar', media: 'all' %>
 
 
 <% @trip.trip_items.each do |element| %>
-  <%= render partial: "partial/edit", locals: {element: @trip_items.first, trip_id: @trip} %>
+<%= render partial: "partial/edit", locals: {element: @trip_items.first, trip_id: @trip} %>
 <% end %>
 
