@@ -23,7 +23,7 @@
           <%= f.input :description, placeholder: "Add a description of your item" %>
           <%= f.input :price, placeholder: "What is the price?"%>
           <%= f.input :link, placeholder: "Add a link for more info"%>
-          <%= f.association :category, collection: Category.all %>
+          <%= f.association :category, collection: Category.all, selected: [0]  %>
           <div class="modal-footer justify-content-center">
             <%= f.button :submit, "Add", class: 'btn btn-success' %>
           </div>
