@@ -8,10 +8,11 @@ import { setupButtonEventListeners } from "../components/add_button";
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
-import { mapBuilder } from '../plugins/init_map_route2';
+import { mapBuilder } from '../plugins/init_map_route';
 
 setupButtonEventListeners()
 setupTabEventListeners()
 initFlatpickr();
 initMapbox();
 mapBuilder();
+
