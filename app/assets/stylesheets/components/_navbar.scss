@@ -31,3 +31,18 @@
   width: 40px;
 }
 
+.navbar-name {
+  color: #1FB09A;
+  // padding: 0.5rem 0 0 0;
+  opacity: 0.8;
+  font-size: 24px;
+  letter-spacing: 0.4em;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  // justify-content: center;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  margin-left: -67px;
+}
+

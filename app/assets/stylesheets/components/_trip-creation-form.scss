@@ -1,0 +1,121 @@
+.container-trip-creation {
+  background-color: #31333B;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  text-align: center;
+}
+
+.nested-trip-creation.destination {
+margin: 20vh auto 20vh  auto;
+width:60vw;
+}
+
+.nested-trip-creation.description {
+margin: 12vh auto 20vh  auto;
+width:40vw;
+}
+
+.nested-trip-creation.date {
+margin: 18vh auto 20vh  auto;
+width:25vw;
+}
+
+.nested-trip-creation.friends {
+margin: 20vh auto 20vh  auto;
+width:40vw;
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.nested-trip-creation .form-control{
+  background: transparent;
+  border: 1px solid transparent;
+  text-align: center;
+  font-size:1.5rem;
+  color: white !important ;
+
+
+}
+ .nested-trip-creation .form-group{
+  background: transparent;
+  border-bottom: 2px #A4B0C3 solid;
+  input::placeholder {
+  color: rgba(164, 176, 195, 0.8);
+  }
+  textarea::placeholder{
+      color: rgba(164, 176, 195, 0.8);
+    };
+  }
+
+  .form-control.datepicker {
+      border: 2px #A4B0C3 solid;
+    }
+    .form-group.string.optional.trip_start_date {
+      border-bottom: 0px transparent solid !important;
+      margin-top: 2rem;
+
+    }
+     .form-group.string.optional.trip_end_date {
+      border-bottom: 0px transparent solid !important;
+
+    }
+
+.header.description {
+  margin-top: 5rem;
+}
+
+.form-destination {
+  color: #1FB09A;
+}
+
+.align-end {
+  align-self: flex-end;
+}
+
+.footer-flex-item{
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.footer-end{
+ margin-top: -3vh;
+ position: sticky;
+  bottom: 0;
+
+}
+
+.grow-footer {
+  flex-grow: 1;
+  border-bottom: 2px white solid;
+  height: 2px;
+  margin: 0 2rem;
+}
+
+
+  .container-trip-creation  i {
+  margin: 2.5rem;
+  font-size:2rem;
+ }
+
+ .destination-form i.fa-globe-americas {
+  margin: 2.5rem;
+  font-size: 3.5rem;
+  color:#1FB09A;
+ }
+
+ .date-form i.fa-calendar-alt {
+  margin: 2.5rem;
+  font-size: 3.5rem;
+  color:#1FB09A;
+ }
+
+  .friends-form i.fa-users{
+  margin: 2.5rem;
+  font-size: 3.5rem;
+  color:#1FB09A;
+ }
+

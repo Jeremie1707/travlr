@@ -1,8 +1,26 @@
-
-<div class="container">
-  <%= simple_form_for(@trip, url: wizard_path) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.submit :submit, remote: true %>
-  <% end %>
+<div class="container-trip-creation d-flex">
+  <div class="col-12 ">
+    <div class="nested-trip-creation description ">
+      <div class = "header"><h2>Name of your <span class="form-destination">Trip </span>:</h2></div>
+      <div class="container">
+        <%= simple_form_for(@trip, url: wizard_path) do |f| %>
+        <%= f.input :name, required: true, placeholder: "Trip to Lofoten", label: false, class:"creation-trip-name" %>
+        <div class = "header description"><h2>description:</span></h2></div>
+        <%= f.input :description, required: true, placeholder: "Amazing hiking trip with my friends", label: false, class:"creation-trip-description" %>
+        <%= f.submit :submit, remote: true, class:"btn btn-trip-creation-form"%>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 footer-end destination-form">
+      <div class="row footer-flex-item ">
+        <div class="grow-footer"></div>
+        <div><i class="fas fa-globe-americas"></i></div>
+        <div class="grow-footer"></div>
+        <div><i class="fas fa-calendar-alt"></i></div>
+        <div class="grow-footer"></div>
+        <div><i class="fas fa-users"></i></div>
+        <div class="grow-footer"></div>
+      </div>
+    </div>
+  </div>
 </div>

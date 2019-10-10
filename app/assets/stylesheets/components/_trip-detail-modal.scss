@@ -67,12 +67,13 @@ position: relative;
 
 .trip-detail-card-content-description {
   margin-top: 15px;
+
 }
 
 .detail-likes-counter {
   position: absolute;
   top: 285px;
-  left:475px;
+  left: 465px;
 
 }
 
@@ -85,7 +86,7 @@ position: relative;
 .trip-detail-card-image .fas {
   position: absolute;
   top: 274px;
-  left:460px;
+  left: 415px;
       font-size: 50px;
       border-radius : 50%;
       background-color: white ;
@@ -95,5 +96,12 @@ position: relative;
       font-weight: bold;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
-
+.fa-pen {
+  font-size: 45px;
+  border-radius : 50%;
+  background-color: white;
+  color: #1FB09A;
+  padding: 2px 6px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 
