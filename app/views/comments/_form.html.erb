@@ -1,8 +1,8 @@
-  <div class="row justify-content-center">
+  <div class="row justify-content-center align-items-end">
   <%= simple_form_for([trip, trip_item, comment], remote: true) do |form| %>
-    <%= form.input :comment, as: :text, input_html: {class: 'comment-box'}, placeholder: "What do you think?" %>
-    <div class="row justify-content-center">
+    <%= form.input :comment, as: :text, label: false, input_html: {class: 'comment-box'}, placeholder: "What do you think?" %>
+    <!--<div class="row justify-content-center align-self-end">-->
     <%= form.button :submit %>
-    </div>
+    <!--</div>-->
   <% end %>
   </div>

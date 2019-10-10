@@ -9,9 +9,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="add-item">
+        <div class="add-items">
           <div class="row justify-content-center">
-            <h2>Add a stop on your trip!</h2>
+
           </div>
           <%= simple_form_for [@trip, @trip_item] do |f| %>
           <%= f.input :name, placeholder: "Add the name of your item"%>
@@ -23,7 +23,7 @@
           <%= f.input :description, placeholder: "Add a description of your item" %>
           <%= f.input :price, placeholder: "What is the price?"%>
           <%= f.input :link, placeholder: "Add a link for more info"%>
-          <%= f.association :category, collection: Category.all %>
+          <%= f.association :category, collection: Category.all, selected: [0]  %>
           <div class="modal-footer justify-content-center">
             <%= f.button :submit, "Add", class: 'btn btn-success' %>
           </div>

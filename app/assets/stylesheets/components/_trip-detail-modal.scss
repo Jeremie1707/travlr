@@ -1,7 +1,7 @@
 .modal-dialog {
   max-width: none;
   max-height: none;
-  width: 50vw;
+  width: 500px;
   height: 95vh;
 }
 
@@ -27,6 +27,7 @@ position: relative;
   background-color: #31333B;
   display: flex;
   align-content: flex-end;
+  justify-content: center;
   padding : 10px;
 
 
@@ -106,7 +107,26 @@ position: relative;
 }
 
 .single-comment {
-  font-family: roboto;
-  font-weight: bold;
-  color: #b7adab;
+  font-family: Roboto;
+  color: #4b413f;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
+#user-name {
+  font-family: Montserrat;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.list-group-item {
+  padding: 0;
+  margin: 0;
+}
+
+
