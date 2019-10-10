@@ -1,7 +1,10 @@
 .trip-suggestions-calendar.fc {
     font-size: 12px;
     padding: 15px;
+    text-align: center;
+    .button-group{
 
+    }
 }
 
 .container-calendar {
@@ -14,10 +17,20 @@
 }
 
 
-.big-calendar-container.fc {
+.big-calendar-container {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     margin-top: 1rem;
     font-size: 12px;
     padding: 15px;
+    width : 80vw;
+    text-align:center;
 
+}
+
+#calendar {
+text-align: center;
+}
+
+#small-calendar {
+text-align: center;
 }
