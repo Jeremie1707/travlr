@@ -41,7 +41,7 @@ function flyToLocation(currentLocation) {
 }
 
 const initMapbox = () => {
-  console.log('initMapbox()');
+  // console.log('initMapbox()');
   const mapElements = document.querySelectorAll('.mapbox-map');
   mapElements.forEach(mapElement => {
     const map = buildMap(mapElement);
@@ -59,6 +59,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelector('.tab-button-map').addEventListener('click', () => {
     MAPS.forEach(map => {
       if (map.travlrMapName === 'map-tab-map') {
+        console.log(map);
+        map.resize();
+      }
+    });
+  });
+  document.querySelector('.tab-button-route').addEventListener('click', () => {
+    MAPS.forEach(map => {
+      if (map.travlrMapName === 'map-tab-route') {
         map.resize();
       }
     });
