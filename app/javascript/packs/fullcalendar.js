@@ -10,9 +10,10 @@ import '@fullcalendar/list/main.css';
 import '@fullcalendar/timegrid/main.css';
 import '@fullcalendar/bootstrap/main.css';
 
+let CALENDARS = [];
 
-const renderCalendar = (elementId) => {
-    var calendarEl = document.getElementById(elementId);
+const buildCalendar = (elementId) => {
+    var calendarEl = document.querySelector(elementId);
     const id = calendarEl.dataset.id;
 
     var calendar = new Calendar(calendarEl, {
@@ -40,38 +41,41 @@ const renderCalendar = (elementId) => {
 
       }
     });
+    calendar.travlrCalendarName = elementId;
 
     calendar.render();
+    CALENDARS.push(calendar);
+};
 
-}
+const renderCalendar = elementId => {
+  CALENDARS.forEach(calendar => {
+    if (calendar.travlrCalendarName === elementId) {
+      calendar.updateSize();
+      return;
+    }
+  });
+};
 
 document.addEventListener('DOMContentLoaded', function(event) {
+  // Render calendars after page loads
+  buildCalendar('#calendar');
+  buildCalendar('#small-calendar-container');
+
+
+  // Click the Calendar tab - render the big calendar
   document.querySelector('.tab-button-calendar').addEventListener('click', () => {
-    renderCalendar('calendar');
-
+    renderCalendar('#calendar');
   });
-    renderCalendar('small-calendar-container');
-    renderCalendar('big-calendar-container');
-      // windowResize: function(view);
+
+  // Click the small calendar tab on Trip Suggestions page -
+  // render the small calendar
+  document.getElementById('profile-tab-md').addEventListener('click', () => {
+    renderCalendar('#small-calendar-container');
+  });
 
 
-});
-
-document.addEventListener('DOMContentLoaded', function(event) {
+  // Click the expand button - render the big calendar.
   document.querySelector('.fa-expand-arrows-alt').addEventListener('click', () => {
-    renderCalendar('calendar');
-
+    renderCalendar('#calendar');
   });
-    renderCalendar('big-calendar-container');
-      // windowResize: function(view);
-
-
 });
-
-// $(document).ready(function() {
-//     $('#calendar').fullCalendar({
-//         eventStartEditable: false
-//     });
-// });
-
-
