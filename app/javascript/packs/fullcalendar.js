@@ -22,6 +22,7 @@ const buildCalendar = (elementId) => {
       themeSystem: 'bootstrap',
       header: {
       left: 'prev,next today',
+      firstDay: 1,
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
     },
