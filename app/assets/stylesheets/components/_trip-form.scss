@@ -13,6 +13,15 @@
   .modal-body {
     padding-top: 0;
 
+    .trip-item-inline-row {
+      justify-content: space-between;
+      padding: 0 16px;
+
+      .form-control:disabled, .form-control[readonly] {
+        background-color: #fff;
+        border-width: 1px;
+      }
+    }
   }
 }
 
@@ -38,5 +47,4 @@
 
 .close {
   color: white;
-  position: right !important;
 }

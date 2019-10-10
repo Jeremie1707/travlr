@@ -14,16 +14,20 @@
 
           </div>
           <%= simple_form_for [@trip, @trip_item] do |f| %>
-          <%= f.input :name, placeholder: "Add the name of your item"%>
-          <%= f.input :address, placeholder: "Add the address" %>
-          <%= f.input :photo %>
+          <%= f.input :name, label: false, placeholder: "Add the name of your item"%>
+          <%= f.input :address, label: false, placeholder: "Add the address" %>
+          <%= f.association :category, label: false, collection: Category.all, selected: [0]  %>
+
+          <div class="row trip-item-inline-row">
+          <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "when does it start?" %>
+          <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "when does it end?" %>
+          </div>
+
+          <%= f.input :description,  label: false, placeholder: "Add a description of your item" %>
+          <%= f.input :price, label: false, placeholder: "What is the price?"%>
+          <%= f.input :link, label: false, placeholder: "Add a link for more info"%>
+          <%= f.input :photo, label: false%>
           <%= f.input :photo_cache, as: :hidden %>
-          <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'},placeholder: "when does it start?" %>
-          <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'},placeholder: "when does it end?" %>
-          <%= f.input :description, placeholder: "Add a description of your item" %>
-          <%= f.input :price, placeholder: "What is the price?"%>
-          <%= f.input :link, placeholder: "Add a link for more info"%>
-          <%= f.association :category, collection: Category.all, selected: [0]  %>
           <div class="modal-footer justify-content-center">
             <%= f.button :submit, "Add", class: 'btn btn-success' %>
           </div>
