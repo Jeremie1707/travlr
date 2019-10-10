@@ -3,9 +3,21 @@ font-family: roboto;
 text-decoration: none;
 
 }
+
+
 .comment-box{
   border-radius: 12px;
-  text-align: center;
   border: 0;
+
 }
 
+
+
+.input-form-comment {
+  width : 40vw !important;
+
+}
+
+.comment-comment textarea {
+   border: solid 1px black;
+}

@@ -1,8 +1,13 @@
-  <div class="row justify-content-center align-items-end">
-  <%= simple_form_for([trip, trip_item, comment], remote: true) do |form| %>
-    <%= form.input :comment, as: :text, label: false, input_html: {class: 'comment-box'}, placeholder: "What do you think?" %>
-    <!--<div class="row justify-content-center align-self-end">-->
-    <%= form.button :submit %>
-    <!--</div>-->
-  <% end %>
+  <div class="row justify-content-left d-flex">
+    <div class="div comment-avatar">
+      <%= cl_image_tag current_user.photo, class: "avatar" %>
+    </div>
+    <div class="input-form-comment">
+      <%= simple_form_for([trip, trip_item, comment], remote: true) do |form| %>
+      <%= form.input :comment, as: :text, label: false, input_html: {class: 'comment-box'}, placeholder: "let me know what you think about that!" %>
+      <!--<div class="row justify-content-center align-self-end">-->
+      <%= form.button :submit, class:"btn btn-success" %>
+      <!--</div>-->
+       <% end %>
+    </div>
   </div>

@@ -1,7 +1,7 @@
 .modal-dialog {
   max-width: none;
   max-height: none;
-  width: 500px;
+  width: 55vw;
   height: 95vh;
 }
 
@@ -22,11 +22,13 @@
   border-radius: 4px;
 }
 
+
+
 .modal-header-trip-item-detail {
   background-color: #31333B;
   display: flex;
-  align-content: flex-end;
   justify-content: space-between;
+  align-items: center;
   padding : 10px;
   margin-bottom: 1rem;
 }
@@ -40,7 +42,7 @@
 }
 
 .modal-header-trip-item-detail h5 {
-  margin : 12px 12px 12px 130px;
+  // margin : 10px auto;
   color: white;
 }
 

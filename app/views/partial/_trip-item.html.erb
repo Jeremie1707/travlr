@@ -2,22 +2,30 @@
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header-trip-item-detail d-flex">
-        <%= cl_image_tag element.user.photo, class: "avatar" %>
+          <%= cl_image_tag element.user.photo, class: "avatar" %>
         <% if element.link != nil %>
         <div><a href="<%= element.link %>" target = "_blank"><h5><%= element.name %></h5></a></div>
-          <div><p><%= element.start_date %></p></div>
+          <div><p><%= element.start_date.strftime('%a %w %B') %></p><div class="trip-detail-card-content-price d-flex">
+                <div><p> <%= element.price %> NOK</p></div>
+              </div>
+          </div>
           <% else %>
         <div><h5><%= element.name %></h5></div>
         <div><p><%= element.start_date %></p></div>
 
         <% end %>
-
       </div>
       <div class="modal-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12 ml-auto">
               <div class="trip-detail-card">
+                <div class="add-to-route">
+                  <a class="btn btn-success" href="#" data-target="<%=element.id%>" >
+                  <%= link_to trip_trip_item_path(@trip, element, trip_item: { trip_id: @trip, id: element.id,confirmed: true }), method: :patch do %>
+                  <% end %>
+                  </a>
+             </div>
                 <div class="trip-detail-card-image">
                   <% if element.photo.file != nil %>
                   <%= cl_image_tag element.photo %>
@@ -33,18 +41,16 @@
               </div>
 
               <div class="trip-detail-card-content">
-                <div class="trip-detail-card-content-price d-flex">
-                <div ><h5>Price: </h5></div>
-                <div><p> <%= element.price %> NOK</p></div>
-              </div>
+
                 <div class="trip-detail-card-content-description">
                   <h5>Description: </h5>
                   <div><p><%= element.description %></p></div>
                 </div>
                 <div class="trip-detail-card-content-comments">
                    <div>
+                    <%= render 'comments/form', trip: @trip, trip_item: element, comment: @comment %>
                     <%= render 'comments/index', comments: element.comments, trip_item: element %>
-                    <%= render 'comments/form', trip: @trip, trip_item: element, comment: @comment %></div>
+                    </div>
                 </div>
               </div>
             </div>

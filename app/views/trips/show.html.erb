@@ -5,9 +5,9 @@
     <div class="d-flex justify-content-start">
       <p class="trip-description"><%= @trip.description %></p>
       <p>&nbsp;</p>
-      <p class="trip-date"><%= @trip.start_date %> </p>
+      <p class="trip-date"><%= @trip.start_date.strftime('%a %w %B') %> </p>
       <p> &nbsp; to &nbsp; </p>
-      <p><%= @trip.end_date %></p>
+      <p><%= @trip.end_date.strftime('%a %w %B') %></p>
     </div>
 
   </div>
