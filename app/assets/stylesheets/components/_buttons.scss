@@ -29,7 +29,31 @@
 
 }
 
-
+.trip-item-btn {
+  background-color: $green;
+}
+.add-new-trip-item {
+  background-color: $green;
+  border-radius: 5px;
+  width: 250px;
+  padding: 0;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  p {
+    margin: 0;
+    margin-left: 12px;
+    color: white;
+    font-size: 2rem;
+  }
+  i {
+    color: $white;
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+  &.cta {
+    margin: 4rem auto 2rem;
+  }
+}
 .btn-trip-creation-form:hover {
   color: #1FB09A;
   border: 2px #1FB09A solid;
