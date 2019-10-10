@@ -111,9 +111,16 @@
 #user-name {
   font-family: Montserrat;
   font-weight: bold;
+  padding: 0;
+  margin: 0;
 }
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.list-group-item {
+  padding: 0;
+  margin: 0;
 }
