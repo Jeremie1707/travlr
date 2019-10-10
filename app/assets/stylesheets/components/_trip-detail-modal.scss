@@ -106,7 +106,19 @@ position: relative;
 }
 
 .single-comment {
-  font-family: roboto;
-  font-weight: bold;
-  color: #b7adab;
+  font-family: Roboto;
+  color: #4b413f;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
+#user-name {
+  font-family: Montserrat;
+  font-weight: bold;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+

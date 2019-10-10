@@ -1,5 +1,5 @@
 <div class="container">
-  <ul id="comments-list-<%= trip_item.id %>">
+  <ul class ="listlist-group list-group-flush" id="comments-list-<%= trip_item.id %>">
     <% comments.each do |comment| %>
       <%= render 'comments/show', comment: comment %>
     <% end %>
