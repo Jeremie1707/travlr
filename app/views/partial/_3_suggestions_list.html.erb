@@ -1,56 +1,44 @@
-
 <div class="nested">
 
   <% @trip.trip_items.each do |element| %>
-  <div class="nested-box">
-    <div class="image-container">
-      <a id="card-image-<%= element.id %>" href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-        <%= cl_image_tag element.photo, class:"card-image" %>
-      </a>
-    </div>
-    <div class="sc-info">
-      <div class="icons">
-        <div>
-          <a href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-            <% if element.category.name =="activity"  %>
-            <i class="fas fa-hiking"></i>
-            <% elsif element.category.name == "transport"  %>
-            <i class="fas fa-bus"></i>
-            <% elsif element.category.name == "housing"  %>
-            <i class="fas fa-home"></i>
-            <% end %>
-          </a>
-        </div>
-        <div class="comments">
-          <a href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-            <i class="fas fa-comment"></i>
-            <p class="comments-counter"><%=element.comments.count%></p>
-          </a>
-        </div>
-        <div class="likes">
-          <a href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-            <i class="fas fa-heart"></i>
-            <p class="likes-counter"><%=element.likes.count%></p>
-          </a>
-        </div>
-      </div>
-      <div class="sc-info-child">
-        <a href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
-          <h4><%= element.name %></h4>
-          <p><%= element.start_date %></p>
-        </a>
-      </div>
-    </div>
-    <div class="add-button">
-      <a class="add-button" href="#" data-target="<%=element.id%>" >
-        <%= link_to trip_trip_item_path(@trip, element, trip_item: { trip_id: @trip, id: element.id,confirmed: true }), method: :patch do %>
-        <p>Add to Route<i id="card-add-button-<%=element.id%>" class="fas fa-plus-circle"></i></p>
-        <% end %>
-      </a>
+      <div class="card__collection clear-fix">
+      <div class="cards cards--two">
+        <a id="card-image-<%= element.id %>" href="#" data-toggle="modal" data-target="#card-trip-item-<%=element.id%>">
+          <%= cl_image_tag element.photo, class:"card-image" %>
 
-    </div>
-  </div>
+          <span class="cards--two__rect"></span>
+
+          <p><%= element.name %></p>
+          <ul class="cards__list">
+            <li>
+              <% if element.category.name =="activity"  %>
+                <i class="fas fa-hiking"></i>
+              <% elsif element.category.name == "transport"  %>
+                <i class="fas fa-bus"></i>
+              <% elsif element.category.name == "housing"  %>
+                <i class="fas fa-home"></i>
+              <% end %>
+            </li>
+            <li>
+              <div class="icons-wrapper d-flex">
+
+                <i class="fas fa-comment"></i>
+                <div class="counter"><%=element.comments.count%></div>
+              </div>
+            </li>
+            <li>
+              <div class="icons-wrapper d-flex ">
+
+                <i class="fas fa-heart"></i>
+                <div class="counter"><%=element.likes.count%></div>
+              </div>
+            </li>
+            <li>
+              <%= element.start_date.strftime('%a %w %B') %>
+            </li>
+          </ul>
+        </div>
+      </a>
+      </div>
   <% end %>
-
 </div>
-
