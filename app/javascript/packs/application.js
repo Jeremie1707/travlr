@@ -5,6 +5,7 @@ import { initFlatpickr } from '../plugins/flatpickr'
 
 import { setupTabEventListeners } from "../components/dashboard_nav";
 import { setupButtonEventListeners } from "../components/add_button";
+import { flipRouteItems } from "../components/route_trip_item_list";
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -15,4 +16,4 @@ setupTabEventListeners()
 initFlatpickr();
 initMapbox();
 mapBuilder();
-
+flipRouteItems();

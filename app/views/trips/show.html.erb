@@ -4,9 +4,9 @@
     <h1 class="mb-0"><%= @trip.name %>&nbsp;</h1>
     <div class="justify-content-start">
       <div class="d-flex">
-        <p class="trip-date trip-description"><%= @trip.start_date %> </p>
+        <p class="trip-date trip-description"><%= @trip.start_date.strftime('%a %w %B') %> </p>
         <p class="trip-description"> &nbsp; to &nbsp; </p>
-        <p class="trip-description"><%= @trip.end_date %></p>
+        <p class="trip-description"><%= @trip.end_date.strftime('%a %w %B') %></p>
       </div>
        <p ><%= @trip.description %></p>
     </div>
@@ -112,19 +112,15 @@
 
   <%= image_tag "no-trip-items.svg", class: 'no-trip-items-image' %>
 <% end %>
-<div class="tabPanel">                        <!-- 2.section -->
-  <div class="row">
-    <div class="col-5">
+<div class="tabPanel">                       <!-- 2.section -->
+  <div class="flex-box-route">
+    <div class="route-trip-item-list">
       <!-- LIST FOR "Your Trip" -->
-      <%= render partial: "partial/route_trip_item_list" %>
-
-
+      <%#= render partial: "partial/route_trip_item_list" %>
+      <%= render partial: "partial/2_route_trip_item_list" %>
     </div>
-    <div class="col-5">
-      <p>map</p>
+    <div class="sm-map-section">
       <%= render partial: "partial/map_for_route", locals: {markers: @markers_for_confirmed, name: 'map-tab-route'} %>
-
-
     </div>
   </div>
 </div>
