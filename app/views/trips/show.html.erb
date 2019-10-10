@@ -142,11 +142,11 @@
 
 <%= render partial: "partial/new-trip-item", locals: {trip_item: @trip_item, trip_id: @trip} %>
 
-<%#= javascript_pack_tag 'fullcalendar' %>
-<%#= stylesheet_pack_tag 'fullcalendar', media: 'all' %>
 
 
 <% @trip.trip_items.each do |element| %>
 <%= render partial: "partial/edit", locals: {element: @trip_items.first, trip_id: @trip} %>
 <% end %>
 
+<%= javascript_pack_tag 'fullcalendar' %>
+<%= stylesheet_pack_tag 'fullcalendar', media: 'all' %>
