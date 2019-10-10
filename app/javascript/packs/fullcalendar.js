@@ -17,14 +17,14 @@ const buildCalendar = (elementId) => {
     const id = calendarEl.dataset.id;
 
     var calendar = new Calendar(calendarEl, {
-
+      firstDay: 1,
       plugins: [ dayGridPlugin, interactionPlugin, listPlugin, bootstrapPlugin ],
       themeSystem: 'bootstrap',
       header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-    },
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+      },
       editable: false,
       events: `/trips/${id}.json`,
       eventClick: (eventClickInfo) => {
