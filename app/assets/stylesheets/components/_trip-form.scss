@@ -4,18 +4,20 @@
     padding-bottom: 0;
     margin-bottom: 0;
 
-    button.close {
-      padding-bottom: 0.2rem;
-    }
+    // .button-close {
+    //   padding-bottom: 0.2rem;
+    //   justify-content: flex-end;
+    // }
   }
 
   .modal-body {
     padding-top: 0;
+
   }
 }
 
 .modal-footer {
-  border-top: 0;
+  border-top: 100px;
 }
 
 .form-check {
@@ -28,4 +30,13 @@
 
 .form-control-file {
   padding-left: .40rem;
+}
+
+#add-items {
+    justify-content: center;
+}
+
+.close {
+  color: white;
+  position: right !important;
 }
