@@ -4,9 +4,9 @@
     <h1 class="mb-0"><%= @trip.name %>&nbsp;</h1>
     <div class="justify-content-start">
       <div class="d-flex">
-        <p class="trip-date trip-description"><%= @trip.start_date %> </p>
+        <p class="trip-date trip-description"><%= @trip.start_date.strftime('%a %w %B') %> </p>
         <p class="trip-description"> &nbsp; to &nbsp; </p>
-        <p class="trip-description"><%= @trip.end_date %></p>
+        <p class="trip-description"><%= @trip.end_date.strftime('%a %w %B') %></p>
       </div>
        <p ><%= @trip.description %></p>
     </div>
