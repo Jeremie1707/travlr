@@ -82,7 +82,7 @@
 .trip-detail-card-image .fas {
   position: absolute;
   top: 274px;
-  left: 415px;
+  left: 187px;
       font-size: 50px;
       border-radius : 50%;
       background-color: white ;
@@ -99,6 +99,12 @@
   color: #1FB09A;
   padding: 2px 6px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.trip-detail-card-content .fa-heart {
+  position: absolute;
+  top: 285px;
+  left: 465px;
 }
 
 .single-comment {
