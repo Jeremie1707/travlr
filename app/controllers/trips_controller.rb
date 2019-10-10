@@ -50,15 +50,20 @@ class TripsController < ApplicationController
   private
 
   def create_markers(trip_items)
-    markers = trip_items.map do |trip_item|
-      {
-        lat: trip_item.latitude,
-        lng: trip_item.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
-        image_url: helpers.asset_url('lightbulb-regular.svg') # could probably implement different markers based on category(house for lodging etc.)
-      }
+    respond_to do |format|
+      format.html do
+        markers = trip_items.map do |trip_item|
+          {
+            lat: trip_item.latitude,
+            lng: trip_item.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
+            image_url: helpers.asset_url('lightbulb-regular.svg') # could probably implement different markers based on category(house for lodging etc.)
+          }
+        end
+        markers
+      end
+      format.json
     end
-    markers
   end
 
   def set_trip
