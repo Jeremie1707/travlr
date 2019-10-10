@@ -45,12 +45,12 @@ $hover-bg : orange; // left triangle
 
       p {
         position: absolute;
-        top: 70%;
+        top: 65%;
         font-weight: 700;
         left: -100%;
         text-transform: capitalize;
         color: #fff;
-        font-size: 20px;
+        font-size: 30px;
         z-index: 8;
         transition: all .6s ease;
       }
@@ -131,13 +131,13 @@ $hover-bg : orange; // left triangle
       ul {
         list-style: none;
         position: absolute;
-        bottom: 0;
-        left: 10px;
+        bottom: 10px;
+        left: 13px;
         z-index: 9;
 
         li {
           display: inline-block;
-          font-size: 16px;
+          font-size: 20px;
           margin: 7px;
           color: #fff;
           transition: all .2s ease-in-out;
@@ -160,7 +160,7 @@ $hover-bg : orange; // left triangle
 }
 .icons-wrapper {
   .counter {
-    font-size: .8rem;
+    font-size: 16px;
     margin-left: 5px;
   }
 }
