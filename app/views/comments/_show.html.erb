@@ -1,5 +1,13 @@
-<li class="list-group-item single-comment"><p id="user-name"><span class="form-destination">
+<li class="list-group-item single-comment" id="user-name" span class="form-destination">
+  <div class="comment-photo-and-name d-flex">
+    <div class="comment-avatar">
   <%= cl_image_tag comment.user.photo, class: "avatar" %>
-  <%= comment.user.first_name %>
-
-  </span><%= comment.comment %>”</p></li>
+  </div>
+  <div class="comment-user-firstname">
+    <%= comment.user.first_name %>
+  </div>
+  </div>
+  <div class="actual-comment">
+    <p><%= comment.comment %></p>
+  </div>
+  </li>
