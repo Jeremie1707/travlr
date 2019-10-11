@@ -57,7 +57,7 @@ class TripsController < ApplicationController
             lat: trip_item.latitude,
             lng: trip_item.longitude,
             infoWindow: render_to_string(partial: "info_window", locals: { trip_item: trip_item }),
-            image_url: helpers.asset_url('lightbulb-regular.svg') # could probably implement different markers based on category(house for lodging etc.)
+            image_url: helpers.asset_url('map-marker-solid.svg') # could probably implement different markers based on category(house for lodging etc.)
           }
         end
         markers
