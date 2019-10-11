@@ -2,7 +2,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  padding: 200px 0 200px 0;
+  padding: 300px 0 200px 0;
 }
 
 .banner .img {
@@ -12,10 +12,10 @@
 
 .banner h1 {
   // margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 42px;
   font-weight: bold;
 }
 
@@ -29,10 +29,15 @@
 .txtplan {
   color: white;
   margin-right: 16rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   border-radius: 6px;
+  font-size: 1.3rem;
 }
 
+.txtplan a{
+  font-size:22px;
+  font-weight:400;
+}
 // .txtfind {
 //   color: white;
 //   margin-right: 2rem;
