@@ -37,8 +37,14 @@ width:40vw;
   font-size:1.5rem;
   color: white !important ;
 
-
 }
+
+
+.nested-trip-creation .form-control:focus {
+  box-shadow: none;
+  border-bottom: 4px solid inherit
+}
+
  .nested-trip-creation .form-group{
   background: transparent;
   border-bottom: 2px #A4B0C3 solid;
@@ -82,7 +88,7 @@ width:40vw;
 }
 
 .footer-end{
- margin-top: -3vh;
+ margin-top: 30vh;
  position: sticky;
   bottom: 0;
 
@@ -119,3 +125,6 @@ width:40vw;
   color:#1FB09A;
  }
 
+.modal-content.new-trip-item {
+  max-height: 60vh;
+}

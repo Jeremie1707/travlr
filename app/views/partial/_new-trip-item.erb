@@ -1,9 +1,9 @@
 <!-- MODAL: _NEW-TRIP-ITEM -->
 <div class="modal fade" id="trip-item-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable trip-item-form" role="document">
-    <div class="modal-content">
+    <div class="modal-content new-trip-item">
       <div class="modal-header-trip-item-detail">
-        <h5>Add to your adventure!</h5>
+        <h5>Add to your adventure</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -22,7 +22,6 @@
             <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "When does it start?" %>
             <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "When does it end?" %>
           </div>
-
             <%= f.input :description, label: false, placeholder: "Give your friends a short description?" %>
             <%= f.input :price, label: false, placeholder: "What is the price?" %>
             <%= f.input :link, label: false, placeholder: "Add a link to share with your friends?" %>
