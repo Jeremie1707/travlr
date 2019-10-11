@@ -1,1 +1,5 @@
-<li class="list-group-item single-comment"><p id="user-name"><span class="form-destination"><%= comment.user.first_name %></span> said “<%= comment.comment %>”</p></li>
+<li class="list-group-item single-comment"><p id="user-name"><span class="form-destination">
+  <%= cl_image_tag comment.user.photo, class: "avatar" %>
+  <%= comment.user.first_name %>
+
+  </span><%= comment.comment %>”</p></li>
