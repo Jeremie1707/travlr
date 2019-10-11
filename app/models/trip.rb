@@ -11,14 +11,14 @@ class Trip < ApplicationRecord
 
   def seedItems
     attributes = [
-      {name: "3 Days of Everything",
+      {name: "Lofoten Vikging style",
        address: 'Torget 21, 8300 Svolvær',
        remote_photo_url: 'https://res.cloudinary.com/dvluu9bpc/image/upload/v1570786014/3_days_ftxjhq.jpg',
        price: '1900',
        link: "www.travlr.group", # make array of different links
        start_date: '2019.10.19',
        end_date: '2019.10.22',
-       description: 'testsetset',
+       description: '3 days of viking living in Lofoten, we wil be living in a small house on the beach living as the old vikings did 1000 years ago',
        user: self.participants.sample.user,
        trip_id: self.id,
        category: Category.find_by(name: 'activity')
@@ -97,50 +97,68 @@ class Trip < ApplicationRecord
       }
     ]
 
+    tripitems = []
     attributes.each do |attribute|
-      TripItem.create!(attribute)
+      tripitems << TripItem.create!(attribute)
     end
 
-    # TripItem.create!(attributes[0])
-    # puts attributes[0]
 
-    # participant1 = Participant.create(trip_id: id, user_id: User.find())
-    # participant2 = Participant.create(trip_id: id, user_id: User.find())
-    # participant3 = Participant.create(trip_id: id, user_id: User.find())
-    # participant4 = Participant.create(trip_id: id, user_id: User.find())
-
-    # start_dates = []
-    # end_dates = []
-    # counter_start = 0
-    # counter_end = 1
-    # 5.times do
-    #   start_dates << (Date.today + counter_start).to_s
-    #   end_dates << (Date.today + counter_end).to_s
-    #   counter_start += 1
-    #   counter_end += 2
+    # 12.times do
+    #   Like.create(user: self.participants.sample.user, trip_item: self.trip_items.sample)
     # end
 
-    # counter = 0
+    3.times do
+      Like.create(user: self.participants.sample.user, trip_item: tripitems[2])
+    end
 
-    # 5.times do
-    #   attributes = {
+    3.times do
+      Like.create(user: self.participants.sample.user, trip_item: tripitems[0])
+    end
 
-    #     name: name[counter],
-    #     address: address[counter],
-    #     remote_photo_url: pictures[counter],
-    #     price: rand(100..1000),
-    #     link: "www.travlr.group", # make array of different links
-    #     start_date: start_dates[counter],
-    #     end_date: end_dates[counter],
-    #     description: Faker::Restaurant.review, # make better decr
-    #     user: self.participants.sample.user,
-    #     trip_id: self.id,
-    #     category: categories[counter]
-    #   }
+    3.times do
+      Like.create(user: self.participants.sample.user, trip_item: tripitems[3])
+    end
 
-    #   # TripItem.create(attributes)
-    #   trip = TripItem.create!(attributes)
-    #   counter += 1
-    # end
+    3.times do
+      Like.create(user: self.participants.sample.user, trip_item: tripitems[5])
+    end
+
+    2.times do
+      Like.create(user: self.participants.sample.user, trip_item: tripitems[6])
+    end
+    users = self.participants
+
+    Comment.create(comment: 'I would love to wake up to that view, but it might be over budget? ', user: self.participants.last.user, trip_item: tripitems[6])
+    Comment.create(comment: 'Yeah.. lets consider this when we meet on friday', user: self.participants.first.user, trip_item: tripitems[6])
+    Comment.create(comment: 'I really like kayaking, and its not too expensive. Lets try this', user: self.participants.sample.user, trip_item: tripitems[3])
+
+    Comment.create(comment: 'This looks like a cool thing', user: users.first.user, trip_item: tripitems[0])
+    Comment.create(comment: 'Yeah, maby we can squeze it in between the diving and the whale safari', user: users.last.user, trip_item: tripitems[0])
+    Comment.create(comment: 'sounds like a plan, lets add it', user: users[1].user, trip_item: tripitems[0])
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
