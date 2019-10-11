@@ -9,27 +9,37 @@
         <div class="price-date-detail d-flex-column">
           <p><%= element.start_date.strftime('%a %w %B') %></p>
           <div>
-          <p> <%= element.price %> NOK</p>
+            <p> <%= element.price %> NOK</p>
           </div>
+        </div>
+        <% else %>
+        <div class="price-date-detail d-flex">
+          <div><h5><%= element.name %></h5></div>
+          <div><p><%= element.start_date %></p></div>
+        </div>
+        <% end %>
       </div>
-      <% else %>
-      <div class="price-date-detail d-flex">
-      <div><h5><%= element.name %></h5></div>
-      <div><p><%= element.start_date %></p></div>
-      </div>
-      <% end %>
-    </div>
-    <div class="modal-body">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12 ml-auto">
-            <div class="trip-detail-card">
-              <div class="divtry">
-                <a class="confirmation-link" href="#" data-target="<%=element.id%>">
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 ml-auto">
+              <div class="trip-detail-card">
+                <div class="divtry d-flex justify-content-start">
+                  <div>
+                    <a class="confirmation-link" href="#" data-target="<%=element.id%>">
                      <%= link_to trip_trip_item_path(@trip, element, trip_item: { trip_id: @trip, id: element.id,confirmed: true }), method: :patch do %>
+                  <i class="fas fa-check-circle"></i>
                   <% end %>
-                 <i class="fas fa-check-circle"></i>
-               </a>
+                   
+                   </a>
+                 </div>
+                 <div>
+                  <button type="button" class="button-edit" data-toggle="modal" data-target="#edit-trip-item-form">
+                    <i class="fas fa-pen"></i>
+                  </button>
+                </div>
+                  <button type="button" class="btn-likes"><p class="add-likes"><%= link_to "", trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i><%=element.likes.count%></p>
+                  </button>
               </div>
               <div class="trip-detail-card-image">
                 <% if element.photo.file != nil %>
@@ -38,9 +48,6 @@
                 <% else %>
                 <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+1fb09a(#{element.longitude},#{element.latitude})/#{element.longitude},#{element.latitude},10,0,0/400x400@2x?access_token=#{ENV['MAPBOX_API_KEY']}"%>
                 <% end %>
-
-                <button type="button" class="btn"><p class="add-item"><%= link_to "", trip_trip_item_likes_path(@trip, element), method: :post %><%=element.likes.count%><i class="fas fa-heart"></i></p> </button>
-                <!-- <p class="detail-likes-counter"><%=element.likes.count%></p> -->
 
               </div>
 
@@ -60,13 +67,9 @@
           </div>
         </div>
       </div>
-      <button type="button" class="btn" data-toggle="modal" data-target="#edit-trip-item-form">
-        <i class="fas fa-pen"></i>
-      </button>
-           <!-- <button type="button" class="btn"><p class="add-item"><%= link_to "Like", trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i></p>
-           </button> -->
-         </div>
-       </div>
-     </div>
-   </div>
+
+    </div>
+  </div>
+</div>
+</div>
 

@@ -30,7 +30,6 @@
   justify-content: space-between;
   align-items: center;
   padding : 10px;
-  margin-bottom: 1rem;
 }
 
 .modal-header-trip-item-detail .avatar {
@@ -44,10 +43,10 @@
 .modal-header-trip-item-detail h5 {
   // margin : 10px auto;
   color: white;
+  font-size: 2rem;
 }
 
 .modal-header-trip-item-detail p {
-  margin : 10px;
   color: white;
   font-weight: lighter;
 }
@@ -57,7 +56,8 @@
 }
 
 .trip-detail-card-content h5{
-  font-size: 15px;
+  font-size: 1.5rem;
+  font-size:700;
   color:#1C4F5A;
 }
 
@@ -70,11 +70,6 @@
   margin-top: 15px;
 }
 
-.detail-likes-counter {
-  position: absolute;
-  top: 285px;
-  left: 465px;
-}
 
 .trip-detail-card-image p {
   color :white;
@@ -95,19 +90,55 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 .fa-pen {
-  font-size: 45px;
+  font-size: 2rem;
   border-radius : 50%;
-  background-color: white;
-  color: #1FB09A;
-  padding: 2px 6px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color:transparent;
+  color: $green;
+  // margin-bottom: 0.5rem;
+   margin-right:1rem;
 }
 
-.trip-detail-card-content .fa-heart {
-  position: absolute;
-  top: 285px;
-  left: 465px;
+.fa-pen:hover {
+  color: rgb(54, 216, 189);
 }
+
+.fa-check-circle{
+  color: $green;
+  // margin-bottom: 0.5rem;
+  margin-right:1rem;
+  font-size:2rem;
+}
+
+.fa-check-circle:hover{
+  color: rgb(54, 216, 189);
+}
+
+.button-edit{
+  background-color:transparent;
+  border: 1px solid transparent;
+}
+
+.divtry .fa-heart {
+  // margin-bottom: 0.5rem;
+  font-size:2rem;
+}
+
+.divtry .btn-likes{
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  p {
+    font-weight:700;
+    color:$green;
+  }
+}
+
+.divtry .btn-likes:focus {
+  box-shadow: none;
+  border-bottom: 4px solid inherit
+}
+
+
 
 .single-comment {
   font-family: Roboto;
