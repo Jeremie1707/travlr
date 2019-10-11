@@ -1,23 +1,58 @@
+// create comment
+
 .trip-detail-card-content-comments {
-font-family: roboto;
-text-decoration: none;
+  font-family: roboto;
+  text-decoration: none;
+
+  .comment_comment {
+    flex-grow: 1 !important;
+    margin-right: 0.5rem;
+  }
+}
+
+#new_comment {
+  align-items: flex-end;
 
 }
 
 
+
+.comment-form {
+  margin-top: 2rem;
+}
+
 .comment-box{
-  border-radius: 12px;
-  border: 0;
+  border-radius: 12px ;
+  border: 1px solid rgba(196,196,196, 0.3);
+  background-color: #C6D8D3;
+  margin-left: 1rem;
 
 }
 
 
 
 .input-form-comment {
-  width : 40vw !important;
+  width : 40vw ;
+
 
 }
 
-.comment-comment textarea {
-   border: solid 1px black;
+.comment-comment .form-control {
+ border: solid 1px black;
+
 }
+
+.fa-check-circle{
+  color: $green;
+  margin-bottom: 1rem;
+  font-size:2rem;
+}
+
+.fa-check-circle:hover{
+  color: #5FAD56;
+  margin-bottom: 1rem;
+  font-size:2rem;
+}
+
+
+// show comments
