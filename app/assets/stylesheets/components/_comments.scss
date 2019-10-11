@@ -3,6 +3,12 @@
 .trip-detail-card-content-comments {
   font-family: roboto;
   text-decoration: none;
+  //
+
+.content-comment {
+  margin-top:1.5rem;
+  margin-bottom:1.5rem;
+}
 
   .comment_comment {
     flex-grow: 1 !important;
@@ -42,17 +48,34 @@
 
 }
 
-.fa-check-circle{
-  color: $green;
-  margin-bottom: 1rem;
-  font-size:2rem;
-}
-
-.fa-check-circle:hover{
-  color: #5FAD56;
-  margin-bottom: 1rem;
-  font-size:2rem;
-}
 
 
 // show comments
+
+.content-comment {
+  margin-top : 1rem;
+}
+
+.comment-user-firstname {
+  font-family: Roboto;
+  font-size: 1rem;
+  color: #345995 ;
+  margin-left: 1rem;
+
+}
+
+.actual-comment {
+margin-top: 0.2rem;
+margin-left: 2.7rem;
+height : 3rem;
+border: 1px solid transparent;
+border-radius: 6px;
+background-color : rgba(52, 89, 149, 0.3);
+
+p {
+  padding : 5px;
+  font-family: roboto;
+  font-weight: lighter;
+  }
+
+}
