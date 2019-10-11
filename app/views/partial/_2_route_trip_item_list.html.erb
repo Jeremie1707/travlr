@@ -1,0 +1,30 @@
+
+<div class="options">
+  <% route_items = @trip.trip_items.where(confirmed: true) %>
+    <% route_items.each do |element| %>
+      <div class="option" style="--optionBackground:url('<%= cl_image_path element.photo %>');">
+        <a href="#" data-toggle="modal" data-target
+    ="#card-trip-item-<%=element.id%>">
+        <div class="shadow"></div>
+        <div class="label">
+          <div class="icon">
+            <div>
+                <% if element.category.name =="activity"  %>
+                <i class="fas fa-hiking"></i>
+                <% elsif element.category.name == "transport"  %>
+                <i class="fas fa-bus"></i>
+                <% elsif element.category.name == "housing"  %>
+                <i class="fas fa-home"></i>
+                <% end %>
+              </div>
+         </div>
+         <div class="info">
+          <div class="main"><%= element.name %></div>
+          <div class="sub"><%= element.start_date.strftime('%a %w %B') %></div>
+         </div>
+      </div>
+    </a>
+   </div>
+    <% end %>
+</div>
+

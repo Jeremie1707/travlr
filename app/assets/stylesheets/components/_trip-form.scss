@@ -20,6 +20,7 @@
       .form-control:disabled, .form-control[readonly] {
         background-color: #fff;
         border-width: 1px;
+        border-weight: lighter;
       }
     }
   }
@@ -48,3 +49,14 @@
 .close {
   color: white;
 }
+
+.btn-success {
+  background-color: #1FB09A;
+}
+
+.no-trip-items-image {
+  height: 50vh;
+  margin-top: 5rem;
+  margin-bottom: 15rem
+}
+

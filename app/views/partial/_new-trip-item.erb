@@ -1,9 +1,9 @@
 <!-- MODAL: _NEW-TRIP-ITEM -->
 <div class="modal fade" id="trip-item-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable trip-item-form" role="document">
-    <div class="modal-content">
+    <div class="modal-content new-trip-item">
       <div class="modal-header-trip-item-detail">
-        <h5>Add a stop on your trip!</h5>
+        <h5>Add to your adventure</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -14,22 +14,21 @@
 
           </div>
           <%= simple_form_for [@trip, @trip_item] do |f| %>
-          <%= f.input :name, label: false, placeholder: "Add the name of your item"%>
-          <%= f.input :address, label: false, placeholder: "Add the address" %>
-          <%= f.association :category, label: false, collection: Category.all, selected: [0]  %>
+          <%= f.input :name, label: false, placeholder: "Add a name?" %>
+          <%= f.input :address, label: false, placeholder: "What is the address?" %>
+          <%= f.association :category, label: false, collection: Category.all, selected: [0] %>
 
           <div class="row trip-item-inline-row">
-          <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "when does it start?" %>
-          <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "when does it end?" %>
+            <%= f.input :start_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "When does it start?" %>
+            <%= f.input :end_date, as: :string, input_html: {class: 'datepicker'}, label: false, placeholder: "When does it end?" %>
           </div>
-
-          <%= f.input :description,  label: false, placeholder: "Add a description of your item" %>
-          <%= f.input :price, label: false, placeholder: "What is the price?"%>
-          <%= f.input :link, label: false, placeholder: "Add a link for more info"%>
-          <%= f.input :photo, label: false%>
-          <%= f.input :photo_cache, as: :hidden %>
-          <div class="modal-footer justify-content-center">
-            <%= f.button :submit, "Add", class: 'btn btn-success' %>
+            <%= f.input :description, label: false, placeholder: "Give your friends a short description?" %>
+            <%= f.input :price, label: false, placeholder: "What is the price?" %>
+            <%= f.input :link, label: false, placeholder: "Add a link to share with your friends?" %>
+            <%= f.input :photo, label: false %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <div class="modal-footer justify-content-center">
+              <%= f.button :submit, "Add", class: 'btn btn-success' %>
           </div>
           <% end %>
         </div>
