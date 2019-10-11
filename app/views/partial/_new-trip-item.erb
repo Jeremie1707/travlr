@@ -25,10 +25,15 @@
             <%= f.input :description, label: false, placeholder: "Give your friends a short description?" %>
             <%= f.input :price, label: false, placeholder: "What is the price?" %>
             <%= f.input :link, label: false, placeholder: "Add a link to share with your friends?" %>
-            <%= f.input :photo, label: false %>
-            <%= f.input :photo_cache, as: :hidden %>
-            <div class="modal-footer justify-content-center">
-              <%= f.button :submit, "Add", class: 'btn btn-success' %>
+            <label class="btn btn-secondary">
+              Add your photo
+              <span style="display: none">
+                <%= f.input :photo, label: false %>
+                <%= f.input :photo_cache, as: :hidden %>
+              </span>
+            </label>
+            <div class="modal-footer justify-content-center px-0">
+              <%= f.button :submit, "Add", class: 'btn btn-success w-100' %>
           </div>
           <% end %>
         </div>

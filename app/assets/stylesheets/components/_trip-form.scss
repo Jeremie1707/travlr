@@ -1,4 +1,4 @@
-#trip-item-form {
+#trip-item-form, #edit-trip-item-form {
   .modal-header {
     border-bottom: 0;
     padding-bottom: 0;
@@ -23,6 +23,21 @@
         border-weight: lighter;
       }
     }
+  }
+}
+
+#edit-trip-item-form {
+  .add-item {
+    float: none;
+  }
+
+  .trip_item_start_date, .trip_item_end_date {
+    width: 44%;
+
+    input.datepicker {
+      padding-right: 10px;
+    }
+
   }
 }
 

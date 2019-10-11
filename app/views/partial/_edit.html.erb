@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header-trip-item-detail">
 
-        <h5 class="modal-title" id="exampleModalLongTitle">Edit trip-suggestion</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Update your suggestion</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -28,10 +28,15 @@
               <%= f.input :description, label: false, placeholder: "Update description?" %>
               <%= f.input :price, label: false, placeholder: "Update the price?" %>
               <%= f.input :link, label: false, placeholder: "New link?" %>
-              <%= f.input :photo, label: false %>
-              <%= f.input :photo_cache, as: :hidden %>
-            <div class="modal-footer justify-content-center">
-            <div> <%= f.button :submit, "Update", class: 'btn btn-success' %></div>
+              <label class="btn btn-secondary">
+                Update your photo
+                <span style="display: none">
+                <%= f.input :photo, label: false %>
+                <%= f.input :photo_cache, as: :hidden %>
+                </span>
+              </label>
+            <div class="modal-footer justify-content-center px-0">
+            <%= f.button :submit, "Update", class: 'btn btn-success w-100' %>
           </div>
           <% end %>
         </div>
