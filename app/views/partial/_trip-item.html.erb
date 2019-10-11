@@ -27,8 +27,8 @@
               <div class="divtry">
                 <a class="confirmation-link" href="#" data-target="<%=element.id%>">
                      <%= link_to trip_trip_item_path(@trip, element, trip_item: { trip_id: @trip, id: element.id,confirmed: true }), method: :patch do %>
+                    <i class="fas fa-check-circle"></i>
                   <% end %>
-                 <i class="fas fa-check-circle"></i>
                </a>
               </div>
               <div class="trip-detail-card-image">
