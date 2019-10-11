@@ -56,7 +56,7 @@ width:40vw;
     };
   }
 
-  .form-control.datepicker {
+  .form-control.datepicker:not(.is-valid) {
       border: 2px #A4B0C3 solid;
     }
     .form-group.string.optional.trip_start_date {
@@ -126,5 +126,5 @@ width:40vw;
  }
 
 .modal-content.new-trip-item {
-  max-height: 60vh;
+  max-height: 80vh;
 }
