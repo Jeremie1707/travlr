@@ -4,9 +4,9 @@
     <h1 class="mb-0"><%= @trip.name %>&nbsp;</h1>
     <div class="justify-content-start">
       <div class="d-flex">
-        <p class="trip-date trip-description"><%= @trip.start_date.strftime('%a %w %B') %> </p>
+        <p class="trip-date trip-description"><%= @trip.start_date.strftime("%-d %b %Y") %> </p>
         <p class="trip-description"> &nbsp; to &nbsp; </p>
-        <p class="trip-description"><%= @trip.end_date.strftime('%a %w %B') %></p>
+        <p class="trip-description"><%= @trip.end_date.strftime("%-d %b %Y") %></p>
       </div>
        <p ><%= @trip.description %></p>
     </div>
@@ -154,9 +154,8 @@
 
 
 
-<% @trip.trip_items.each do |element| %>
-<%= render partial: "partial/edit", locals: {element: @trip_items.first, trip_id: @trip} %>
-<% end %>
+
+
 
 <%= javascript_pack_tag 'fullcalendar' %>
 <%= stylesheet_pack_tag 'fullcalendar', media: 'all' %>

@@ -43,7 +43,7 @@ class TripItemsController < ApplicationController
     @trip_item = TripItem.find(params[:id])
     @trip_item.update_attributes(strong_params)
     @trip_item.save
-    # redirect_to trip_path(@trip)
+    redirect_to trip_path(@trip_item.trip_id)
   end
 
   private

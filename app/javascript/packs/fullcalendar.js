@@ -18,6 +18,8 @@ const buildCalendar = (elementId) => {
 
     var calendar = new Calendar(calendarEl, {
       firstDay: 1,
+      allDay: true,
+      allDayDefault: true,
       plugins: [ dayGridPlugin, interactionPlugin, listPlugin, bootstrapPlugin ],
       themeSystem: 'bootstrap',
       header: {

@@ -7,7 +7,7 @@
         <div><a href="<%= element.link %>" target = "_blank"><h5><%= element.name %></h5></a>
         </div>
         <div class="price-date-detail d-flex-column">
-          <p><%= element.start_date.strftime('%a %w %B') %></p>
+          <p><%= element.start_date.strftime("%-d %b %Y")%></p>
           <div>
             <p> <%= element.price %> NOK</p>
           </div>
@@ -15,7 +15,7 @@
         <% else %>
         <div class="price-date-detail d-flex">
           <div><h5><%= element.name %></h5></div>
-          <div><p><%= element.start_date %></p></div>
+          <div><p><%= element.start_date.strftime("%-d %b %Y")%></p></div>
         </div>
         <% end %>
       </div>
@@ -30,11 +30,12 @@
                      <%= link_to trip_trip_item_path(@trip, element, trip_item: { trip_id: @trip, id: element.id,confirmed: true }), method: :patch do %>
                   <i class="fas fa-check-circle"></i>
                   <% end %>
-                   
+
                    </a>
                  </div>
                  <div>
-                  <button type="button" class="button-edit" data-toggle="modal" data-target="#edit-trip-item-form">
+                  <button type="button" class="button-edit" data-toggle="modal" data-target="#edit-trip-item-form-<%= element.id %>">
+                    <%#= render partial: 'partial/edit', trip: @trip, element: element %>
                     <i class="fas fa-pen"></i>
                   </button>
                 </div>
@@ -72,4 +73,7 @@
   </div>
 </div>
 </div>
+<%= render partial: "partial/edit", locals: {element: element} %>
+
+
 
