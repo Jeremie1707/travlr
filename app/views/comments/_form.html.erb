@@ -2,7 +2,7 @@
   <div class="comment-avatar">
     <%= cl_image_tag current_user.photo, class: "avatar" %>
   </div>
-  <%= simple_form_for([trip, trip_item, comment], remote: true, html: {class: "form-inline flex-grow-1"} )do |form| %>
+  <%= simple_form_for([trip, trip_item, comment], remote: true, html: {class: "form-inline flex-grow-1 trip_#{trip.id}_trip_item_#{trip_item.id}"} )do |form| %>
   <!-- <div class="row "> -->
     <%= form.input :comment, as: :text, label: false, input_html: {class: 'comment-box flex-grow-1'}, placeholder: "What do you think...?" %>
 
@@ -12,3 +12,4 @@
 </div>
 
 
+<!-- hidden_field: trip_item.id, -->
