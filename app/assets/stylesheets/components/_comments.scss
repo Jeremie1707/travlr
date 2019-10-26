@@ -29,7 +29,7 @@
 
 .comment-box{
   border-radius: 12px ;
-  border: 1px solid rgba(196,196,196, 0.3);
+  border: 1px solid rgba(196,196,196, 0.1);
   background-color: #C6D8D3;
   margin-left: 1rem;
 
@@ -52,8 +52,15 @@
 
 // show comments
 
+.list-group-item.single-comment {
+  border: none;
+}
+
+
+
 .content-comment {
   margin-top : 1rem;
+
 }
 
 .comment-user-firstname {
@@ -65,17 +72,21 @@
 }
 
 .actual-comment {
-margin-top: 0.2rem;
+margin-top: 0rem;
 margin-left: 2.7rem;
-height : 3rem;
+margin-bottom: 2rem;
+min-height : 3rem;
 border: 1px solid transparent;
 border-radius: 6px;
-background-color : rgba(52, 89, 149, 0.3);
+background-color : rgba(52, 89, 149, 0.2);
+height: auto;
 
 p {
   padding : 5px;
   font-family: roboto;
   font-weight: lighter;
+  max-width: 400px;
+  overflow-wrap: break-word;
   }
 
 }

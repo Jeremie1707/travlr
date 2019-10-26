@@ -1,9 +1,0 @@
-<div class="container">
-  <h1> <%= @trip_item.name %> </h1>
-  <p><%= @trip_item.description %></p>
-  <p><%= @trip_item.link %></p>
-  <p><%= @trip_item.address %></p>
-</div>
-
-
-<%= render "comments/form", trip: @trip, trip_item: @trip_item, comment: @comment %>

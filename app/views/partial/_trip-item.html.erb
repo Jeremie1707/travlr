@@ -60,8 +60,11 @@
                 <h5>Description: </h5>
                 <div><p><%= element.description %></p></div>
               </div>
-              <div class="trip-detail-card-content-comments">
-                <%= render 'comments/form', trip: @trip, trip_item: element, comment: @comment %>
+              <div class="trip-detail-card-content-comments" id="trip_<%=@trip.id%>_trip_item_<%=element.id%>">
+                <div id="5comment-form-original">
+                   <%= render 'comments/form', trip: @trip, trip_item: element, comment: @comment %>
+                </div>
+
                 <%= render 'comments/index', comments: element.comments, trip_item: element %>
               </div>
             </div>

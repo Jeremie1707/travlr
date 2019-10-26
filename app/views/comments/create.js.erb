@@ -1,8 +1,11 @@
 
 // Here you generate *JavaScript* that would be executed in the browser
 function refreshForm(innerHTML) {
-  const newCommentForm = document.querySelector('.trip_<%= @trip.id %>_trip_item_<%= @trip_item.id %>');
-  newCommentForm.innerHTML = innerHTML;
+  const newCommentForm = document.getElementById('trip_<%= @trip.id %>_trip_item_<%= @trip_item.id %>');
+  newCommentForm.firstElementChild.innerHTML = "";
+  // console.log(newCommentForm.innerHTML);
+  newCommentForm.firstElementChild.innerHTML = innerHTML;
+  // console.log(newCommentForm.innerHTML);
 }
 
 function addComment(commentHTML) {
