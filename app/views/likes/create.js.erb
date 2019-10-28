@@ -1,0 +1,10 @@
+var addLike = () => {
+const like = document.getElementById('likes-trip-item-<%=@trip_item.id%>');
+like.innerHTML = '<i class="fas fa-heart"></i></i><%=@trip_item.likes.count%>';
+const likeList = document.getElementById('like-counter-<%=@trip_item.id%>');
+likeList.innerText = '<%=@trip_item.likes.count%>';
+};
+
+
+
+document.body.addEventListener('ajax:success', addLike());

@@ -39,8 +39,16 @@
                     <i class="fas fa-pen"></i>
                   </button>
                 </div>
-                  <button type="button" class="btn-likes"><p class="add-likes"><%= link_to "", trip_trip_item_likes_path(@trip, element), method: :post %><i class="fas fa-heart"></i><%=element.likes.count%></p>
-                  </button>
+                <div>
+                    <a class="add-likes" href="#" data-target="<%=element.id%>">
+                     <%= link_to trip_trip_item_likes_path(@trip, element),remote: true, method: :post do %>
+                  <p id="likes-trip-item-<%=element.id%>"><i class="fas fa-heart"></i><%=element.likes.count%></p>
+                  <% end %>
+
+                   </a>
+                 </div>
+                  <!-- <button type="button" class="btn-likes"><p class="add-likes"><%#= link_to('<i class="fas fa-heart"></i>',trip_trip_item_likes_path(@trip, element), method: :post )%></p>
+                  </button> -->
               </div>
               <div class="trip-detail-card-image">
                 <% if element.photo.file != nil %>
