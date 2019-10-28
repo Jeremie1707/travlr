@@ -3,12 +3,22 @@ class LikesController < ApplicationController
   before_action :find_like, only: [:destroy, :create]
 
   def create
-    if already_liked?
-      destroy
-    else
-      @trip_item.likes.create(user_id: current_user.id)
-    end
-    redirect_back fallback_location: root_path
+    # if already_liked?
+    #   destroy
+    # else
+      if @trip_item.likes.create(user_id: current_user.id)
+        respond_to do |format|
+        format.html { redirect_to trip_item_path(@trip, @trip_item) }
+        format.js # <-- will render `app/views/comments/create.js.erb`
+        end
+      else
+          respond_to do |format|
+            format.html { render 'trip_items/show' }
+            format.js
+          end
+      end
+  #   end
+  #   redirect_back fallback_location: root_path
   end
 
   def destroy
