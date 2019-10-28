@@ -1,23 +1,19 @@
 class LikesController < ApplicationController
   before_action :find_item
-  before_action :find_like, only: [:destroy]
+  before_action :find_like, only: [:destroy, :create]
 
   def create
     if already_liked?
-      flash[:notice] = "You can't like more than once"
+      destroy
     else
       @trip_item.likes.create(user_id: current_user.id)
-      redirect_back fallback_location: root_path
     end
+    redirect_back fallback_location: root_path
   end
 
   def destroy
-    if !(already_liked?)
-      flash[:notice] = "Cannot unlike"
-    else
-      @like.destroy
-    end
-    redirect_to trip_trip_item_path(@trip_item)
+    @like.destroy_all
+    # redirect_to trip_trip_item_path(@trip_item)
   end
 
   private
@@ -32,6 +28,6 @@ class LikesController < ApplicationController
   end
 
   def find_like
-    @like = @trip_item.likes.find(params[:id])
+    @like = @trip_item.likes.where(user_id: current_user)
   end
 end
