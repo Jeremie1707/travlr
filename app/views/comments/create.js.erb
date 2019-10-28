@@ -11,6 +11,9 @@ function refreshForm(innerHTML) {
 function addComment(commentHTML) {
   const comments = document.getElementById('comments-list-<%= @trip_item.id %>');
   comments.insertAdjacentHTML('beforeend', commentHTML);
+  // refresh comment count in suggestion list
+  const commentList = document.getElementById('comment-counter-<%=@trip_item.id%>');
+  commentList.innerText = '<%=@trip_item.comments.count%>';
 }
 
 <% if @comment.errors.any? %>

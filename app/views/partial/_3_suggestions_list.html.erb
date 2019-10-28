@@ -23,14 +23,14 @@
               <div class="icons-wrapper d-flex">
 
                 <i class="fas fa-comment"></i>
-                <div class="counter"><%=element.comments.count%></div>
+                <div class="counter" id="comment-counter-<%=element.id%>"><%=element.comments.count%></div>
               </div>
             </li>
             <li>
               <div class="icons-wrapper d-flex ">
 
                 <i class="fas fa-heart"></i>
-                <div class="counter"><%=element.likes.count%></div>
+                <div class="counter" id="like-counter-<%=element.id%>"><%=element.likes.count%></div>
               </div>
             </li>
            <!--  <p>
