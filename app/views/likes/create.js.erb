@@ -1,8 +1,8 @@
-// const addLike = () => {
-// const like = document.getElementById('likes-trip-<%=@trip_item.id%>');
-// like.innerText = "cool";
-// };
+var addLike = () => {
+const like = document.getElementById('likes-trip-item-<%=@trip_item.id%>');
+like.innerHTML = '<i class="fas fa-heart"></i></i><%=@trip_item.likes.count%>';
+};
 
-// addLike();
 
-console.log("cool");
+
+document.body.addEventListener('ajax:success', addLike());
