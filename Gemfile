@@ -5,6 +5,7 @@ gem 'bootsnap', require: false
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
 gem 'geocoder'
 gem 'jbuilder', '~> 2.0'
@@ -27,6 +28,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
