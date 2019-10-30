@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'jeremie.poiraudau@elafokale.com'
+  default from: 'info@travlr.group'
   layout 'mailer'
 end
