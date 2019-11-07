@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   # include Wicked::Wizard
   # steps  :add_description, :add_start_date, :add_end_date
 
-  before_action :set_trip, only: [:show, :update]
+  before_action :set_trip, :limit_user_access_to_participant, only: [:show, :update]
   before_action :set_users, only: [:create]
   def new
     @trip = Trip.new
@@ -22,17 +22,22 @@ class TripsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
-    @trip_item = TripItem.new
-    # set markers for trip suggestions map
-    @map_items_suggestions = @trip.trip_items.geocoded
-    @markers_for_suggestions = create_markers(@map_items_suggestions)
+    if limit_user_access_to_participant
+      @invite = Invite.new
+      @comment = Comment.new
+      @trip_item = TripItem.new
+      # set markers for trip suggestions map
+      @map_items_suggestions = @trip.trip_items.geocoded
+      @markers_for_suggestions = create_markers(@map_items_suggestions)
 
-    # set markers for Route map
-    @map_trip_items_confirmed = TripItem.where("trip_id = ? and confirmed = ?", "#{@trip.id}", "true").geocoded
-    @map_for_confirmed = create_markers(@map_trip_items_confirmed)
+      # set markers for Route map
+      @map_trip_items_confirmed = TripItem.where("trip_id = ? and confirmed = ?", "#{@trip.id}", "true").geocoded
+      @map_for_confirmed = create_markers(@map_trip_items_confirmed)
 
-    @trip_items = @trip.trip_items
+      @trip_items = @trip.trip_items
+    else
+      redirect_to root_path
+    end
   end
 
   def index
@@ -68,6 +73,12 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def limit_user_access_to_participant
+    set_trip
+    @participants = @trip.participants
+    @participants.include?(Participant.find_by(user_id: current_user.id))
   end
 
   def set_users
