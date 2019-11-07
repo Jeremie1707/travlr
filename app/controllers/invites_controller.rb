@@ -17,8 +17,9 @@ before_action :find_trip, only: [:create]
          #send the invite data to our mailer to deliver the email
          #
      else
+       puts @invite.errors.full_messages
        puts "something goes wrong"
-            redirect_to trip_path(@trip)
+       redirect_to trip_path(@trip)
         # oh no, creating an new invitation failed
      end
   end
@@ -30,7 +31,7 @@ before_action :find_trip, only: [:create]
   end
 
   def invite_params
-    params.require(:invite).permit(:email, :token, :sender_id, :trip_id)
+    params.require(:invite).permit(:email, :token, :sender_id, :trip_id, :recipient_id)
   end
 
 end
