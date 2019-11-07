@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :trip_items, dependent: :destroy
+  has_many :invitations, :class_name => "Invite", :foreign_key => 'recipient_id'
+  has_many :sent_invites, :class_name => "Invite", :foreign_key => 'sender_id'
   validates :first_name, presence: true
   validates :last_name, presence: true
   mount_uploader :photo, PhotoUploader

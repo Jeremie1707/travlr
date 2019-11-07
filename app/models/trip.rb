@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   has_many :participants, dependent: :destroy
   has_many :users, through: :participants, dependent: :destroy
   has_many :trip_items, dependent: :destroy
+  has_many :invites
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   validates :description, length: { maximum: 40 }
