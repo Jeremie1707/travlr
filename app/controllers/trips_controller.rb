@@ -3,19 +3,21 @@ class TripsController < ApplicationController
   # steps  :add_description, :add_start_date, :add_end_date
 
   before_action :set_trip, :limit_user_access_to_participant, only: [:show, :update]
-  before_action :set_users, only: [:create]
+   # before_action :set_users, only: [:new, :create]
   def new
     @trip = Trip.new
-    @users = User.all
+    # @users = @users_filter_uniq
   end
 
   def create
+    @users = @users_filter_uniq
     @trip = Trip.new(strong_params)
     @trip.user = current_user
+    @trip.users << current_user
     if @trip.save
       # redirect_to trip_path(@trip)
       redirect_to trip_form_index_path
-      @trip.users = @users unless @users.empty?
+      # @trip.users = @users unless @users.empty?
     else
       render :new, alert: @trip.errors.full_messages
     end
@@ -43,9 +45,9 @@ class TripsController < ApplicationController
   def index
     @trips = []
     @participants_filter = Participant.where(user_id: current_user.id)
-      @participants_filter.each do |element|
-        @trips << Trip.find_by(id: element[:trip_id])
-      end
+    @participants_filter.each do |element|
+      @trips << Trip.find_by(id: element[:trip_id])
+    end
   end
 
   def edit
@@ -89,11 +91,30 @@ class TripsController < ApplicationController
     end
   end
 
-  def set_users
-    @users = []
-    ids = params[:trip][:users]
-    ids.each { |user| @users << User.find(user.to_i) } unless ids.nil?
-  end
+  # def set_users
+  #   @trips_filter = []
+  #   # select all the trip where the current user is a participant
+  #   @participations_filter = current_user.participants
+  #   # iterate on this list and return all the users for this trip selection
+  #   @participations_filter.each do |element|
+  #     @trips_filter << Trip.find_by(id: element[:trip_id])
+  #   end
+  #   @participants_filter = []
+  #   @trips_filter.each do |trip|
+  #     @participants_filter << trip.participants
+  #   end
+  #   @users_filter = []
+  #   @participants_filter.sum.each do |participant|
+  #     @users_filter << User.find_by(id: participant[:user_id])
+  #   end
+  #   @users_filter_uniq = @users_filter.uniq
+
+    # return  this list of users
+    #  @users = []
+    # ids = params[:trip][:users]
+    # # ids.each { |user| @users << User.find(user.to_i) } unless ids.nil?
+    # end
+  # end
 
   def strong_params
     params.require(:trip).permit(:description, :start_date, :end_date, :location, :name)
