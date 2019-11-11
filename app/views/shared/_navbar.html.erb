@@ -12,14 +12,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+       <li class="nav-item">
+          <%= link_to "My trips", trips_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
 
-        <!-- <li class="nav-item">
-          <#%= link_to "My trips", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown profile-avatar">
+
+        <!-- <li class="nav-item dropdown profile-avatar">
           <#%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <#%= link_to "profile", "#", class: "dropdown-item" %>

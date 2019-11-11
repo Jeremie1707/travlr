@@ -41,6 +41,11 @@ class TripsController < ApplicationController
   end
 
   def index
+    @trips = []
+    @participants_filter = Participant.where(user_id: current_user.id)
+      @participants_filter.each do |element|
+        @trips << Trip.find_by(id: element[:trip_id])
+      end
   end
 
   def edit
@@ -78,7 +83,10 @@ class TripsController < ApplicationController
   def limit_user_access_to_participant
     set_trip
     @participants = @trip.participants
-    @participants.include?(Participant.find_by(user_id: current_user.id))
+    @participants.each do |element|
+      break true if element[:user_id] == current_user.id
+      return false
+    end
   end
 
   def set_users

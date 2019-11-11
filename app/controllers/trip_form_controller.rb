@@ -40,8 +40,10 @@ class TripFormController < ApplicationController
   def set_users
     @users = []
     @users << User.find(current_user.id)
+    raise
     params[:trip][:users].each { |user| @users << User.find(user) } unless params[:trip].nil?
     @users
+
   end
 
   def finish_wizard_path
