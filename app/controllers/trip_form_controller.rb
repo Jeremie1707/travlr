@@ -24,8 +24,8 @@ class TripFormController < ApplicationController
     when :date
       @trip.update_attributes(strong_params)
     when :friends
-      @users = @trip.users
-      raise
+      @trip.users =  choose_users
+
       # @trip.users = @users unless @users.empty?
     end
     render_wizard(@trip)
@@ -62,10 +62,14 @@ class TripFormController < ApplicationController
   end
 
   def choose_users
-    @users = []
-    @users << User.find(current_user.id)
-    params[:trip][:users].each { |user| @users << User.find(user) } unless params[:trip].nil?
-    @users
+    @select_users = []
+    @select_users << User.find(current_user.id)
+    # params[:trip][:users].each { |user| @users << User.find(user) } unless params[:trip].nil?
+    # @users
+    # @users = []
+    ids = params[:trip][:users]
+    ids.each { |user| @select_users << User.find(user.to_i) } unless ids.nil?
+    @select_users
 
   end
 

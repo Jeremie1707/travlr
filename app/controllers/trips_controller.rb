@@ -13,7 +13,6 @@ class TripsController < ApplicationController
     @users = @users_filter_uniq
     @trip = Trip.new(strong_params)
     @trip.user = current_user
-    @trip.users << current_user
     if @trip.save
       # redirect_to trip_path(@trip)
       redirect_to trip_form_index_path

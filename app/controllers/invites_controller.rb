@@ -6,11 +6,11 @@ before_action :find_trip, only: [:create]
   end
 
   def create
-     @invite = Invite.new(invite_params)
+    @new_user = User.create
+    @invite.recipient_id = @new_user.id
+     @invite = Invite.new(invite_params) # Make a new Invite
+     @invite.trip = @trip
      @invite.sender_id = current_user.id # set the sender to the current user
-     @new_user = User.create!(email: @invite.email, password: '123456')
-     @trip.participants << @new_user
-     @invite.recipient_id = @new_user.id
      if @invite.save
         InviteMailer.new_user_invite(@invite, new_user_registration_path(:invite_token => @invite.token)).deliver
         redirect_to trip_path(@trip)
@@ -18,6 +18,7 @@ before_action :find_trip, only: [:create]
          #send the invite data to our mailer to deliver the email
          #
      else
+      raise
        puts @invite.errors.full_messages
        puts "something goes wrong"
        redirect_to trip_path(@trip)
