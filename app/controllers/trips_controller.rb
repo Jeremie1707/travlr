@@ -86,6 +86,7 @@ class TripsController < ApplicationController
     @participants = @trip.participants
     @participants.each do |element|
       break true if element[:user_id] == current_user.id
+
       return false
     end
   end

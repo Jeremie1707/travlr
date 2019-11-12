@@ -136,17 +136,6 @@
 <div class="tabPanel">                         <!-- 4.section -->
   <!-- CALENDAR SECTION -->
 
-  <div class='big-calendar-container'>
-    <%= render partial: "partial/calendar" %>
-    <%= form_for [@trip, @invite] do |f| %>
-    <%= f.hidden_field :trip_id, :value => @trip.id %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.submit 'Send' %>
-  </div>
-
-
-<% end %>
 
 </div>
 <!-- FOR RENDERING POPUPS -->

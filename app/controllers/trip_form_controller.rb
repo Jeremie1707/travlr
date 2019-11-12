@@ -10,6 +10,7 @@ class TripFormController < ApplicationController
     when :date
       @trip = Trip.last
     when :friends
+      @invite = Invite.new
       @trip = Trip.last
       @users = set_users
     end
