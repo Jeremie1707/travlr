@@ -1,36 +1,41 @@
 class TripFormController < ApplicationController
   include Wicked::Wizard
-
+  before_action :set_trip, :limit_user_access_to_participant, only: [:show, :update]
   steps :description, :date, :friends
 
+
   def show
-    case step
-    when :description
-      @trip = Trip.last
-    when :date
-      @trip = Trip.last
-    when :friends
+    if limit_user_access_to_participant
+      case step
+      when :description
+      when :date
+      when :friends
       @invite = Invite.new
-      @trip = Trip.last
       @users = set_users
+      end
+      render_wizard
+    else
+      redirect_to trips_path
     end
-    render_wizard
   end
 
   def update
-    @trip = Trip.last
-    case step
-    when :description
-      @trip.update_attributes(strong_params)
-    when :date
-      @trip.update_attributes(strong_params)
-    when :friends
-      @trip.users =  choose_users
+    if limit_user_access_to_participant
+      case step
+      when :description
+        @trip.update_attributes(strong_params)
+      when :date
+        @trip.update_attributes(strong_params)
+      when :friends
+        @trip.users = choose_users
 
-      # @trip.users = @users unless @users.empty?
+        # @trip.users = @users unless @users.empty?
+      end
+      render_wizard(@trip)
+      @trip.save
+    else
+      redirect_to trips_path
     end
-    render_wizard(@trip)
-    @trip.save
   end
 
   private
@@ -74,8 +79,22 @@ class TripFormController < ApplicationController
 
   end
 
+  def set_trip
+    @trip = Trip.find(params[:trip_id])
+  end
+
+  def limit_user_access_to_participant
+    set_trip
+    @participants_list = @trip.participants
+    @participants_list.each do |element|
+      @check = element[:user_id] == current_user.id
+      break if  @check == true
+    end
+    return @check
+  end
+
   def finish_wizard_path
-    @trip = Trip.last
+    @trip = Trip.find(params[:trip_id])
     trip_path(@trip)
   end
 

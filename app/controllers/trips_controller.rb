@@ -14,8 +14,10 @@ class TripsController < ApplicationController
     @trip = Trip.new(strong_params)
     @trip.user = current_user
     if @trip.save
-      # redirect_to trip_path(@trip)
-      redirect_to trip_form_index_path
+      @trip.users << current_user
+     #to add current user to the list of participants
+
+      redirect_to trip_trip_form_index_path(@trip)
       # @trip.users = @users unless @users.empty?
     else
       render :new, alert: @trip.errors.full_messages
@@ -37,7 +39,7 @@ class TripsController < ApplicationController
 
       @trip_items = @trip.trip_items
     else
-      redirect_to root_path
+      redirect_to trips_path
     end
   end
 
@@ -83,38 +85,13 @@ class TripsController < ApplicationController
 
   def limit_user_access_to_participant
     set_trip
-    @participants = @trip.participants
-    @participants.each do |element|
-      break true if element[:user_id] == current_user.id
-
-      return false
+    @participants_list = @trip.participants
+    @participants_list.each do |element|
+      @check = element[:user_id] == current_user.id
+      break if  @check == true
     end
+    return @check
   end
-
-  # def set_users
-  #   @trips_filter = []
-  #   # select all the trip where the current user is a participant
-  #   @participations_filter = current_user.participants
-  #   # iterate on this list and return all the users for this trip selection
-  #   @participations_filter.each do |element|
-  #     @trips_filter << Trip.find_by(id: element[:trip_id])
-  #   end
-  #   @participants_filter = []
-  #   @trips_filter.each do |trip|
-  #     @participants_filter << trip.participants
-  #   end
-  #   @users_filter = []
-  #   @participants_filter.sum.each do |participant|
-  #     @users_filter << User.find_by(id: participant[:user_id])
-  #   end
-  #   @users_filter_uniq = @users_filter.uniq
-
-    # return  this list of users
-    #  @users = []
-    # ids = params[:trip][:users]
-    # # ids.each { |user| @users << User.find(user.to_i) } unless ids.nil?
-    # end
-  # end
 
   def strong_params
     params.require(:trip).permit(:description, :start_date, :end_date, :location, :name)
