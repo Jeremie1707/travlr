@@ -23,13 +23,12 @@ class User < ApplicationRecord
 #   end
 # end
 
-  def set_initial_password_reset!
+    def set_initial_password_reset!
     raw, enc = Devise.token_generator.generate(self.class, :reset_password_token)
 
       self.reset_password_token   = enc
       self.reset_password_sent_at = Time.now.utc
       save(validate: false)
-      @token_reset = raw
-
+      raw
   end
 end
