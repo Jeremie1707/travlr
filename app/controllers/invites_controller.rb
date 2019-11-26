@@ -25,7 +25,7 @@ before_action :find_trip, only: [:create]
       end
       @user_invitee.skip_confirmation!
       @user_invitee.save
-      @trip.participants_ids << @user_invitee.id
+      @trip.users << @user_invitee
       create_invite
 
       if @invite.save!
