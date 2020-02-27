@@ -7,7 +7,11 @@
         <div><a href="<%= element.link %>" target = "_blank"><h5><%= element.name %></h5></a>
         </div>
         <div class="price-date-detail d-flex-column">
-          <p><%= element.start_date.strftime("%-d %b %Y")%></p>
+          <% if element.start_date %>
+           <p><%= element.start_date.strftime("%-d %b %Y") %></p>
+           <% else %>
+           <p><%= element.start_date%></p>
+           <% end %>
           <div>
             <p> <%= element.price %> NOK</p>
           </div>
@@ -15,7 +19,13 @@
         <% else %>
         <div class="price-date-detail d-flex">
           <div><h5><%= element.name %></h5></div>
-          <div><p><%= element.start_date.strftime("%-d %b %Y")%></p></div>
+          <div>
+            <% if element.start_date %>
+           <p><%= element.start_date.strftime("%-d %b %Y") %></p>
+           <% else %>
+           <p><%= element.start_date%></p>
+           <% end %>
+         </div>
         </div>
         <% end %>
       </div>

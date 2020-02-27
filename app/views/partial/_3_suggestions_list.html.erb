@@ -8,7 +8,14 @@
 
           <span class="cards--two__rect"></span>
 
-          <p><%= element.name %> - <em><%= element.start_date.strftime('%a %w %B') %></em></p>
+          <p><%= element.name %> -
+          <% if element.start_date %>
+           <em><%= element.start_date.strftime('%a %w %B') %></em>
+           <% else %>
+           <em><%= element.start_date%></em>
+           <% end %>
+           </p>
+
           <ul class="cards__list">
             <li>
               <% if element.category.name =="activity"  %>
@@ -33,9 +40,7 @@
                 <div class="counter" id="like-counter-<%=element.id%>"><%=element.likes.count%></div>
               </div>
             </li>
-           <!--  <p>
-              <%= element.start_date.strftime('%a %w %B') %>
-            </p> -->
+
           </ul>
         </div>
       </a>
