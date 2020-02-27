@@ -1,0 +1,8 @@
+<h1>hello <%= @invite.email %></h1>
+
+<p>
+  Welcome to Travlr !
+  <%= User.find_by(id: @invite.sender).first_name%> invites you to the trip : <%= Trip.find_by(id: @invite.trip_id).name%>
+  follow this link and plan your trip together:
+  <%= link_to 'plan your trip', edit_password_url(@invitee, reset_password_token: @token) %>
+</p>

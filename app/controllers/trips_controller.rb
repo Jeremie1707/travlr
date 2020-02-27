@@ -3,19 +3,22 @@ class TripsController < ApplicationController
   # steps  :add_description, :add_start_date, :add_end_date
 
   before_action :set_trip, :limit_user_access_to_participant, only: [:show, :update]
-  before_action :set_users, only: [:create]
+   # before_action :set_users, only: [:new, :create]
   def new
     @trip = Trip.new
-    @users = User.all
+    # @users = @users_filter_uniq
   end
 
   def create
+    @users = @users_filter_uniq
     @trip = Trip.new(strong_params)
     @trip.user = current_user
     if @trip.save
-      # redirect_to trip_path(@trip)
-      redirect_to trip_form_index_path
-      @trip.users = @users unless @users.empty?
+      @trip.users << current_user
+     #to add current user to the list of participants
+
+      redirect_to trip_trip_form_index_path(@trip)
+      # @trip.users = @users unless @users.empty?
     else
       render :new, alert: @trip.errors.full_messages
     end
@@ -36,11 +39,16 @@ class TripsController < ApplicationController
 
       @trip_items = @trip.trip_items
     else
-      redirect_to root_path
+      redirect_to trips_path
     end
   end
 
   def index
+    @trips = []
+    @participants_filter = Participant.where(user_id: current_user.id)
+    @participants_filter.each do |element|
+      @trips << Trip.find_by(id: element[:trip_id])
+    end
   end
 
   def edit
@@ -77,14 +85,12 @@ class TripsController < ApplicationController
 
   def limit_user_access_to_participant
     set_trip
-    @participants = @trip.participants
-    @participants.include?(Participant.find_by(user_id: current_user.id))
-  end
-
-  def set_users
-    @users = []
-    ids = params[:trip][:users]
-    ids.each { |user| @users << User.find(user.to_i) } unless ids.nil?
+    @participants_list = @trip.participants
+    @participants_list.each do |element|
+      @check = element[:user_id] == current_user.id
+      break if  @check == true
+    end
+    return @check
   end
 
   def strong_params

@@ -15,6 +15,7 @@ class TripItemsController < ApplicationController
       Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
      else
        render :new
+       puts "hello render"
      end
   end
 

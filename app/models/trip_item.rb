@@ -8,4 +8,6 @@ class TripItem < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :action_log_items, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  validates :start_date, presence: true
 end
