@@ -4,9 +4,17 @@
     <h1 class="mb-0"><%= @trip.name %>&nbsp;</h1>
     <div class="justify-content-start">
       <div class="d-flex">
-        <p class="trip-date trip-description"><%= @trip.start_date.strftime("%-d %b %Y") %> </p>
+        <% if @trip.start_date != nil %>
+          <p class="trip-date trip-description"><%= @trip.start_date.strftime("%-d %b %Y") %> </p>
+        <% else %>
+          <p class="trip-date trip-description"><%= @trip.start_date %> </p>
+        <% end %>
         <p class="trip-description"> &nbsp; to &nbsp; </p>
-        <p class="trip-description"><%= @trip.end_date.strftime("%-d %b %Y") %></p>
+        <% if @trip.start_date != nil %>
+          <p class="trip-description"><%= @trip.end_date.strftime("%-d %b %Y") %></p>
+        <% else %>
+          <p class="trip-description"><%= @trip.end_date %></p>
+        <% end %>
       </div>
        <p ><%= @trip.description %></p>
     </div>
@@ -135,18 +143,9 @@
 
 <div class="tabPanel">                         <!-- 4.section -->
   <!-- CALENDAR SECTION -->
-
-  <div class='big-calendar-container'>
-    <%= render partial: "partial/calendar" %>
-    <%= form_for [@trip,@invite] do |f| %>
-    <%= f.hidden_field :trip_id, :value => @trip.id %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.submit 'Send' %>
-  </div>
-
-
-<% end %>
+<div id="big-calendar-container">
+  <%= render partial: "partial/calendar" %>
+</div>
 
 </div>
 <!-- FOR RENDERING POPUPS -->

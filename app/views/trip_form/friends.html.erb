@@ -5,11 +5,23 @@
       <div class = "header"><h2>Who are your <span class="form-destination">Tripmates</span>?</h2></div>
 
       <div class="container">
-        <%= simple_form_for(@trip, url: wizard_path) do |f| %>
+        <div>
+           <%= simple_form_for(@trip, url: wizard_path) do |f| %>
         <%= f.input :users, label: false, as: :select, collection: @users, label_method: :full_name, input_html: { multiple: true }, include_blank: false, include_hidden: false%>
         <%= f.submit  class:"btn btn-trip-creation-form" %>
         <% end %>
+        </div>
+
+        <div>
+          <%= form_for [@trip, @invite] do |f| %>
+          <%= f.hidden_field :trip_id, :value => @trip.id %>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+          <%= f.submit 'Send' %>
+        </div>
+        <% end %>
       </div>
+
   </div>
   <div class="col-12 footer-end friends-form">
     <div class="row footer-flex-item ">

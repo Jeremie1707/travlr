@@ -1,1 +1,6 @@
-index.html.erb
+ <% @trips.each do |element| %>
+    <div>
+      <%= element.name %>
+      <%= link_to 'View trip', trip_path(element.id), class: 'btn btn-primary'  %>
+      </div>
+    <% end %>

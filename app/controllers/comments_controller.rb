@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(strong_params)
     @comment.user = current_user
     @comment.trip_item = @trip_item
+    raise
     if @comment.save
       respond_to do |format|
         format.html { redirect_to trip_item_path(@trip, @trip_item) }

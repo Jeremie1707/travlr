@@ -14,6 +14,7 @@
 
           </div>
           <%= simple_form_for [@trip, @trip_item] do |f| %>
+          <%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %>
           <%= f.input :name, label: false, placeholder: "Add a name?" %>
           <%= f.input :address, label: false, placeholder: "What is the address?" %>
           <%= f.association :category, label: false, collection: Category.all, selected: [0] %>
