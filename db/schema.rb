@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_144714) do
+ActiveRecord::Schema.define(version: 2020_02_27_223124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_07_144714) do
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "trip_id"
+    t.index ["trip_id"], name: "index_invites_on_trip_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_144714) do
   add_foreign_key "action_log_items", "users"
   add_foreign_key "comments", "trip_items"
   add_foreign_key "comments", "users"
+  add_foreign_key "invites", "trips"
   add_foreign_key "likes", "trip_items"
   add_foreign_key "likes", "users"
   add_foreign_key "participants", "trips"
