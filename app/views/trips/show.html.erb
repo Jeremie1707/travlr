@@ -143,7 +143,9 @@
 
 <div class="tabPanel">                         <!-- 4.section -->
   <!-- CALENDAR SECTION -->
-<div id="big-calendar-container" data-id="<%= @trip.id %>" class="trip-suggestions-calendar"></div>
+<div id="big-calendar-container">
+  <%= render partial: "partial/calendar" %>
+</div>
 
 </div>
 <!-- FOR RENDERING POPUPS -->
