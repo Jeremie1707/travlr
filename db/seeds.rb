@@ -12,13 +12,13 @@ puts "Trip count = #{Trip.count}"
 puts "Trip item count  = #{TripItem.count}"
 puts "Category count = #{Category.count}"
 puts '---------- deleting all records ----------'
-Comment.destroy_all
-Like.destroy_all
-Participant.destroy_all
-TripItem.destroy_all
-Category.destroy_all
-Trip.destroy_all
-User.destroy_all
+# Comment.destroy_all
+# Like.destroy_all
+# Participant.destroy_all
+# TripItem.destroy_all
+# Category.destroy_all
+# Trip.destroy_all
+# User.destroy_all
 
 
 
