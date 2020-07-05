@@ -2,8 +2,12 @@
 <div class="options">
   <% route_items = @trip.trip_items.where(confirmed: true) %>
     <% route_items.each do |element| %>
-      <div class="option" style="--optionBackground:url('<%= cl_image_path element.photo %>');">
-        <a href="#" data-toggle="modal" data-target
+      <% if element.photo.present? %>
+        <div class="option" style="--optionBackground:url('<%= cl_image_path element&.photo %>');">
+      <%else%>
+        <div class="option">
+      <%end%>
+      <a href="#" data-toggle="modal" data-target
     ="#card-trip-item-<%=element.id%>">
         <div class="shadow"></div>
         <div class="label">

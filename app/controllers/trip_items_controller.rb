@@ -14,7 +14,7 @@ class TripItemsController < ApplicationController
       redirect_to trip_path(@trip)
       Like.create!(trip_item_id: @trip_item.id, user_id: @trip_item.user_id)
      else
-       render :new
+       flash[:error]
        puts "hello render"
      end
   end
@@ -54,7 +54,7 @@ class TripItemsController < ApplicationController
   end
 
   def strong_params
-    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id, :confirmed)
+    params.require(:trip_item).permit(:name, :address, :start_date, :end_date, :description, :price, :photo, :link, :category_id, :confirmed, :photo_cache)
   end
 
   def find_trip_item
