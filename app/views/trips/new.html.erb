@@ -5,7 +5,7 @@
       <div class="container p-5">
         <%= simple_form_for @trip do |form|%>
 
-        <%= form.input :location, placeholder: "Lofoten...Paris...", label: false  %>
+        <%= form.input :location, placeholder: "Where do you want to go today #{current_user.first_name}? Sidney, Istanbul, maybe London?", label: false %>
         <%= form.submit class:"btn btn-trip-creation-form" %>
         <% end %>
       </div>
